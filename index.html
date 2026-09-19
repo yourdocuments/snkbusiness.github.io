@@ -1,1 +1,3038 @@
-#
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SNK Business Partner | Business Solutions & Corporate Training</title>
+
+  <meta name="description"
+        content="SNK Business Partner provides corporate training, digital business solutions, workforce support, branding, marketing and customized business services.">
+
+  <meta name="keywords"
+        content="SNK Business Partner, corporate training, business solutions, digital marketing, workforce support, Bangladesh">
+
+  <meta name="theme-color" content="#0757d5">
+
+  <link rel="icon"
+        href="https://github.com/yourdocuments/products/blob/main/snk%20itlogo%20tn.svg?raw=true">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", "Noto Sans Bengali", sans-serif;
+      color: #172033;
+      background: #ffffff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* =========================================================
+       TOP BAR
+    ========================================================= */
+
+    .topbar {
+      background: #071d49;
+      color: #fff;
+      padding: 9px 0;
+      font-size: 13px;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .top-left,
+    .top-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .topbar a {
+      opacity: .9;
+      transition: .3s;
+    }
+
+    .topbar a:hover {
+      opacity: 1;
+      color: #70c4ff;
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e9edf5;
+    }
+
+    .navbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 205px;
+    }
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.1;
+      color: #071d49;
+      font-weight: 800;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 11px;
+      color: #667085;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #303b4d;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: #0757d5;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 19px;
+      border-radius: 9px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .3s;
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: #0757d5;
+      border: 1px solid #cbd8ef;
+    }
+
+    .btn-outline:hover {
+      background: #f2f7ff;
+    }
+
+    .btn-primary {
+      background: #0757d5;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(7,87,213,.20);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #0048b8;
+    }
+
+    .btn-light {
+      background: #fff;
+      color: #0757d5;
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu {
+      display: none;
+      width: 43px;
+      height: 43px;
+      border: 1px solid #dbe2ee;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 21px;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(35,124,255,.16), transparent 32%),
+        radial-gradient(circle at 10% 80%, rgba(0,194,255,.10), transparent 28%),
+        linear-gradient(135deg,#f7fbff 0%,#ffffff 55%,#f1f7ff 100%);
+      padding: 82px 0 95px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #eaf3ff;
+      color: #0757d5;
+      border: 1px solid #d4e5ff;
+      padding: 8px 13px;
+      border-radius: 50px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #18a957;
+      box-shadow: 0 0 0 5px rgba(24,169,87,.10);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 5vw, 67px);
+      line-height: 1.06;
+      letter-spacing: -2.5px;
+      color: #071d49;
+      font-weight: 800;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 span {
+      color: #0757d5;
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: #596579;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 35px;
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      color: #667085;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-trust span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .check {
+      color: #18a957;
+      font-weight: 800;
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      position: relative;
+      min-height: 450px;
+    }
+
+    .dashboard-card {
+      position: absolute;
+      inset: 20px 0 0 20px;
+      background: #fff;
+      border: 1px solid #e1e9f5;
+      border-radius: 24px;
+      box-shadow: 0 30px 70px rgba(24,59,110,.14);
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .dashboard-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .dashboard-title strong {
+      display: block;
+      color: #071d49;
+      font-size: 17px;
+    }
+
+    .dashboard-title span {
+      font-size: 11px;
+      color: #8993a4;
+    }
+
+    .status {
+      padding: 6px 10px;
+      border-radius: 30px;
+      background: #eaf9f0;
+      color: #178c4c;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+    }
+
+    .metric {
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+      padding: 17px;
+      background: #fbfcfe;
+    }
+
+    .metric-icon {
+      width: 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: #eaf3ff;
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      color: #071d49;
+    }
+
+    .metric span {
+      color: #7c8798;
+      font-size: 11px;
+    }
+
+    .chart {
+      margin-top: 15px;
+      height: 125px;
+      border: 1px solid #edf1f6;
+      border-radius: 14px;
+      padding: 14px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom,#fbfdff,#fff);
+    }
+
+    .chart-title {
+      font-size: 11px;
+      color: #687487;
+      font-weight: 700;
+    }
+
+    .chart-lines {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 15px;
+      height: 65px;
+      background:
+        linear-gradient(#eef2f7 1px, transparent 1px);
+      background-size: 100% 21px;
+    }
+
+    .chart-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 8px;
+      height: 45px;
+      border-top: 3px solid #0757d5;
+      transform: skewY(-12deg) rotate(-2deg);
+      border-radius: 50%;
+    }
+
+    .floating-card {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #e2e9f4;
+      box-shadow: 0 20px 45px rgba(20,50,100,.15);
+      border-radius: 15px;
+      padding: 14px 16px;
+    }
+
+    .floating-one {
+      top: 0;
+      right: -15px;
+    }
+
+    .floating-two {
+      left: -18px;
+      bottom: 15px;
+    }
+
+    .floating-card small {
+      display: block;
+      color: #8a94a4;
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .floating-card strong {
+      color: #071d49;
+      font-size: 15px;
+    }
+
+    /* =========================================================
+       LOGO / TRUST STRIP
+    ========================================================= */
+
+    .trust-strip {
+      border-bottom: 1px solid #edf1f5;
+      background: #fff;
+      padding: 25px 0;
+    }
+
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .trust-label {
+      color: #7b8696;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .trust-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+      color: #8791a1;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .trust-items span {
+      opacity: .8;
+    }
+
+    /* =========================================================
+       SECTION COMMON
+    ========================================================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .section-head.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #0757d5;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      color: #071d49;
+      font-size: clamp(31px,4vw,45px);
+      line-height: 1.15;
+      letter-spacing: -1.3px;
+      margin-bottom: 15px;
+    }
+
+    .section-head p {
+      color: #667085;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    /* =========================================================
+       SOLUTIONS
+    ========================================================= */
+
+    .solutions {
+      background: #fff;
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .solution-card {
+      border: 1px solid #e8edf4;
+      border-radius: 17px;
+      padding: 27px;
+      background: #fff;
+      transition: .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-card:hover {
+      transform: translateY(-6px);
+      border-color: #c9dcfa;
+      box-shadow: 0 18px 45px rgba(18,54,110,.09);
+    }
+
+    .solution-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      background: #edf5ff;
+      color: #0757d5;
+      border-radius: 13px;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .solution-card h3 {
+      color: #071d49;
+      font-size: 18px;
+      margin-bottom: 9px;
+    }
+
+    .solution-card p {
+      color: #758093;
+      font-size: 13px;
+      line-height: 1.7;
+      margin-bottom: 17px;
+    }
+
+    .solution-link {
+      color: #0757d5;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* =========================================================
+       TRAINING
+    ========================================================= */
+
+    .training {
+      background: #f7faff;
+    }
+
+    .training-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .training-visual {
+      min-height: 430px;
+      border-radius: 25px;
+      padding: 25px;
+      background:
+        radial-gradient(circle at 75% 20%,rgba(255,255,255,.15),transparent 30%),
+        linear-gradient(145deg,#063f9e,#0757d5 60%,#168de8);
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .training-visual h3 {
+      font-size: 28px;
+      max-width: 300px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .training-visual p {
+      color: rgba(255,255,255,.76);
+      max-width: 350px;
+      font-size: 13px;
+    }
+
+    .training-stack {
+      position: absolute;
+      bottom: 25px;
+      left: 25px;
+      right: 25px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 10px;
+    }
+
+    .training-mini {
+      padding: 16px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 13px;
+      backdrop-filter: blur(8px);
+    }
+
+    .training-mini strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    .training-mini span {
+      color: rgba(255,255,255,.7);
+      font-size: 10px;
+    }
+
+    .training-list {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .training-item {
+      padding: 15px;
+      border: 1px solid #e5ebf4;
+      background: #fff;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #344054;
+    }
+
+    .training-item span {
+      color: #0757d5;
+      margin-right: 7px;
+    }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .service-card {
+      padding: 23px;
+      border: 1px solid #e7ecf3;
+      border-radius: 15px;
+      background: #fff;
+    }
+
+    .service-card .service-number {
+      color: #0757d5;
+      font-weight: 800;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+
+    .service-card h3 {
+      color: #071d49;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #778294;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .process {
+      background: #071d49;
+      color: #fff;
+    }
+
+    .process .section-head h2 {
+      color: #fff;
+    }
+
+    .process .section-head p {
+      color: rgba(255,255,255,.65);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+    }
+
+    .process-card {
+      position: relative;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.045);
+      padding: 25px;
+      border-radius: 16px;
+    }
+
+    .process-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #70c4ff;
+      margin-bottom: 20px;
+    }
+
+    .process-card h3 {
+      font-size: 17px;
+      margin-bottom: 9px;
+    }
+
+    .process-card p {
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    /* =========================================================
+       PARTNER
+    ========================================================= */
+
+    .partner {
+      background: #fff;
+    }
+
+    .partner-box {
+      background:
+        radial-gradient(circle at 80% 20%,rgba(255,255,255,.17),transparent 28%),
+        linear-gradient(125deg,#0757d5,#063e9b);
+      border-radius: 26px;
+      padding: 60px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 35px;
+      overflow: hidden;
+    }
+
+    .partner-box h2 {
+      font-size: clamp(30px,4vw,46px);
+      line-height: 1.15;
+      margin-bottom: 13px;
+      letter-spacing: -1.3px;
+    }
+
+    .partner-box p {
+      color: rgba(255,255,255,.75);
+      max-width: 650px;
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       EXPERTS
+    ========================================================= */
+
+    .experts {
+      background: #f8fafc;
+    }
+
+    .expert-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 17px;
+    }
+
+    .expert-card {
+      background: #fff;
+      border: 1px solid #e6ebf2;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .expert-avatar {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #eaf3ff;
+      color: #0757d5;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .expert-card h3 {
+      color: #071d49;
+      font-size: 16px;
+    }
+
+    .expert-card p {
+      color: #7b8697;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    /* =========================================================
+       INDUSTRIES
+    ========================================================= */
+
+    .industry-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .industry {
+      border: 1px solid #e1e7ef;
+      background: #fff;
+      border-radius: 50px;
+      padding: 11px 17px;
+      font-size: 12px;
+      color: #4c586a;
+      font-weight: 700;
+      transition: .3s;
+    }
+
+    .industry:hover {
+      color: #0757d5;
+      border-color: #bfd6fa;
+      background: #f5f9ff;
+    }
+
+    /* =========================================================
+       CONSULTATION
+    ========================================================= */
+
+    .consultation {
+      background: #f7faff;
+    }
+
+    .consult-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .consult-info h2 {
+      color: #071d49;
+      font-size: 42px;
+      line-height: 1.15;
+      letter-spacing: -1.2px;
+      margin-bottom: 15px;
+    }
+
+    .consult-info > p {
+      color: #687487;
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .consult-points {
+      display: grid;
+      gap: 12px;
+    }
+
+    .consult-point {
+      display: flex;
+      gap: 10px;
+      color: #455166;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .point-icon {
+      color: #18a957;
+      font-weight: 800;
+    }
+
+    .consult-form {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #e3eaf3;
+      border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(25,55,100,.06);
+    }
+
+    .consult-form h3 {
+      color: #071d49;
+      margin-bottom: 4px;
+      font-size: 20px;
+    }
+
+    .consult-form > p {
+      color: #8993a2;
+      font-size: 11px;
+      margin-bottom: 22px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 14px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      color: #344054;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1px solid #dce3ed;
+      border-radius: 9px;
+      outline: none;
+      padding: 12px 13px;
+      background: #fff;
+      color: #344054;
+      font-size: 12px;
+      transition: .25s;
+    }
+
+    .form-group textarea {
+      min-height: 95px;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #0757d5;
+      box-shadow: 0 0 0 3px rgba(7,87,213,.08);
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 17px;
+    }
+
+    .form-message {
+      display: none;
+      margin-top: 12px;
+      padding: 11px;
+      border-radius: 8px;
+      background: #eaf9f0;
+      color: #18864a;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    .faq-list {
+      max-width: 820px;
+      margin: auto;
+      display: grid;
+      gap: 10px;
+    }
+
+    .faq-item {
+      border: 1px solid #e5eaf1;
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      border: 0;
+      background: #fff;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      color: #1f2937;
+      font-weight: 700;
+      text-align: left;
+      font-size: 13px;
+    }
+
+    .faq-question span:last-child {
+      color: #0757d5;
+      font-size: 19px;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 18px;
+      color: #748094;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: #061733;
+      color: #fff;
+      padding: 65px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 45px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+      line-height: 1.8;
+      max-width: 340px;
+      margin: 15px 0 20px;
+    }
+
+    .footer-logo {
+      width: 54px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 8px;
+    }
+
+    .social {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.75);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .footer-col h4 {
+      font-size: 13px;
+      margin-bottom: 17px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-col li,
+    .footer-col a {
+      color: rgba(255,255,255,.57);
+      font-size: 11px;
+      transition: .25s;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.09);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: rgba(255,255,255,.45);
+      font-size: 10px;
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links,
+      .nav-actions {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero-grid,
+      .training-layout,
+      .consult-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        max-width: 650px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .solution-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .expert-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .partner-box {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .trust-items {
+        flex-wrap: wrap;
+      }
+
+    }
+
+    @media (max-width: 650px) {
+
+      .topbar {
+        display: none;
+      }
+
+      .navbar {
+        height: 68px;
+      }
+
+      .brand {
+        min-width: auto;
+      }
+
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+      }
+
+      .brand-text strong {
+        font-size: 16px;
+      }
+
+      .brand-text span {
+        font-size: 9px;
+      }
+
+      .hero {
+        padding: 58px 0 65px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+        letter-spacing: -1.8px;
+      }
+
+      .hero-description {
+        font-size: 14px;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .dashboard-card {
+        inset: 20px 0 0 0;
+      }
+
+      .floating-one {
+        right: -4px;
+      }
+
+      .floating-two {
+        left: -5px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .solution-grid,
+      .service-grid,
+      .process-grid,
+      .expert-grid,
+      .training-list {
+        grid-template-columns: 1fr;
+      }
+
+      .training-visual {
+        min-height: 390px;
+      }
+
+      .partner-box {
+        padding: 35px 25px;
+      }
+
+      .consult-info h2 {
+        font-size: 32px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .consult-form {
+        padding: 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .trust-strip-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       TOP BAR
+  ======================================================== -->
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+
+      <div class="top-left">
+        <span>Business Solutions for Modern Organizations</span>
+      </div>
+
+      <div class="top-right">
+        <a href="#consultation">Free Consultation</a>
+        <a href="#partner">Become a Partner</a>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- =======================================================
+       NAVIGATION
+  ======================================================== -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="#home" class="brand">
+
+        <img
+          class="brand-logo"
+          src="https://github.com/yourdocuments/products/blob/main/snk%20itlogo%20tn.svg?raw=true"
+          alt="SNK Business Partner Logo">
+
+        <div class="brand-text">
+          <strong>SNK Business</strong>
+          <span>Business Partner</span>
+        </div>
+
+      </a>
+
+
+      <ul class="nav-links">
+
+        <li><a href="#home">Home</a></li>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#experts">Experts</a></li>
+        <li><a href="#about">About</a></li>
+
+      </ul>
+
+
+      <div class="nav-actions">
+
+        <a href="#consultation" class="btn btn-outline">
+          Talk to Us
+        </a>
+
+        <a href="#partner" class="btn btn-primary">
+          Become a Partner
+        </a>
+
+      </div>
+
+
+      <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+        ☰
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <main>
+
+    <section class="hero" id="home">
+
+      <div class="container hero-grid">
+
+        <div>
+
+          <div class="hero-badge">
+            <span class="pulse"></span>
+            Business Solutions & Corporate Training
+          </div>
+
+          <h1>
+            Build a
+            <span>Stronger</span>
+            Business With SNK.
+          </h1>
+
+          <p class="hero-description">
+            From corporate training and digital transformation to
+            workforce support, branding and business technology —
+            SNK Business Partner helps organizations build better
+            teams and grow with practical solutions.
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a href="#consultation" class="btn btn-primary">
+              Book Free Consultation →
+            </a>
+
+            <a href="#solutions" class="btn btn-outline">
+              Explore Solutions
+            </a>
+
+          </div>
+
+
+          <div class="hero-trust">
+
+            <span>
+              <b class="check">✓</b>
+              Customized Solutions
+            </span>
+
+            <span>
+              <b class="check">✓</b>
+              Professional Support
+            </span>
+
+            <span>
+              <b class="check">✓</b>
+              Long-Term Partnership
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO DASHBOARD -->
+
+        <div class="hero-visual">
+
+          <div class="floating-card floating-one">
+            <small>Business Growth</small>
+            <strong>Digital + Human</strong>
+          </div>
+
+
+          <div class="dashboard-card">
+
+            <div class="dashboard-top">
+
+              <div class="dashboard-title">
+                <strong>Business Overview</strong>
+                <span>SNK Partner Dashboard</span>
+              </div>
+
+              <span class="status">
+                ● Active
+              </span>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+              <div class="metric">
+
+                <div class="metric-icon">
+                  👥
+                </div>
+
+                <strong>Team</strong>
+                <span>Workforce Support</span>
+
+              </div>
+
+
+              <div class="metric">
+
+                <div class="metric-icon">
+                  🎯
+                </div>
+
+                <strong>Growth</strong>
+                <span>Business Strategy</span>
+
+              </div>
+
+
+              <div class="metric">
+
+                <div class="metric-icon">
+                  💻
+                </div>
+
+                <strong>Digital</strong>
+                <span>Technology Solutions</span>
+
+              </div>
+
+
+              <div class="metric">
+
+                <div class="metric-icon">
+                  📈
+                </div>
+
+                <strong>Marketing</strong>
+                <span>Brand Growth</span>
+
+              </div>
+
+            </div>
+
+
+            <div class="chart">
+
+              <div class="chart-title">
+                Business Development
+              </div>
+
+              <div class="chart-lines">
+                <div class="chart-line"></div>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="floating-card floating-two">
+
+            <small>SNK Approach</small>
+
+            <strong>Solution → Support</strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TRUST STRIP
+    ====================================================== -->
+
+    <div class="trust-strip">
+
+      <div class="container trust-strip-inner">
+
+        <div class="trust-label">
+          SOLUTIONS FOR
+        </div>
+
+        <div class="trust-items">
+
+          <span>Retail</span>
+          <span>Education</span>
+          <span>Healthcare</span>
+          <span>IT & Software</span>
+          <span>Restaurant</span>
+          <span>E-commerce</span>
+          <span>Local Business</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         BUSINESS SOLUTIONS
+    ====================================================== -->
+
+    <section class="solutions" id="solutions">
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow">
+            Business Solutions
+          </div>
+
+          <h2>
+            Everything Your Business Needs to Move Forward
+          </h2>
+
+          <p>
+            Practical solutions designed for businesses,
+            organizations and growing teams.
+          </p>
+
+        </div>
+
+
+        <div class="solution-grid">
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">💻</div>
+
+            <h3>
+              Technology & Digital
+            </h3>
+
+            <p>
+              Website, e-commerce, software, AI and
+              digital transformation solutions.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">🎨</div>
+
+            <h3>
+              Branding & Creative
+            </h3>
+
+            <p>
+              Build a professional identity with
+              branding, graphic design and creative services.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">📢</div>
+
+            <h3>
+              Sales & Marketing
+            </h3>
+
+            <p>
+              Digital marketing, social media,
+              content and lead-generation support.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">👥</div>
+
+            <h3>
+              Workforce & HR
+            </h3>
+
+            <p>
+              Employee sourcing, professional profiles,
+              staff support and workforce solutions.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">📊</div>
+
+            <h3>
+              Business & Management
+            </h3>
+
+            <p>
+              Business consultation, planning,
+              automation and process development.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+          <div class="solution-card">
+
+            <div class="solution-icon">🛠️</div>
+
+            <h3>
+              Specialized Services
+            </h3>
+
+            <p>
+              Local business support, media,
+              printing, travel and professional services.
+            </p>
+
+            <a href="#consultation" class="solution-link">
+              Explore Solution →
+            </a>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CORPORATE TRAINING
+    ====================================================== -->
+
+    <section class="training" id="training">
+
+      <div class="container training-layout">
+
+
+        <div class="training-visual">
+
+          <div class="eyebrow" style="color:#a9d8ff;">
+            Corporate Training
+          </div>
+
+          <h3>
+            Build Better Skills.
+            Build Better Teams.
+          </h3>
+
+          <p>
+            Practical training programs for modern
+            organizations and professional teams.
+          </p>
+
+
+          <div class="training-stack">
+
+            <div class="training-mini">
+              <strong>AI & Technology</strong>
+              <span>Modern workplace skills</span>
+            </div>
+
+            <div class="training-mini">
+              <strong>Leadership</strong>
+              <span>Build stronger teams</span>
+            </div>
+
+            <div class="training-mini">
+              <strong>Marketing</strong>
+              <span>Grow your market</span>
+            </div>
+
+            <div class="training-mini">
+              <strong>Professional Skills</strong>
+              <span>Improve performance</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="section-head">
+
+            <div class="eyebrow">
+              Corporate Learning
+            </div>
+
+            <h2>
+              Training Designed Around Your Business
+            </h2>
+
+            <p>
+              Choose practical training programs based on
+              your team's role, skill level and business goals.
+            </p>
+
+          </div>
+
+
+          <div class="training-list">
+
+            <div class="training-item">
+              <span>✓</span>
+              AI for Business
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Digital Marketing
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Leadership & Management
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Sales & Customer Service
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Microsoft Office
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Communication Skills
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Web & Technology
+            </div>
+
+            <div class="training-item">
+              <span>✓</span>
+              Customized Training
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SERVICES
+    ====================================================== -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow">
+            Service Formats
+          </div>
+
+          <h2>
+            Flexible Ways to Work With SNK
+          </h2>
+
+          <p>
+            Select the service format that fits
+            your organization's needs.
+          </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              01
+            </div>
+
+            <h3>
+              Onsite Service
+            </h3>
+
+            <p>
+              Professional service and training
+              at your business location.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              02
+            </div>
+
+            <h3>
+              Online Service
+            </h3>
+
+            <p>
+              Remote consultation, training
+              and digital business support.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              03
+            </div>
+
+            <h3>
+              Hybrid Service
+            </h3>
+
+            <p>
+              Combine online and onsite support
+              for a flexible solution.
+            </p>
+
+          </div>
+
+
+          <div class="service-card">
+
+            <div class="service-number">
+              04
+            </div>
+
+            <h3>
+              Customized Solution
+            </h3>
+
+            <p>
+              A tailored solution designed
+              around your specific requirements.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROCESS
+    ====================================================== -->
+
+    <section class="process">
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow" style="color:#70c4ff;">
+            How It Works
+          </div>
+
+          <h2>
+            Simple Process. Practical Results.
+          </h2>
+
+          <p>
+            From understanding your needs to
+            implementing the right solution.
+          </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              01
+            </div>
+
+            <h3>
+              Tell Us Your Need
+            </h3>
+
+            <p>
+              Share your business challenge,
+              requirement or goal with our team.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              02
+            </div>
+
+            <h3>
+              Free Consultation
+            </h3>
+
+            <p>
+              We discuss your requirements and
+              identify possible solution areas.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              03
+            </div>
+
+            <h3>
+              Get Your Solution
+            </h3>
+
+            <p>
+              Select a suitable service,
+              training or customized package.
+            </p>
+
+          </div>
+
+
+          <div class="process-card">
+
+            <div class="process-number">
+              04
+            </div>
+
+            <h3>
+              Grow With SNK
+            </h3>
+
+            <p>
+              Receive implementation and
+              ongoing business support.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PARTNER CTA
+    ====================================================== -->
+
+    <section class="partner" id="partner">
+
+      <div class="container">
+
+        <div class="partner-box">
+
+          <div>
+
+            <div class="eyebrow" style="color:#a9d8ff;">
+              SNK Business Partner
+            </div>
+
+            <h2>
+              Let's Build Your Business Together.
+            </h2>
+
+            <p>
+              Become an SNK Business Partner and get access
+              to digital solutions, promotion, business support,
+              professional services and customized assistance.
+            </p>
+
+          </div>
+
+          <div>
+
+            <a href="#consultation" class="btn btn-light">
+              Become a Partner →
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERTS
+    ====================================================== -->
+
+    <section class="experts" id="experts">
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow">
+            Our Experts
+          </div>
+
+          <h2>
+            People Behind Your Solutions
+          </h2>
+
+          <p>
+            Professional expertise across technology,
+            marketing, business and professional skills.
+          </p>
+
+        </div>
+
+
+        <div class="expert-grid">
+
+
+          <div class="expert-card">
+
+            <div class="expert-avatar">
+              IT
+            </div>
+
+            <h3>
+              Technology Expert
+            </h3>
+
+            <p>
+              Web & Digital Solutions
+            </p>
+
+          </div>
+
+
+          <div class="expert-card">
+
+            <div class="expert-avatar">
+              MK
+            </div>
+
+            <h3>
+              Marketing Expert
+            </h3>
+
+            <p>
+              Digital Marketing & Branding
+            </p>
+
+          </div>
+
+
+          <div class="expert-card">
+
+            <div class="expert-avatar">
+              BM
+            </div>
+
+            <h3>
+              Business Mentor
+            </h3>
+
+            <p>
+              Business & Management
+            </p>
+
+          </div>
+
+
+          <div class="expert-card">
+
+            <div class="expert-avatar">
+              HR
+            </div>
+
+            <h3>
+              HR Specialist
+            </h3>
+
+            <p>
+              Workforce & Recruitment
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INDUSTRIES
+    ====================================================== -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow">
+            Industries
+          </div>
+
+          <h2>
+            Supporting Businesses Across Industries
+          </h2>
+
+          <p>
+            Our solutions can be customized for
+            different business types and organizations.
+          </p>
+
+        </div>
+
+
+        <div class="industry-grid">
+
+          <div class="industry">Retail</div>
+          <div class="industry">Restaurant</div>
+          <div class="industry">Education</div>
+          <div class="industry">Healthcare</div>
+          <div class="industry">IT & Software</div>
+          <div class="industry">Real Estate</div>
+          <div class="industry">Manufacturing</div>
+          <div class="industry">E-commerce</div>
+          <div class="industry">Travel & Tourism</div>
+          <div class="industry">Fashion</div>
+          <div class="industry">Local Services</div>
+          <div class="industry">Professional Services</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONSULTATION
+    ====================================================== -->
+
+    <section class="consultation" id="consultation">
+
+      <div class="container consult-grid">
+
+
+        <div class="consult-info">
+
+          <div class="eyebrow">
+            Free Consultation
+          </div>
+
+          <h2>
+            Tell Us What Your Business Needs.
+          </h2>
+
+          <p>
+            Share a few details about your organization
+            and requirement. Our team can then understand
+            your needs and discuss suitable options.
+          </p>
+
+
+          <div class="consult-points">
+
+            <div class="consult-point">
+              <span class="point-icon">✓</span>
+              No-obligation initial consultation
+            </div>
+
+            <div class="consult-point">
+              <span class="point-icon">✓</span>
+              Customized service discussion
+            </div>
+
+            <div class="consult-point">
+              <span class="point-icon">✓</span>
+              Business-focused solutions
+            </div>
+
+            <div class="consult-point">
+              <span class="point-icon">✓</span>
+              Online or onsite support options
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <form class="consult-form" id="consultForm">
+
+          <h3>
+            Book a Consultation
+          </h3>
+
+          <p>
+            Fill out the form and our team can contact you.
+          </p>
+
+
+          <div class="form-grid">
+
+
+            <div class="form-group">
+
+              <label>
+                Your Name
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Designation
+              </label>
+
+              <input
+                type="text"
+                id="designation"
+                placeholder="e.g. Founder / Manager">
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                placeholder="01XXXXXXXXX"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Company / Business
+              </label>
+
+              <input
+                type="text"
+                id="company"
+                placeholder="Business name"
+                required>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Business Category
+              </label>
+
+              <select id="category">
+
+                <option value="">
+                  Select category
+                </option>
+
+                <option>Retail</option>
+                <option>Restaurant</option>
+                <option>Education</option>
+                <option>Healthcare</option>
+                <option>IT & Software</option>
+                <option>E-commerce</option>
+                <option>Real Estate</option>
+                <option>Local Business</option>
+                <option>Other</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Interested In
+              </label>
+
+              <select id="service">
+
+                <option value="">
+                  Select service
+                </option>
+
+                <option>Corporate Training</option>
+                <option>Website / E-commerce</option>
+                <option>Digital Marketing</option>
+                <option>Branding & Design</option>
+                <option>Workforce Support</option>
+                <option>Business Consultation</option>
+                <option>Customized Solution</option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>
+                Tell Us About Your Requirement
+              </label>
+
+              <textarea
+                id="message"
+                placeholder="Briefly describe what you need..."></textarea>
+
+            </div>
+
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary form-submit">
+
+            Submit Consultation Request →
+
+          </button>
+
+
+          <div class="form-message" id="formMessage">
+            Thank you! Your consultation request has been saved.
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+    ====================================================== -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-head center">
+
+          <div class="eyebrow">
+            FAQ
+          </div>
+
+          <h2>
+            Frequently Asked Questions
+          </h2>
+
+        </div>
+
+
+        <div class="faq-list">
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                What is SNK Business Partner?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+              SNK Business Partner is a business-focused
+              platform for corporate training, digital
+              solutions, workforce support, branding,
+              marketing and customized business services.
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                Can you provide customized corporate training?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+              Yes. Training programs can be structured
+              around an organization's team, business
+              requirements and selected skill areas.
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                Do you work with small businesses?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+              Yes. Services can be planned according to
+              the size, stage and requirements of a business.
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                How can I become an SNK Business Partner?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+              Use the Become a Partner or consultation form
+              to share your business information and requirements.
+            </div>
+
+          </div>
+
+
+          <div class="faq-item">
+
+            <button class="faq-question">
+
+              <span>
+                Can services be provided online?
+              </span>
+
+              <span>+</span>
+
+            </button>
+
+            <div class="faq-answer">
+              Yes. Online, onsite and hybrid service formats
+              can be used depending on the selected solution.
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <img
+            class="footer-logo"
+            src="https://github.com/yourdocuments/products/blob/main/snk%20itlogo%20tn.svg?raw=true"
+            alt="SNK Logo">
+
+          <p>
+            SNK Business Partner connects organizations
+            with practical business solutions, corporate
+            training and professional support.
+          </p>
+
+
+          <div class="footer-social">
+
+            <a class="social" href="#" aria-label="Facebook">
+              FB
+            </a>
+
+            <a class="social" href="#" aria-label="LinkedIn">
+              IN
+            </a>
+
+            <a class="social" href="#" aria-label="YouTube">
+              YT
+            </a>
+
+            <a class="social" href="#" aria-label="WhatsApp">
+              WA
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Solutions
+          </h4>
+
+          <ul>
+
+            <li><a href="#solutions">Digital Solutions</a></li>
+            <li><a href="#solutions">Branding</a></li>
+            <li><a href="#solutions">Marketing</a></li>
+            <li><a href="#solutions">Workforce</a></li>
+            <li><a href="#solutions">Business Support</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Training
+          </h4>
+
+          <ul>
+
+            <li><a href="#training">AI & Technology</a></li>
+            <li><a href="#training">Marketing</a></li>
+            <li><a href="#training">Leadership</a></li>
+            <li><a href="#training">Professional Skills</a></li>
+            <li><a href="#training">Customized Training</a></li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Company
+          </h4>
+
+          <ul>
+
+            <li><a href="#about">About SNK</a></li>
+            <li><a href="#partner">Become a Partner</a></li>
+            <li><a href="#experts">Experts</a></li>
+            <li><a href="#consultation">Contact</a></li>
+            <li><a href="#consultation">Free Consultation</a></li>
+
+          </ul>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="year"></span> SNK Business Partner.
+          All rights reserved.
+        </span>
+
+        <span>
+          Business Solutions • Training • Partnership
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =======================================================
+       YEAR
+    ======================================================== */
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+
+    /* =======================================================
+       MOBILE MENU
+    ======================================================== */
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const navLinks =
+      document.querySelector(".nav-links");
+
+    mobileMenu.addEventListener("click", function () {
+
+      if (navLinks.style.display === "flex") {
+
+        navLinks.style.display = "none";
+
+      } else {
+
+        navLinks.style.display = "flex";
+
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "68px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "#fff";
+        navLinks.style.padding = "20px";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.alignItems = "flex-start";
+        navLinks.style.borderBottom = "1px solid #e7ebf2";
+        navLinks.style.boxShadow =
+          "0 15px 30px rgba(0,0,0,.08)";
+
+      }
+
+    });
+
+
+    /* =======================================================
+       CLOSE MOBILE MENU AFTER CLICK
+    ======================================================== */
+
+    document.querySelectorAll(".nav-links a")
+      .forEach(function(link) {
+
+        link.addEventListener("click", function() {
+
+          if (window.innerWidth <= 1000) {
+            navLinks.style.display = "none";
+          }
+
+        });
+
+      });
+
+
+    /* =======================================================
+       CONSULTATION FORM
+    ======================================================== */
+
+    const consultForm =
+      document.getElementById("consultForm");
+
+    const formMessage =
+      document.getElementById("formMessage");
+
+
+    consultForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+
+      const request = {
+
+        id: "SNK-" +
+          Date.now(),
+
+        name:
+          document.getElementById("name").value,
+
+        designation:
+          document.getElementById("designation").value,
+
+        phone:
+          document.getElementById("phone").value,
+
+        company:
+          document.getElementById("company").value,
+
+        category:
+          document.getElementById("category").value,
+
+        service:
+          document.getElementById("service").value,
+
+        message:
+          document.getElementById("message").value,
+
+        createdAt:
+          new Date().toISOString()
+
+      };
+
+
+      let requests =
+        JSON.parse(
+          localStorage.getItem(
+            "snkBusinessConsultations"
+          )
+        ) || [];
+
+
+      requests.push(request);
+
+
+      localStorage.setItem(
+        "snkBusinessConsultations",
+        JSON.stringify(requests)
+      );
+
+
+      formMessage.style.display = "block";
+
+
+      consultForm.reset();
+
+
+      setTimeout(function() {
+
+        formMessage.style.display = "none";
+
+      }, 5000);
+
+    });
+
+
+    /* =======================================================
+       FAQ
+    ======================================================== */
+
+    const faqItems =
+      document.querySelectorAll(".faq-item");
+
+
+    faqItems.forEach(function(item) {
+
+      const question =
+        item.querySelector(".faq-question");
+
+
+      question.addEventListener("click", function() {
+
+        const wasActive =
+          item.classList.contains("active");
+
+
+        faqItems.forEach(function(otherItem) {
+
+          otherItem.classList.remove("active");
+
+          const icon =
+            otherItem.querySelector(
+              ".faq-question span:last-child"
+            );
+
+          if (icon) {
+            icon.textContent = "+";
+          }
+
+        });
+
+
+        if (!wasActive) {
+
+          item.classList.add("active");
+
+          const icon =
+            item.querySelector(
+              ".faq-question span:last-child"
+            );
+
+          if (icon) {
+            icon.textContent = "−";
+          }
+
+        }
+
+      });
+
+    });
+
+
+    /* =======================================================
+       SIMPLE SCROLL ANIMATION
+    ======================================================== */
+
+    const animatedElements =
+      document.querySelectorAll(
+        ".solution-card, .service-card, .process-card, .expert-card"
+      );
+
+
+    const observer =
+      new IntersectionObserver(
+        function(entries) {
+
+          entries.forEach(function(entry) {
+
+            if (entry.isIntersecting) {
+
+              entry.target.style.opacity = "1";
+              entry.target.style.transform =
+                "translateY(0)";
+
+            }
+
+          });
+
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+
+    animatedElements.forEach(function(element) {
+
+      element.style.opacity = "0";
+      element.style.transform =
+        "translateY(18px)";
+      element.style.transition =
+        "opacity .6s ease, transform .6s ease";
+
+      observer.observe(element);
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
