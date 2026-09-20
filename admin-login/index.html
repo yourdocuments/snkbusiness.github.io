@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Admin Login | SNK Business</title>
+
+  <meta
+    name="description"
+    content="SNK Business Admin Login"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="assets/favicon.png"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(
+          circle at 15% 20%,
+          rgba(37, 99, 235, 0.18),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(14, 165, 233, 0.12),
+          transparent 30%
+        ),
+        #07111f;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+
+
+    /* =====================================================
+       BACKGROUND
+    ===================================================== */
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.18;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+    }
+
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(2px);
+    }
+
+    .orb-one {
+      width: 320px;
+      height: 320px;
+      top: -120px;
+      left: -100px;
+      background: rgba(37, 99, 235, 0.12);
+    }
+
+    .orb-two {
+      width: 380px;
+      height: 380px;
+      right: -150px;
+      bottom: -150px;
+      background: rgba(14, 165, 233, 0.10);
+    }
+
+
+    /* =====================================================
+       LOGIN WRAPPER
+    ===================================================== */
+
+    .login-wrapper {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 470px;
+    }
+
+
+    /* =====================================================
+       BRAND
+    ===================================================== */
+
+    .brand-area {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .brand-logo {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 14px;
+
+      border-radius: 20px;
+
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+
+      padding: 10px;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.28);
+    }
+
+    .brand-name {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.7px;
+    }
+
+    .brand-tagline {
+      margin-top: 5px;
+      color: #8fa4bd;
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       LOGIN CARD
+    ===================================================== */
+
+    .login-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 33, 53, 0.96),
+          rgba(8, 19, 33, 0.96)
+        );
+
+      border: 1px solid rgba(255,255,255,0.09);
+
+      border-radius: 28px;
+
+      padding: 38px;
+
+      box-shadow:
+        0 30px 90px rgba(0,0,0,0.42),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+
+      backdrop-filter: blur(18px);
+    }
+
+
+    /* =====================================================
+       HEADING
+    ===================================================== */
+
+    .login-heading {
+      margin-bottom: 28px;
+    }
+
+    .login-heading .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+
+      color: #60a5fa;
+
+      margin-bottom: 10px;
+    }
+
+    .login-heading .label::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #3b82f6;
+      box-shadow: 0 0 14px rgba(59,130,246,0.7);
+    }
+
+    .login-heading h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 8px;
+    }
+
+    .login-heading p {
+      color: #8fa4bd;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      color: #d9e4f0;
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 18px;
+      height: 18px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #6f87a3;
+
+      font-size: 15px;
+
+      pointer-events: none;
+    }
+
+    .form-input {
+      width: 100%;
+
+      height: 52px;
+
+      border-radius: 14px;
+
+      border: 1px solid rgba(255,255,255,0.10);
+
+      background: rgba(255,255,255,0.045);
+
+      color: #ffffff;
+
+      outline: none;
+
+      padding: 0 48px;
+
+      font-family: inherit;
+      font-size: 14px;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-input::placeholder {
+      color: #637993;
+    }
+
+    .form-input:focus {
+      border-color: rgba(59,130,246,0.75);
+
+      background: rgba(255,255,255,0.065);
+
+      box-shadow:
+        0 0 0 4px rgba(59,130,246,0.10);
+    }
+
+
+    /* =====================================================
+       PASSWORD TOGGLE
+    ===================================================== */
+
+    .password-toggle {
+      position: absolute;
+
+      right: 12px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      width: 34px;
+      height: 34px;
+
+      border: none;
+      border-radius: 9px;
+
+      background: transparent;
+
+      color: #7890aa;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 14px;
+
+      transition: 0.2s ease;
+    }
+
+    .password-toggle:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+    }
+
+
+    /* =====================================================
+       REMEMBER / RECOVERY
+    ===================================================== */
+
+    .form-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 22px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      color: #91a5bb;
+
+      font-size: 12px;
+
+      cursor: pointer;
+    }
+
+    .remember input {
+      accent-color: #2563eb;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      color: #60a5fa;
+      font-size: 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+
+    /* =====================================================
+       LOGIN BUTTON
+    ===================================================== */
+
+    .login-button {
+      width: 100%;
+      height: 54px;
+
+      border: none;
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #2563eb,
+          #1d4ed8
+        );
+
+      color: #ffffff;
+
+      font-family: inherit;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      box-shadow:
+        0 15px 35px rgba(37,99,235,0.25);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .login-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 20px 40px rgba(37,99,235,0.34);
+    }
+
+    .login-button:active {
+      transform: translateY(0);
+    }
+
+
+    /* =====================================================
+       ERROR MESSAGE
+    ===================================================== */
+
+    .message {
+      display: none;
+
+      margin-bottom: 18px;
+
+      padding: 13px 15px;
+
+      border-radius: 12px;
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .message.error {
+      display: block;
+
+      background: rgba(239,68,68,0.10);
+
+      border: 1px solid rgba(239,68,68,0.25);
+
+      color: #fca5a5;
+    }
+
+    .message.success {
+      display: block;
+
+      background: rgba(34,197,94,0.10);
+
+      border: 1px solid rgba(34,197,94,0.25);
+
+      color: #86efac;
+    }
+
+
+    /* =====================================================
+       SECURITY NOTE
+    ===================================================== */
+
+    .security-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+
+      margin-top: 22px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid rgba(255,255,255,0.07);
+
+      color: #71869e;
+
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .security-icon {
+      flex: 0 0 auto;
+
+      width: 28px;
+      height: 28px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 8px;
+
+      background: rgba(59,130,246,0.10);
+
+      color: #60a5fa;
+    }
+
+
+    /* =====================================================
+       BACK HOME
+    ===================================================== */
+
+    .back-home {
+      display: block;
+
+      text-align: center;
+
+      margin-top: 20px;
+
+      color: #7890aa;
+
+      text-decoration: none;
+
+      font-size: 12px;
+
+      transition: color 0.2s ease;
+    }
+
+    .back-home:hover {
+      color: #ffffff;
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+
+    .copyright {
+      text-align: center;
+
+      margin-top: 22px;
+
+      color: #536980;
+
+      font-size: 11px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 16px;
+      }
+
+      .login-card {
+        padding: 26px 20px;
+
+        border-radius: 22px;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .login-heading h1 {
+        font-size: 26px;
+      }
+
+      .form-options {
+        align-items: flex-start;
+      }
+
+    }
+
+
+    @media (max-width: 380px) {
+
+      .form-options {
+        flex-direction: column;
+      }
+
+      .forgot-link {
+        align-self: flex-end;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       BACKGROUND
+  ===================================================== -->
+
+  <div class="background-grid"></div>
+
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+
+
+  <!-- =====================================================
+       LOGIN WRAPPER
+  ===================================================== -->
+
+  <main class="login-wrapper">
+
+
+    <!-- ===================================================
+         BRAND
+    =================================================== -->
+
+    <div class="brand-area">
+
+      <img
+        id="brandLogo"
+        class="brand-logo"
+        src="assets/logo.png"
+        alt="SNK Business Logo"
+      >
+
+      <div class="brand-name">
+        SNK Business
+      </div>
+
+      <div class="brand-tagline">
+        Smart Business. Better Solutions.
+      </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         LOGIN CARD
+    =================================================== -->
+
+    <section class="login-card">
+
+
+      <!-- HEADING -->
+
+      <div class="login-heading">
+
+        <span class="label">
+          Admin Access
+        </span>
+
+        <h1>
+          Welcome back.
+        </h1>
+
+        <p>
+          Sign in to manage your SNK Business website.
+        </p>
+
+      </div>
+
+
+      <!-- MESSAGE -->
+
+      <div
+        id="loginMessage"
+        class="message"
+        role="alert"
+      ></div>
+
+
+      <!-- =================================================
+           LOGIN FORM
+      ================================================= -->
+
+      <form id="adminLoginForm">
+
+
+        <!-- USERNAME -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="adminUsername"
+          >
+            Admin Username
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              ◉
+            </span>
+
+            <input
+              id="adminUsername"
+              class="form-input"
+              type="text"
+              autocomplete="username"
+              placeholder="Enter admin username"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div class="form-group">
+
+          <label
+            class="form-label"
+            for="adminPassword"
+          >
+            Password
+          </label>
+
+          <div class="input-wrapper">
+
+            <span class="input-icon">
+              ●
+            </span>
+
+            <input
+              id="adminPassword"
+              class="form-input"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Enter password"
+              required
+            >
+
+            <button
+              id="passwordToggle"
+              class="password-toggle"
+              type="button"
+              aria-label="Show password"
+            >
+              ◉
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="form-options">
+
+          <label class="remember">
+
+            <input
+              id="rememberMe"
+              type="checkbox"
+            >
+
+            <span>
+              Remember username
+            </span>
+
+          </label>
+
+
+          <a
+            class="forgot-link"
+            href="admin-recovery.html"
+          >
+            Forgot Password?
+          </a>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <button
+          id="loginButton"
+          class="login-button"
+          type="submit"
+        >
+
+          <span>
+            Sign In
+          </span>
+
+          <span>
+            →
+          </span>
+
+        </button>
+
+
+      </form>
+
+
+      <!-- SECURITY -->
+
+      <div class="security-note">
+
+        <div class="security-icon">
+          ✓
+        </div>
+
+        <div>
+          Admin access is protected by a
+          temporary browser session.
+          Always log out after using the dashboard.
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+    <!-- BACK HOME -->
+
+    <a
+      href="index.html"
+      class="back-home"
+    >
+      ← Back to SNK Business
+    </a>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="copyright">
+      © 2026 SNK Business. Admin Panel.
+    </div>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
+  <script>
+
+    /* =====================================================
+       CONFIGURATION
+    ===================================================== */
+
+    /*
+      DEMO ADMIN LOGIN
+
+      Username:
+      admin
+
+      Password:
+      SNK@2026
+
+      পরে Admin Dashboard থেকে
+      authentication আরও উন্নত করা যাবে।
+    */
+
+    const ADMIN_USERNAME = "admin";
+    const ADMIN_PASSWORD = "SNK@2026";
+
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const loginForm =
+      document.getElementById(
+        "adminLoginForm"
+      );
+
+    const usernameInput =
+      document.getElementById(
+        "adminUsername"
+      );
+
+    const passwordInput =
+      document.getElementById(
+        "adminPassword"
+      );
+
+    const rememberMe =
+      document.getElementById(
+        "rememberMe"
+      );
+
+    const loginButton =
+      document.getElementById(
+        "loginButton"
+      );
+
+    const loginMessage =
+      document.getElementById(
+        "loginMessage"
+      );
+
+    const passwordToggle =
+      document.getElementById(
+        "passwordToggle"
+      );
+
+
+    /* =====================================================
+       LOAD SAVED USERNAME
+    ===================================================== */
+
+    try {
+
+      const savedUsername =
+        localStorage.getItem(
+          "snkBusinessRememberedUsername"
+        );
+
+      if(savedUsername){
+
+        usernameInput.value =
+          savedUsername;
+
+        rememberMe.checked =
+          true;
+
+      }
+
+    } catch(error) {
+
+      console.error(
+        "Remember username error:",
+        error
+      );
+
+    }
+
+
+    /* =====================================================
+       PASSWORD SHOW / HIDE
+    ===================================================== */
+
+    passwordToggle.addEventListener(
+      "click",
+      function(){
+
+        if(
+          passwordInput.type ===
+          "password"
+        ){
+
+          passwordInput.type =
+            "text";
+
+          passwordToggle.textContent =
+            "◉";
+
+          passwordToggle.setAttribute(
+            "aria-label",
+            "Hide password"
+          );
+
+        }else{
+
+          passwordInput.type =
+            "password";
+
+          passwordToggle.textContent =
+            "◉";
+
+          passwordToggle.setAttribute(
+            "aria-label",
+            "Show password"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       MESSAGE
+    ===================================================== */
+
+    function showMessage(
+      text,
+      type
+    ){
+
+      loginMessage.textContent =
+        text;
+
+      loginMessage.className =
+        "message " + type;
+
+    }
+
+
+    function clearMessage(){
+
+      loginMessage.textContent =
+        "";
+
+      loginMessage.className =
+        "message";
+
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    loginForm.addEventListener(
+      "submit",
+      function(event){
+
+        event.preventDefault();
+
+        clearMessage();
+
+
+        const username =
+          usernameInput.value.trim();
+
+        const password =
+          passwordInput.value;
+
+
+        /* -----------------------------------------------
+           VALIDATION
+        ------------------------------------------------ */
+
+        if(!username){
+
+          showMessage(
+            "Please enter your admin username.",
+            "error"
+          );
+
+          usernameInput.focus();
+
+          return;
+
+        }
+
+
+        if(!password){
+
+          showMessage(
+            "Please enter your password.",
+            "error"
+          );
+
+          passwordInput.focus();
+
+          return;
+
+        }
+
+
+        /* -----------------------------------------------
+           BUTTON STATE
+        ------------------------------------------------ */
+
+        loginButton.disabled =
+          true;
+
+        loginButton.style.opacity =
+          "0.7";
+
+        loginButton.querySelector(
+          "span:first-child"
+        ).textContent =
+          "Checking...";
+
+
+        /* -----------------------------------------------
+           LOGIN CHECK
+        ------------------------------------------------ */
+
+        setTimeout(
+          function(){
+
+            if(
+              username ===
+                ADMIN_USERNAME &&
+              password ===
+                ADMIN_PASSWORD
+            ){
+
+              /* -----------------------------------------
+                 REMEMBER USERNAME
+              ------------------------------------------ */
+
+              try {
+
+                if(
+                  rememberMe.checked
+                ){
+
+                  localStorage.setItem(
+                    "snkBusinessRememberedUsername",
+                    username
+                  );
+
+                }else{
+
+                  localStorage.removeItem(
+                    "snkBusinessRememberedUsername"
+                  );
+
+                }
+
+              } catch(error){
+
+                console.error(
+                  "Remember username error:",
+                  error
+                );
+
+              }
+
+
+              /* -----------------------------------------
+                 ADMIN SESSION
+              ------------------------------------------ */
+
+              sessionStorage.setItem(
+                "snkBusinessAdminLoggedIn",
+                "true"
+              );
+
+
+              sessionStorage.setItem(
+                "snkBusinessAdminLoginTime",
+                String(Date.now())
+              );
+
+
+              sessionStorage.setItem(
+                "snkBusinessAdminUsername",
+                username
+              );
+
+
+              /* -----------------------------------------
+                 SUCCESS
+              ------------------------------------------ */
+
+              showMessage(
+                "Login successful. Opening dashboard...",
+                "success"
+              );
+
+
+              loginButton.querySelector(
+                "span:first-child"
+              ).textContent =
+                "Success";
+
+
+              loginButton.querySelector(
+                "span:last-child"
+              ).textContent =
+                "✓";
+
+
+              /* -----------------------------------------
+                 REDIRECT
+              ------------------------------------------ */
+
+              setTimeout(
+                function(){
+
+                  window.location.href =
+                    "admin.html";
+
+                },
+                700
+              );
+
+
+            }else{
+
+              /* -----------------------------------------
+                 FAILED LOGIN
+              ------------------------------------------ */
+
+              showMessage(
+                "Invalid username or password. Please try again.",
+                "error"
+              );
+
+
+              loginButton.disabled =
+                false;
+
+              loginButton.style.opacity =
+                "1";
+
+              loginButton.querySelector(
+                "span:first-child"
+              ).textContent =
+                "Sign In";
+
+              loginButton.querySelector(
+                "span:last-child"
+              ).textContent =
+                "→";
+
+
+              passwordInput.value =
+                "";
+
+              passwordInput.focus();
+
+            }
+
+          },
+          450
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       ENTER KEY SUPPORT
+    ===================================================== */
+
+    usernameInput.addEventListener(
+      "keydown",
+      function(event){
+
+        if(
+          event.key === "Enter"
+        ){
+
+          event.preventDefault();
+
+          passwordInput.focus();
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       PREVENT ACCESS IF ALREADY LOGGED IN
+    ===================================================== */
+
+    try {
+
+      const alreadyLoggedIn =
+        sessionStorage.getItem(
+          "snkBusinessAdminLoggedIn"
+        );
+
+      if(
+        alreadyLoggedIn ===
+        "true"
+      ){
+
+        window.location.replace(
+          "admin.html"
+        );
+
+      }
+
+    } catch(error){
+
+      console.error(
+        "Admin session check error:",
+        error
+      );
+
+    }
+
+
+    /* =====================================================
+       PAGE READY
+    ===================================================== */
+
+    console.log(
+      "SNK Business Admin Login Ready."
+    );
+
+  </script>
+
+</body>
+</html>
