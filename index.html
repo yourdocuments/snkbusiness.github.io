@@ -1,1912 +1,2684 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Dynamic title -->
-  <title>SNK Business</title>
+  <title>SNK Business Admin Dashboard</title>
 
-  <meta
-    name="description"
-    content="SNK Business — Smart Business. Better Solutions."
-  >
+  <meta name="description" content="SNK Business Administration Dashboard">
 
-  <!-- Favicon -->
-  <link
-    id="siteFavicon"
-    rel="icon"
-    type="image/png"
-    href="assets/favicon.png"
-  >
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --warning: #f59e0b;
+      --sidebar-width: 260px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  >
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Main CSS -->
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* =========================
+       LOGIN PROTECTION
+    ========================= */
+
+    /* =========================
+       MOBILE OVERLAY
+    ========================= */
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.45);
+      z-index: 90;
+    }
+
+    .mobile-overlay.show {
+      display: block;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: var(--sidebar-width);
+      height: 100vh;
+      background: #0b1220;
+      color: #fff;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .brand {
+      height: 78px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #fff;
+      padding: 5px;
+    }
+
+    .brand-text {
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-role {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    .sidebar-section {
+      padding: 20px 14px 8px;
+      color: #64748b;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .nav {
+      padding: 6px 12px;
+    }
+
+    .nav-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 13px;
+      border-radius: 12px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      text-align: left;
+      transition: 0.2s ease;
+    }
+
+    .nav-item:hover {
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+    }
+
+    .nav-item.active {
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--primary-dark)
+      );
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(37,99,235,0.25);
+    }
+
+    .nav-icon {
+      width: 22px;
+      text-align: center;
+      font-size: 17px;
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+      padding: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .admin-mini {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px;
+      margin-bottom: 10px;
+    }
+
+    .admin-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .admin-mini-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .admin-mini-role {
+      color: #94a3b8;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .logout-btn {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(220,38,38,0.1);
+      color: #fca5a5;
+      padding: 11px 13px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    .logout-btn:hover {
+      background: rgba(220,38,38,0.2);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .main {
+      margin-left: var(--sidebar-width);
+      min-height: 100vh;
+    }
+
+    .topbar {
+      height: 78px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: #eef2ff;
+      color: var(--primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    .page-title h1 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .page-title p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .view-site {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--secondary);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .view-site:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      padding: 28px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .welcome {
+      background:
+        radial-gradient(circle at 90% 20%, rgba(255,255,255,0.2), transparent 25%),
+        linear-gradient(135deg, #2563eb, #1e40af 60%, #0f172a);
+      color: #fff;
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      bottom: -100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .welcome h2 {
+      font-size: 26px;
+      margin-bottom: 7px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .welcome p {
+      color: #dbeafe;
+      font-size: 14px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .stat-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      background: #eff6ff;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .stat-card:nth-child(2) .stat-icon {
+      background: #ecfdf5;
+      color: var(--success);
+    }
+
+    .stat-card:nth-child(3) .stat-icon {
+      background: #fff7ed;
+      color: var(--warning);
+    }
+
+    .stat-card:nth-child(4) .stat-icon {
+      background: #f5f3ff;
+      color: #7c3aed;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    /* =========================
+       PANELS
+    ========================= */
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 20px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .panel-title {
+      font-size: 17px;
+      font-weight: 800;
+    }
+
+    .panel-description {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .panel-body {
+      padding: 22px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    .form-control {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 12px 13px;
+      border-radius: 10px;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    textarea.form-control {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .form-help {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* =========================
+       LOGO PREVIEW
+    ========================= */
+
+    .branding-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .logo-preview-box {
+      border: 1px dashed #cbd5e1;
+      border-radius: 16px;
+      padding: 15px;
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    .logo-preview {
+      width: 145px;
+      height: 100px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .preview-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      padding-top: 8px;
+    }
+
+    .btn {
+      border: 0;
+      padding: 12px 17px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .btn-secondary:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-danger {
+      background: #fee2e2;
+      color: var(--danger);
+    }
+
+    .btn-danger:hover {
+      background: #fecaca;
+    }
+
+    /* =========================
+       QUICK LINKS
+    ========================= */
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: 14px;
+      transition: 0.2s;
+    }
+
+    .quick-card:hover {
+      border-color: #bfdbfe;
+      transform: translateY(-2px);
+    }
+
+    .quick-icon {
+      font-size: 23px;
+      margin-bottom: 9px;
+    }
+
+    .quick-title {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .quick-text {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 5px;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status-box {
+      display: none;
+      padding: 12px 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .status-box.success {
+      display: block;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    .status-box.error {
+      display: block;
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .admin-footer {
+      padding: 20px 28px 30px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 1100px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 800px) {
+      :root {
+        --sidebar-width: 260px;
+      }
+
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .main {
+        margin-left: 0;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .topbar {
+        padding: 0 16px;
+      }
+
+      .view-site {
+        display: none;
+      }
+
+      .content {
+        padding: 18px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .branding-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-preview-box {
+        max-width: 220px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome {
+        padding: 22px;
+      }
+
+      .welcome h2 {
+        font-size: 21px;
+      }
+
+      .panel-header,
+      .panel-body {
+        padding: 17px;
+      }
+
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .page-title h1 {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
+  <!-- MOBILE OVERLAY -->
+  <div class="mobile-overlay" id="mobileOverlay"></div>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
 
-<header
-  id="header"
-  class="site-header"
->
+  <aside class="sidebar" id="sidebar">
 
-  <div class="container header-inner">
-
-
-    <!-- LOGO -->
-
-    <a
-      href="#home"
-      class="brand"
-    >
-
+    <div class="brand">
       <img
-        id="headerLogo"
-        class="brand-logo"
-        data-logo
         src="assets/logo.png"
-        alt="SNK Business"
+        alt="SNK Business Logo"
+        class="brand-logo"
+        id="sidebarLogo"
       >
 
       <div class="brand-text">
-
-        <span
-          class="brand-name"
-          data-business-name
-        >
+        <div class="brand-name" id="sidebarBusinessName">
           SNK Business
-        </span>
+        </div>
 
-        <span
-          class="brand-tagline"
-          data-tagline
-        >
-          Smart Business. Better Solutions.
-        </span>
-
+        <div class="brand-role">
+          Administrator
+        </div>
       </div>
+    </div>
 
-    </a>
+    <div class="sidebar-section">
+      Main Menu
+    </div>
 
+    <nav class="nav">
 
-    <!-- DESKTOP NAV -->
+      <button
+        class="nav-item active"
+        data-target="dashboard"
+      >
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </button>
 
-    <nav
-      class="desktop-nav"
-      aria-label="Main navigation"
-    >
+      <button
+        class="nav-item"
+        data-target="business"
+      >
+        <span class="nav-icon">🏢</span>
+        <span>Business Profile</span>
+      </button>
+
+      <button
+        class="nav-item"
+        data-target="hero"
+      >
+        <span class="nav-icon">🚀</span>
+        <span>Hero Settings</span>
+      </button>
+
+      <button
+        class="nav-item"
+        data-target="contact"
+      >
+        <span class="nav-icon">📞</span>
+        <span>Contact</span>
+      </button>
+
+      <button
+        class="nav-item"
+        data-target="social"
+      >
+        <span class="nav-icon">🌐</span>
+        <span>Social Links</span>
+      </button>
+
+      <button
+        class="nav-item"
+        data-target="branding"
+      >
+        <span class="nav-icon">🎨</span>
+        <span>Branding</span>
+      </button>
+
+      <button
+        class="nav-item"
+        data-target="footerSettings"
+      >
+        <span class="nav-icon">📝</span>
+        <span>Footer</span>
+      </button>
+
+    </nav>
+
+    <div class="sidebar-section">
+      Website
+    </div>
+
+    <nav class="nav">
 
       <a
-        href="#home"
-        class="active"
+        href="index.html"
+        target="_blank"
+        class="nav-item"
       >
-        Home
-      </a>
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#services">
-        Services
-      </a>
-
-      <a href="#why-us">
-        Why Us
-      </a>
-
-      <a href="#contact">
-        Contact
+        <span class="nav-icon">🌍</span>
+        <span>View Website</span>
       </a>
 
     </nav>
 
+    <div class="sidebar-bottom">
 
-    <!-- HEADER CTA -->
+      <div class="admin-mini">
 
-    <a
-      href="#contact"
-      class="header-cta"
-    >
-      Get in Touch
-    </a>
+        <div class="admin-avatar">
+          A
+        </div>
 
+        <div>
+          <div class="admin-mini-name" id="adminUsername">
+            Admin
+          </div>
 
-    <!-- MOBILE MENU -->
+          <div class="admin-mini-role">
+            Super Administrator
+          </div>
+        </div>
 
-    <button
-      id="menuToggle"
-      class="menu-toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-expanded="false"
-    >
+      </div>
 
-      <span></span>
-      <span></span>
-      <span></span>
-
-    </button>
-
-  </div>
-
-
-  <!-- MOBILE NAV -->
-
-  <div
-    id="mobileNav"
-    class="mobile-nav"
-  >
-
-    <a href="#home">
-      Home
-    </a>
-
-    <a href="#about">
-      About
-    </a>
-
-    <a href="#services">
-      Services
-    </a>
-
-    <a href="#why-us">
-      Why Us
-    </a>
-
-    <a href="#contact">
-      Contact
-    </a>
-
-    <a
-      href="#contact"
-      class="mobile-cta"
-    >
-      Get in Touch
-    </a>
-
-  </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     HOME / HERO
-===================================================== -->
-
-<section
-  id="home"
-  class="hero"
->
-
-  <div class="container hero-grid">
-
-
-    <!-- LEFT -->
-
-    <div class="hero-content">
-
-
-      <!-- NOTICE -->
-
-      <div
-        class="hero-notice"
-        data-notice
+      <button
+        class="logout-btn"
+        id="logoutBtn"
       >
-        Welcome to SNK Business
-      </div>
-
-
-      <div class="hero-eyebrow">
-
-        <span></span>
-
-        Business • Digital • Solutions
-
-      </div>
-
-
-      <h1>
-
-        Build Better.
-
-        <span>
-          Grow Smarter.
-        </span>
-
-      </h1>
-
-
-      <p
-        class="hero-description"
-        data-hero-description
-      >
-        We help businesses build better digital
-        experiences, practical solutions and
-        stronger opportunities for growth.
-      </p>
-
-
-      <div class="hero-actions">
-
-        <a
-          href="#services"
-          class="btn btn-primary"
-        >
-          Explore Services
-          <span>→</span>
-        </a>
-
-        <a
-          href="#contact"
-          class="btn btn-secondary"
-        >
-          Contact Us
-        </a>
-
-      </div>
-
-
-      <!-- TRUST -->
-
-      <div class="hero-trust">
-
-        <div class="trust-avatars">
-
-          <span>SNK</span>
-          <span>BD</span>
-          <span>+</span>
-
-        </div>
-
-        <div>
-
-          <strong>
-            Business-focused solutions
-          </strong>
-
-          <small>
-            Designed for practical growth
-          </small>
-
-        </div>
-
-      </div>
-
+        🚪 Logout
+      </button>
 
     </div>
 
+  </aside>
 
-    <!-- RIGHT -->
 
-    <div
-      class="hero-visual"
-    >
+  <!-- =========================
+       MAIN
+  ========================== -->
 
-      <div class="hero-orb orb-one"></div>
-      <div class="hero-orb orb-two"></div>
+  <main class="main">
 
+    <!-- TOPBAR -->
 
-      <div class="hero-card-main">
+    <header class="topbar">
 
-        <div class="hero-logo-frame">
-
-          <img
-            id="heroLogo"
-            data-logo
-            src="assets/logo.png"
-            alt="SNK Business Logo"
-          >
-
-        </div>
-
-
-        <div class="hero-card-content">
-
-          <span>
-            SNK BUSINESS
-          </span>
-
-          <h2
-            data-business-name
-          >
-            SNK Business
-          </h2>
-
-          <p
-            data-tagline
-          >
-            Smart Business. Better Solutions.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="floating-card floating-top">
-
-        <span class="floating-icon">
-          ✓
-        </span>
-
-        <div>
-
-          <strong>
-            Smart Solutions
-          </strong>
-
-          <small>
-            Business focused
-          </small>
-
-        </div>
-
-      </div>
-
-
-      <div class="floating-card floating-bottom">
-
-        <span class="floating-icon">
-          ↗
-        </span>
-
-        <div>
-
-          <strong>
-            Better Growth
-          </strong>
-
-          <small>
-            Digital first
-          </small>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ABOUT
-===================================================== -->
-
-<section
-  id="about"
-  class="section about-section"
->
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <span class="section-label">
-        ABOUT US
-      </span>
-
-      <h2>
-        Business ideas into
-        <span>real solutions.</span>
-      </h2>
-
-      <p>
-        We focus on practical, modern and
-        meaningful solutions that help businesses
-        move forward.
-      </p>
-
-    </div>
-
-
-    <div class="about-grid">
-
-
-      <div class="about-main">
-
-        <div class="about-number">
-          01
-        </div>
-
-        <h3>
-          A practical approach
-          to modern business.
-        </h3>
-
-        <p>
-          At
-          <strong data-business-name>
-            SNK Business
-          </strong>,
-          we believe good business solutions
-          should be simple, useful and built
-          around real needs.
-        </p>
-
-        <p>
-          From digital services and business
-          support to creative and technology
-          solutions, our focus is on creating
-          value that businesses can actually use.
-        </p>
-
-      </div>
-
-
-      <div class="about-points">
-
-
-        <div class="about-point">
-
-          <div class="point-icon">
-            01
-          </div>
-
-          <div>
-
-            <h4>
-              Practical
-            </h4>
-
-            <p>
-              Solutions designed around
-              real business requirements.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="about-point">
-
-          <div class="point-icon">
-            02
-          </div>
-
-          <div>
-
-            <h4>
-              Modern
-            </h4>
-
-            <p>
-              Contemporary ideas,
-              technology and digital thinking.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="about-point">
-
-          <div class="point-icon">
-            03
-          </div>
-
-          <div>
-
-            <h4>
-              Focused
-            </h4>
-
-            <p>
-              Clear priorities and
-              business-oriented execution.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     SERVICES
-===================================================== -->
-
-<section
-  id="services"
-  class="section services-section"
->
-
-  <div class="container">
-
-
-    <div class="section-heading section-heading-center">
-
-      <span class="section-label">
-        OUR SERVICES
-      </span>
-
-      <h2>
-        Solutions built for
-        <span>real business.</span>
-      </h2>
-
-      <p>
-        Explore the areas where we can
-        help your business move forward.
-      </p>
-
-    </div>
-
-
-    <div class="services-grid">
-
-
-      <!-- SERVICE 01 -->
-
-      <article class="service-card">
-
-        <div class="service-top">
-
-          <span class="service-number">
-            01
-          </span>
-
-          <span class="service-arrow">
-            ↗
-          </span>
-
-        </div>
-
-        <div class="service-icon">
-          ◇
-        </div>
-
-        <h3>
-          Business Solutions
-        </h3>
-
-        <p>
-          Practical solutions designed to
-          support your business goals,
-          processes and opportunities.
-        </p>
-
-      </article>
-
-
-      <!-- SERVICE 02 -->
-
-      <article class="service-card">
-
-        <div class="service-top">
-
-          <span class="service-number">
-            02
-          </span>
-
-          <span class="service-arrow">
-            ↗
-          </span>
-
-        </div>
-
-        <div class="service-icon">
-          ◎
-        </div>
-
-        <h3>
-          Digital Services
-        </h3>
-
-        <p>
-          Digital-first services that help
-          businesses establish, improve and
-          grow their online presence.
-        </p>
-
-      </article>
-
-
-      <!-- SERVICE 03 -->
-
-      <article class="service-card">
-
-        <div class="service-top">
-
-          <span class="service-number">
-            03
-          </span>
-
-          <span class="service-arrow">
-            ↗
-          </span>
-
-        </div>
-
-        <div class="service-icon">
-          ✦
-        </div>
-
-        <h3>
-          Creative & Design
-        </h3>
-
-        <p>
-          Clear and modern visual experiences
-          that communicate your brand and
-          business effectively.
-        </p>
-
-      </article>
-
-
-      <!-- SERVICE 04 -->
-
-      <article class="service-card">
-
-        <div class="service-top">
-
-          <span class="service-number">
-            04
-          </span>
-
-          <span class="service-arrow">
-            ↗
-          </span>
-
-        </div>
-
-        <div class="service-icon">
-          +
-        </div>
-
-        <h3>
-          Technology Support
-        </h3>
-
-        <p>
-          Technology-focused support for
-          businesses looking to work smarter
-          and operate more efficiently.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     WHY US
-===================================================== -->
-
-<section
-  id="why-us"
-  class="section why-section"
->
-
-  <div class="container why-grid">
-
-
-    <div class="why-content">
-
-      <span class="section-label">
-        WHY SNK BUSINESS
-      </span>
-
-      <h2>
-        Simple thinking.
-        <span>Meaningful results.</span>
-      </h2>
-
-      <p>
-        Our approach combines business thinking,
-        design and technology to create solutions
-        that are useful, understandable and
-        practical.
-      </p>
-
-
-      <a
-        href="#contact"
-        class="btn btn-primary"
-      >
-        Start a Conversation
-        <span>→</span>
-      </a>
-
-    </div>
-
-
-    <div class="why-items">
-
-
-      <div class="why-item">
-
-        <span class="why-number">
-          01
-        </span>
-
-        <div>
-
-          <h3>
-            Trust
-          </h3>
-
-          <p>
-            Clear communication and
-            transparent collaboration.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="why-item">
-
-        <span class="why-number">
-          02
-        </span>
-
-        <div>
-
-          <h3>
-            Clarity
-          </h3>
-
-          <p>
-            Straightforward ideas without
-            unnecessary complexity.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="why-item">
-
-        <span class="why-number">
-          03
-        </span>
-
-        <div>
-
-          <h3>
-            Quality
-          </h3>
-
-          <p>
-            Attention to detail from
-            concept to final delivery.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="why-item">
-
-        <span class="why-number">
-          04
-        </span>
-
-        <div>
-
-          <h3>
-            Support
-          </h3>
-
-          <p>
-            A practical relationship that
-            continues beyond the first delivery.
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     STATS
-===================================================== -->
-
-<section class="stats-section">
-
-  <div class="container stats-grid">
-
-
-    <div class="stat">
-
-      <strong>
-        01
-      </strong>
-
-      <span>
-        Business-focused approach
-      </span>
-
-    </div>
-
-
-    <div class="stat">
-
-      <strong>
-        04
-      </strong>
-
-      <span>
-        Core service areas
-      </span>
-
-    </div>
-
-
-    <div class="stat">
-
-      <strong>
-        24/7
-      </strong>
-
-      <span>
-        Digital presence
-      </span>
-
-    </div>
-
-
-    <div class="stat">
-
-      <strong>
-        ∞
-      </strong>
-
-      <span>
-        Growth possibilities
-      </span>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     CONTACT
-===================================================== -->
-
-<section
-  id="contact"
-  class="section contact-section"
->
-
-  <div class="container contact-grid">
-
-
-    <!-- CONTACT INFO -->
-
-    <div class="contact-content">
-
-      <span class="section-label">
-        CONTACT
-      </span>
-
-      <h2>
-        Let's build something
-        <span>meaningful.</span>
-      </h2>
-
-      <p>
-        Have a business idea, project or
-        opportunity? Get in touch with us.
-      </p>
-
-
-      <div class="contact-details">
-
-
-        <a
-          id="phoneLink"
-          href="#"
-          class="contact-item"
-        >
-
-          <span class="contact-icon">
-            ☎
-          </span>
-
-          <div>
-
-            <small>
-              Phone
-            </small>
-
-            <strong
-              data-phone
-            >
-              —
-            </strong>
-
-          </div>
-
-        </a>
-
-
-        <a
-          id="emailLink"
-          href="#"
-          class="contact-item"
-        >
-
-          <span class="contact-icon">
-            @
-          </span>
-
-          <div>
-
-            <small>
-              Email
-            </small>
-
-            <strong
-              data-email
-            >
-              hello@snkbusiness.com
-            </strong>
-
-          </div>
-
-        </a>
-
-
-        <div class="contact-item">
-
-          <span class="contact-icon">
-            ●
-          </span>
-
-          <div>
-
-            <small>
-              Address
-            </small>
-
-            <strong
-              data-address
-            >
-              —
-            </strong>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- SOCIAL -->
-
-      <div class="social-links">
-
-        <a
-          id="facebookLink"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          aria-label="Facebook"
-        >
-          f
-        </a>
-
-        <a
-          id="instagramLink"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          aria-label="Instagram"
-        >
-          ◎
-        </a>
-
-        <a
-          id="linkedinLink"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
-        >
-          in
-        </a>
-
-        <a
-          id="youtubeLink"
-          href="#"
-          target="_blank"
-          rel="noopener"
-          aria-label="YouTube"
-        >
-          ▶
-        </a>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- FORM -->
-
-    <div class="contact-form-wrapper">
-
-      <form
-        id="contactForm"
-        class="contact-form"
-      >
-
-
-        <div class="form-row">
-
-
-          <div class="form-group">
-
-            <label for="name">
-              Your Name
-            </label>
-
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Your name"
-              required
-            >
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="email">
-              Email
-            </label>
-
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              required
-            >
-
-          </div>
-
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="subject">
-            Subject
-          </label>
-
-          <input
-            id="subject"
-            name="subject"
-            type="text"
-            placeholder="How can we help?"
-          >
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label for="message">
-            Message
-          </label>
-
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Tell us about your project..."
-            required
-          ></textarea>
-
-        </div>
-
+      <div class="topbar-left">
 
         <button
-          type="submit"
-          class="btn btn-primary form-submit"
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Open menu"
         >
-
-          Send Message
-
-          <span>
-            →
-          </span>
-
+          ☰
         </button>
 
+        <div class="page-title">
 
-      </form>
+          <h1 id="pageHeading">
+            Dashboard
+          </h1>
 
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="site-footer">
-
-  <div class="container footer-grid">
-
-
-    <!-- BRAND -->
-
-    <div class="footer-brand">
-
-      <a
-        href="#home"
-        class="brand"
-      >
-
-        <img
-          class="brand-logo"
-          data-logo
-          src="assets/logo.png"
-          alt="SNK Business"
-        >
-
-        <div class="brand-text">
-
-          <span
-            class="brand-name"
-            data-business-name
-          >
-            SNK Business
-          </span>
-
-          <span
-            class="brand-tagline"
-            data-tagline
-          >
-            Smart Business. Better Solutions.
-          </span>
+          <p>
+            Manage your SNK Business website
+          </p>
 
         </div>
 
-      </a>
+      </div>
+
+      <div class="topbar-right">
+
+        <a
+          href="index.html"
+          target="_blank"
+          class="view-site"
+        >
+          🌍 View Website
+        </a>
+
+      </div>
+
+    </header>
 
 
-      <p
-        data-footer-text
+    <!-- CONTENT -->
+
+    <div class="content">
+
+      <!-- STATUS -->
+
+      <div
+        id="statusBox"
+        class="status-box"
+      ></div>
+
+
+      <!-- =========================
+           DASHBOARD
+      ========================== -->
+
+      <section
+        id="dashboard"
+        class="admin-section"
       >
-        Your trusted business partner.
-      </p>
 
-    </div>
+        <div class="welcome">
 
+          <h2>
+            Welcome back, Admin 👋
+          </h2>
 
-    <!-- QUICK LINKS -->
+          <p>
+            Manage your business information, website content and branding from one place.
+          </p>
 
-    <div class="footer-column">
-
-      <h4>
-        Quick Links
-      </h4>
-
-      <a href="#home">
-        Home
-      </a>
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#services">
-        Services
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-    </div>
+        </div>
 
 
-    <!-- SERVICES -->
+        <!-- STATS -->
 
-    <div class="footer-column">
+        <div class="stats-grid">
 
-      <h4>
-        Services
-      </h4>
+          <div class="stat-card">
 
-      <a href="#services">
-        Business Solutions
-      </a>
+            <div class="stat-icon">
+              🏢
+            </div>
 
-      <a href="#services">
-        Digital Services
-      </a>
+            <div>
+              <div class="stat-label">
+                Business
+              </div>
 
-      <a href="#services">
-        Creative & Design
-      </a>
+              <div
+                class="stat-value"
+                id="statBusiness"
+              >
+                Active
+              </div>
+            </div>
 
-      <a href="#services">
-        Technology Support
-      </a>
-
-    </div>
+          </div>
 
 
-    <!-- CONTACT -->
+          <div class="stat-card">
 
-    <div class="footer-column">
+            <div class="stat-icon">
+              🌐
+            </div>
 
-      <h4>
-        Contact
-      </h4>
+            <div>
+              <div class="stat-label">
+                Website
+              </div>
 
-      <a
-        data-phone
-        id="footerPhone"
-        href="#"
+              <div class="stat-value">
+                Live
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              ⚙️
+            </div>
+
+            <div>
+              <div class="stat-label">
+                Settings
+              </div>
+
+              <div
+                class="stat-value"
+                id="statSettings"
+              >
+                Ready
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="stat-card">
+
+            <div class="stat-icon">
+              🔐
+            </div>
+
+            <div>
+              <div class="stat-label">
+                Admin
+              </div>
+
+              <div class="stat-value">
+                Secure
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- QUICK ACTIONS -->
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+              <div class="panel-title">
+                Quick Management
+              </div>
+
+              <div class="panel-description">
+                Quickly jump to a website management section.
+              </div>
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="quick-grid">
+
+              <div
+                class="quick-card"
+                data-go="business"
+              >
+                <div class="quick-icon">
+                  🏢
+                </div>
+
+                <div class="quick-title">
+                  Business Profile
+                </div>
+
+                <div class="quick-text">
+                  Change business name, tagline and notice.
+                </div>
+              </div>
+
+
+              <div
+                class="quick-card"
+                data-go="hero"
+              >
+                <div class="quick-icon">
+                  🚀
+                </div>
+
+                <div class="quick-title">
+                  Hero Section
+                </div>
+
+                <div class="quick-text">
+                  Update homepage hero description.
+                </div>
+              </div>
+
+
+              <div
+                class="quick-card"
+                data-go="contact"
+              >
+                <div class="quick-icon">
+                  📞
+                </div>
+
+                <div class="quick-title">
+                  Contact Details
+                </div>
+
+                <div class="quick-text">
+                  Manage phone, email and address.
+                </div>
+              </div>
+
+
+              <div
+                class="quick-card"
+                data-go="social"
+              >
+                <div class="quick-icon">
+                  🌐
+                </div>
+
+                <div class="quick-title">
+                  Social Media
+                </div>
+
+                <div class="quick-text">
+                  Manage Facebook, Instagram, LinkedIn and YouTube.
+                </div>
+              </div>
+
+
+              <div
+                class="quick-card"
+                data-go="branding"
+              >
+                <div class="quick-icon">
+                  🎨
+                </div>
+
+                <div class="quick-title">
+                  Branding
+                </div>
+
+                <div class="quick-text">
+                  Manage logo and favicon.
+                </div>
+              </div>
+
+
+              <div
+                class="quick-card"
+                data-go="footerSettings"
+              >
+                <div class="quick-icon">
+                  📝
+                </div>
+
+                <div class="quick-title">
+                  Footer
+                </div>
+
+                <div class="quick-text">
+                  Update footer text and copyright.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           BUSINESS PROFILE
+      ========================== -->
+
+      <section
+        id="business"
+        class="admin-section"
+        style="display:none;"
       >
-        —
-      </a>
 
-      <a
-        data-email
-        id="footerEmail"
-        href="#"
-      >
-        hello@snkbusiness.com
-      </a>
+        <div class="panel">
 
-      <span
-        data-address
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Business Profile
+              </div>
+
+              <div class="panel-description">
+                Update your main business information.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Business Name
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="businessName"
+                  placeholder="SNK Business"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Tagline
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="tagline"
+                  placeholder="Your business tagline"
+                >
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label class="form-label">
+                  Notice / Announcement
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="notice"
+                  placeholder="Write a short announcement"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           HERO
+      ========================== -->
+
+      <section
+        id="hero"
+        class="admin-section"
+        style="display:none;"
       >
-        —
-      </span>
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Hero Section
+              </div>
+
+              <div class="panel-description">
+                Control the main homepage hero description.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-group">
+
+              <label class="form-label">
+                Hero Description
+              </label>
+
+              <textarea
+                class="form-control"
+                id="heroDescription"
+                placeholder="Describe your business..."
+              ></textarea>
+
+              <div class="form-help">
+                This content will be shown in the homepage hero section.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           CONTACT
+      ========================== -->
+
+      <section
+        id="contact"
+        class="admin-section"
+        style="display:none;"
+      >
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Contact Information
+              </div>
+
+              <div class="panel-description">
+                Manage customer contact information.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Phone Number
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  placeholder="+8801XXXXXXXXX"
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Email Address
+                </label>
+
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="info@example.com"
+                >
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label class="form-label">
+                  Business Address
+                </label>
+
+                <textarea
+                  class="form-control"
+                  id="address"
+                  placeholder="Business address"
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           SOCIAL
+      ========================== -->
+
+      <section
+        id="social"
+        class="admin-section"
+        style="display:none;"
+      >
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Social Media Links
+              </div>
+
+              <div class="panel-description">
+                Add or update your official social media profiles.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Facebook
+                </label>
+
+                <input
+                  type="url"
+                  class="form-control"
+                  id="facebook"
+                  placeholder="https://facebook.com/..."
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  Instagram
+                </label>
+
+                <input
+                  type="url"
+                  class="form-control"
+                  id="instagram"
+                  placeholder="https://instagram.com/..."
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  LinkedIn
+                </label>
+
+                <input
+                  type="url"
+                  class="form-control"
+                  id="linkedin"
+                  placeholder="https://linkedin.com/..."
+                >
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label class="form-label">
+                  YouTube
+                </label>
+
+                <input
+                  type="url"
+                  class="form-control"
+                  id="youtube"
+                  placeholder="https://youtube.com/..."
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           BRANDING
+      ========================== -->
+
+      <section
+        id="branding"
+        class="admin-section"
+        style="display:none;"
+      >
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Branding
+              </div>
+
+              <div class="panel-description">
+                Manage your website logo and favicon.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="branding-grid">
+
+              <div class="logo-preview-box">
+
+                <img
+                  src="assets/logo.png"
+                  alt="Logo Preview"
+                  class="logo-preview"
+                  id="logoPreview"
+                >
+
+                <div class="preview-label">
+                  Current Logo
+                </div>
+
+              </div>
+
+
+              <div>
+
+                <div class="form-grid">
+
+                  <div class="form-group full">
+
+                    <label class="form-label">
+                      Logo Path / URL
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="logo"
+                      placeholder="assets/logo.png"
+                    >
+
+                    <div class="form-help">
+                      Recommended: assets/logo.png
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-group full">
+
+                    <label class="form-label">
+                      Favicon Path / URL
+                    </label>
+
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="favicon"
+                      placeholder="assets/favicon.png"
+                    >
+
+                    <div class="form-help">
+                      Recommended: assets/favicon.png
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           FOOTER
+      ========================== -->
+
+      <section
+        id="footerSettings"
+        class="admin-section"
+        style="display:none;"
+      >
+
+        <div class="panel">
+
+          <div class="panel-header">
+
+            <div>
+
+              <div class="panel-title">
+                Footer Settings
+              </div>
+
+              <div class="panel-description">
+                Customize the footer information of your website.
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="panel-body">
+
+            <div class="form-grid">
+
+              <div class="form-group full">
+
+                <label class="form-label">
+                  Footer Text
+                </label>
+
+                <textarea
+                  class="form-control"
+                  id="footerText"
+                  placeholder="Your footer description..."
+                ></textarea>
+
+              </div>
+
+
+              <div class="form-group full">
+
+                <label class="form-label">
+                  Copyright Text
+                </label>
+
+                <input
+                  type="text"
+                  class="form-control"
+                  id="copyright"
+                  placeholder="© 2026 SNK Business. All rights reserved."
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           SAVE PANEL
+      ========================== -->
+
+      <div class="panel">
+
+        <div class="panel-header">
+
+          <div>
+
+            <div class="panel-title">
+              Save Website Settings
+            </div>
+
+            <div class="panel-description">
+              Save all changes to your browser's local storage.
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="panel-body">
+
+          <div class="actions">
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="resetBtn"
+            >
+              ↩ Reset Defaults
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveBtn"
+            >
+              💾 Save All Changes
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
 
 
-  </div>
-
-
-  <div class="container footer-bottom">
-
-    <p
-      data-copyright
-    >
-      © 2026 SNK Business
-    </p>
-
-
-    <div class="footer-bottom-links">
-
-      <a href="#home">
-        Back to top ↑
-      </a>
-
-      <!-- Admin -->
-      <a href="admin.html">
-        Admin
-      </a>
-
+    <div class="admin-footer">
+      SNK Business Admin Panel • Website Management System
     </div>
 
-  </div>
-
-</footer>
+  </main>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================== -->
 
-<!-- =====================================================
-     SCRIPT
-===================================================== -->
+  <script>
 
-<script src="script.js"></script>
+    /* ==========================================
+       SECURITY CHECK
+    ========================================== */
 
+    const isLoggedIn =
+      sessionStorage.getItem("snkBusinessAdminLoggedIn") === "true";
 
-<script>
-
-/* =====================================================
-   SNK BUSINESS ADMIN SYSTEM
-   Homepage Dynamic Settings
-===================================================== */
-
-
-/* -----------------------------------------------------
-   DEFAULT SETTINGS
------------------------------------------------------ */
-
-const DEFAULT_SETTINGS = {
-
-  businessName:
-    "SNK Business",
-
-  tagline:
-    "Smart Business. Better Solutions.",
-
-  notice:
-    "Welcome to SNK Business",
-
-  heroDescription:
-    "We help businesses build better digital experiences, practical solutions and stronger opportunities for growth.",
-
-  phone:
-    "",
-
-  email:
-    "hello@snkbusiness.com",
-
-  address:
-    "",
-
-  facebook:
-    "",
-
-  instagram:
-    "",
-
-  linkedin:
-    "",
-
-  youtube:
-    "",
-
-  footerText:
-    "Your trusted business partner.",
-
-  copyright:
-    "© 2026 SNK Business",
-
-  logo:
-    "assets/logo.png",
-
-  favicon:
-    "assets/favicon.png"
-
-};
+    if (!isLoggedIn) {
+      window.location.href = "admin-login.html";
+    }
 
 
-/* -----------------------------------------------------
-   GET SETTINGS
------------------------------------------------------ */
+    /* ==========================================
+       DEFAULT SETTINGS
+    ========================================== */
 
-function getSNKSettings(){
+    const defaultSettings = {
 
-  try{
+      businessName:
+        "SNK Business",
 
-    const saved =
-      localStorage.getItem(
-        "snkBusinessSettings"
+      tagline:
+        "Smart Business Solutions",
+
+      notice:
+        "Welcome to SNK Business",
+
+      heroDescription:
+        "We help businesses build better digital experiences, improve their operations and grow with modern solutions.",
+
+      phone:
+        "+880 1XXXXXXXXX",
+
+      email:
+        "info@snkbusiness.com",
+
+      address:
+        "Bangladesh",
+
+      facebook:
+        "",
+
+      instagram:
+        "",
+
+      linkedin:
+        "",
+
+      youtube:
+        "",
+
+      footerText:
+        "SNK Business provides modern business, digital, creative and technology solutions.",
+
+      copyright:
+        "© 2026 SNK Business. All rights reserved.",
+
+      logo:
+        "assets/logo.png",
+
+      favicon:
+        "assets/favicon.png"
+
+    };
+
+
+    /* ==========================================
+       GET SETTINGS
+    ========================================== */
+
+    function getSettings() {
+
+      try {
+
+        const saved =
+          localStorage.getItem("snkBusinessSettings");
+
+        if (!saved) {
+          return { ...defaultSettings };
+        }
+
+        const parsed =
+          JSON.parse(saved);
+
+        return {
+          ...defaultSettings,
+          ...parsed
+        };
+
+      } catch (error) {
+
+        console.error(
+          "Could not read settings:",
+          error
+        );
+
+        return {
+          ...defaultSettings
+        };
+
+      }
+
+    }
+
+
+    /* ==========================================
+       SET INPUT
+    ========================================== */
+
+    function setValue(id, value) {
+
+      const element =
+        document.getElementById(id);
+
+      if (element) {
+        element.value =
+          value || "";
+      }
+
+    }
+
+
+    /* ==========================================
+       LOAD SETTINGS INTO FORM
+    ========================================== */
+
+    function loadSettings() {
+
+      const settings =
+        getSettings();
+
+
+      setValue(
+        "businessName",
+        settings.businessName
       );
 
-    if(!saved){
+      setValue(
+        "tagline",
+        settings.tagline
+      );
+
+      setValue(
+        "notice",
+        settings.notice
+      );
+
+      setValue(
+        "heroDescription",
+        settings.heroDescription
+      );
+
+      setValue(
+        "phone",
+        settings.phone
+      );
+
+      setValue(
+        "email",
+        settings.email
+      );
+
+      setValue(
+        "address",
+        settings.address
+      );
+
+      setValue(
+        "facebook",
+        settings.facebook
+      );
+
+      setValue(
+        "instagram",
+        settings.instagram
+      );
+
+      setValue(
+        "linkedin",
+        settings.linkedin
+      );
+
+      setValue(
+        "youtube",
+        settings.youtube
+      );
+
+      setValue(
+        "footerText",
+        settings.footerText
+      );
+
+      setValue(
+        "copyright",
+        settings.copyright
+      );
+
+      setValue(
+        "logo",
+        settings.logo
+      );
+
+      setValue(
+        "favicon",
+        settings.favicon
+      );
+
+
+      updatePreview(
+        settings.logo
+      );
+
+      updateDashboard(
+        settings
+      );
+
+    }
+
+
+    /* ==========================================
+       UPDATE DASHBOARD
+    ========================================== */
+
+    function updateDashboard(settings) {
+
+      const business =
+        document.getElementById(
+          "statBusiness"
+        );
+
+      const settingsStatus =
+        document.getElementById(
+          "statSettings"
+        );
+
+      const sidebarName =
+        document.getElementById(
+          "sidebarBusinessName"
+        );
+
+      const sidebarLogo =
+        document.getElementById(
+          "sidebarLogo"
+        );
+
+      if (business) {
+
+        business.textContent =
+          settings.businessName
+            ? "Active"
+            : "Setup";
+
+      }
+
+      if (settingsStatus) {
+
+        settingsStatus.textContent =
+          "Ready";
+
+      }
+
+      if (sidebarName) {
+
+        sidebarName.textContent =
+          settings.businessName ||
+          "SNK Business";
+
+      }
+
+      if (sidebarLogo) {
+
+        sidebarLogo.src =
+          settings.logo ||
+          "assets/logo.png";
+
+      }
+
+    }
+
+
+    /* ==========================================
+       UPDATE LOGO PREVIEW
+    ========================================== */
+
+    function updatePreview(
+      logoPath
+    ) {
+
+      const preview =
+        document.getElementById(
+          "logoPreview"
+        );
+
+      if (!preview) {
+        return;
+      }
+
+      preview.src =
+        logoPath ||
+        "assets/logo.png";
+
+    }
+
+
+    /* ==========================================
+       COLLECT FORM DATA
+    ========================================== */
+
+    function collectSettings() {
 
       return {
-        ...DEFAULT_SETTINGS
+
+        businessName:
+          document.getElementById(
+            "businessName"
+          ).value.trim(),
+
+        tagline:
+          document.getElementById(
+            "tagline"
+          ).value.trim(),
+
+        notice:
+          document.getElementById(
+            "notice"
+          ).value.trim(),
+
+        heroDescription:
+          document.getElementById(
+            "heroDescription"
+          ).value.trim(),
+
+        phone:
+          document.getElementById(
+            "phone"
+          ).value.trim(),
+
+        email:
+          document.getElementById(
+            "email"
+          ).value.trim(),
+
+        address:
+          document.getElementById(
+            "address"
+          ).value.trim(),
+
+        facebook:
+          document.getElementById(
+            "facebook"
+          ).value.trim(),
+
+        instagram:
+          document.getElementById(
+            "instagram"
+          ).value.trim(),
+
+        linkedin:
+          document.getElementById(
+            "linkedin"
+          ).value.trim(),
+
+        youtube:
+          document.getElementById(
+            "youtube"
+          ).value.trim(),
+
+        footerText:
+          document.getElementById(
+            "footerText"
+          ).value.trim(),
+
+        copyright:
+          document.getElementById(
+            "copyright"
+          ).value.trim(),
+
+        logo:
+          document.getElementById(
+            "logo"
+          ).value.trim(),
+
+        favicon:
+          document.getElementById(
+            "favicon"
+          ).value.trim()
+
       };
 
     }
 
 
-    const parsed =
-      JSON.parse(saved);
+    /* ==========================================
+       SAVE SETTINGS
+    ========================================== */
 
+    function saveSettings() {
 
-    return {
-      ...DEFAULT_SETTINGS,
-      ...parsed
-    };
+      const settings =
+        collectSettings();
 
-  }catch(error){
+      try {
 
-    console.error(
-      "SNK Settings Error:",
-      error
-    );
+        localStorage.setItem(
+          "snkBusinessSettings",
+          JSON.stringify(settings)
+        );
 
-    return {
-      ...DEFAULT_SETTINGS
-    };
+        updateDashboard(
+          settings
+        );
 
-  }
+        updatePreview(
+          settings.logo
+        );
 
-}
+        showStatus(
+          "✓ All website settings saved successfully.",
+          "success"
+        );
 
+      } catch (error) {
 
-const SNK =
-  getSNKSettings();
+        console.error(
+          error
+        );
 
-
-
-/* -----------------------------------------------------
-   SAFE TEXT UPDATE
------------------------------------------------------ */
-
-function setText(
-  selector,
-  value
-){
-
-  document
-    .querySelectorAll(selector)
-    .forEach(element => {
-
-      if(value !== undefined){
-
-        element.textContent =
-          value || "";
+        showStatus(
+          "Unable to save settings. Please try again.",
+          "error"
+        );
 
       }
-
-    });
-
-}
-
-
-/* -----------------------------------------------------
-   BUSINESS NAME
------------------------------------------------------ */
-
-setText(
-  "[data-business-name]",
-  SNK.businessName
-);
-
-
-/* -----------------------------------------------------
-   TAGLINE
------------------------------------------------------ */
-
-setText(
-  "[data-tagline]",
-  SNK.tagline
-);
-
-
-/* -----------------------------------------------------
-   NOTICE
------------------------------------------------------ */
-
-setText(
-  "[data-notice]",
-  SNK.notice
-);
-
-
-/* -----------------------------------------------------
-   HERO DESCRIPTION
------------------------------------------------------ */
-
-setText(
-  "[data-hero-description]",
-  SNK.heroDescription
-);
-
-
-/* -----------------------------------------------------
-   PHONE
------------------------------------------------------ */
-
-setText(
-  "[data-phone]",
-  SNK.phone || "Contact us"
-);
-
-
-/* -----------------------------------------------------
-   EMAIL
------------------------------------------------------ */
-
-setText(
-  "[data-email]",
-  SNK.email || "Email us"
-);
-
-
-/* -----------------------------------------------------
-   ADDRESS
------------------------------------------------------ */
-
-setText(
-  "[data-address]",
-  SNK.address || "Contact for address"
-);
-
-
-/* -----------------------------------------------------
-   FOOTER
------------------------------------------------------ */
-
-setText(
-  "[data-footer-text]",
-  SNK.footerText
-);
-
-
-setText(
-  "[data-copyright]",
-  SNK.copyright
-);
-
-
-/* -----------------------------------------------------
-   LOGO
------------------------------------------------------ */
-
-if(SNK.logo){
-
-  document
-    .querySelectorAll(
-      "[data-logo]"
-    )
-    .forEach(image => {
-
-      image.src =
-        SNK.logo;
-
-    });
-
-}
-
-
-/* -----------------------------------------------------
-   FAVICON
------------------------------------------------------ */
-
-if(SNK.favicon){
-
-  const favicon =
-    document.getElementById(
-      "siteFavicon"
-    );
-
-  if(favicon){
-
-    favicon.href =
-      SNK.favicon;
-
-  }
-
-}
-
-
-/* -----------------------------------------------------
-   DOCUMENT TITLE
------------------------------------------------------ */
-
-if(SNK.businessName){
-
-  document.title =
-    `${SNK.businessName} | ${SNK.tagline}`;
-
-}
-
-
-/* -----------------------------------------------------
-   META DESCRIPTION
------------------------------------------------------ */
-
-const metaDescription =
-  document.querySelector(
-    'meta[name="description"]'
-  );
-
-
-if(
-  metaDescription &&
-  SNK.heroDescription
-){
-
-  metaDescription.setAttribute(
-    "content",
-    SNK.heroDescription
-  );
-
-}
-
-
-/* =====================================================
-   PHONE LINKS
-===================================================== */
-
-function cleanPhone(
-  phone
-){
-
-  return String(phone || "")
-    .replace(
-      /[^0-9+]/g,
-      ""
-    );
-
-}
-
-
-const phone =
-  cleanPhone(SNK.phone);
-
-
-const phoneLinks = [
-
-  document.getElementById(
-    "phoneLink"
-  ),
-
-  document.getElementById(
-    "footerPhone"
-  )
-
-];
-
-
-phoneLinks.forEach(link => {
-
-  if(!link) return;
-
-
-  if(phone){
-
-    link.href =
-      `tel:${phone}`;
-
-  }else{
-
-    link.removeAttribute(
-      "href"
-    );
-
-  }
-
-});
-
-
-/* =====================================================
-   EMAIL LINKS
-===================================================== */
-
-const email =
-  String(
-    SNK.email || ""
-  ).trim();
-
-
-const emailLinks = [
-
-  document.getElementById(
-    "emailLink"
-  ),
-
-  document.getElementById(
-    "footerEmail"
-  )
-
-];
-
-
-emailLinks.forEach(link => {
-
-  if(!link) return;
-
-
-  if(email){
-
-    link.href =
-      `mailto:${email}`;
-
-  }else{
-
-    link.removeAttribute(
-      "href"
-    );
-
-  }
-
-});
-
-
-/* =====================================================
-   SOCIAL LINKS
-===================================================== */
-
-function setupSocialLink(
-  id,
-  url
-){
-
-  const element =
-    document.getElementById(id);
-
-
-  if(!element) return;
-
-
-  if(
-    url &&
-    String(url).trim()
-  ){
-
-    element.href =
-      String(url).trim();
-
-    element.style.display =
-      "inline-flex";
-
-  }else{
-
-    /*
-     * Hide social icon when
-     * no URL has been saved.
-     */
-
-    element.style.display =
-      "none";
-
-  }
-
-}
-
-
-setupSocialLink(
-  "facebookLink",
-  SNK.facebook
-);
-
-
-setupSocialLink(
-  "instagramLink",
-  SNK.instagram
-);
-
-
-setupSocialLink(
-  "linkedinLink",
-  SNK.linkedin
-);
-
-
-setupSocialLink(
-  "youtubeLink",
-  SNK.youtube
-);
-
-
-/* =====================================================
-   ADMIN EVENT
-   Storage changes from another tab
-===================================================== */
-
-window.addEventListener(
-  "storage",
-  function(event){
-
-    if(
-      event.key !==
-      "snkBusinessSettings"
-    ){
-
-      return;
 
     }
 
 
-    /*
-     * If Admin Profile is open in
-     * another tab and saves settings,
-     * refresh homepage automatically.
-     */
+    /* ==========================================
+       RESET
+    ========================================== */
 
-    window.location.reload();
+    function resetSettings() {
 
-  }
-);
+      const confirmed =
+        confirm(
+          "Are you sure you want to reset all website settings to default?"
+        );
+
+      if (!confirmed) {
+        return;
+      }
+
+      try {
+
+        localStorage.setItem(
+          "snkBusinessSettings",
+          JSON.stringify(
+            defaultSettings
+          )
+        );
+
+        loadSettings();
+
+        showStatus(
+          "✓ Settings restored to default values.",
+          "success"
+        );
+
+      } catch (error) {
+
+        showStatus(
+          "Unable to reset settings.",
+          "error"
+        );
+
+      }
+
+    }
 
 
-/* =====================================================
-   PAGE READY
-===================================================== */
+    /* ==========================================
+       STATUS MESSAGE
+    ========================================== */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
+    function showStatus(
+      message,
+      type
+    ) {
 
-    console.log(
-      "SNK Business Admin System Connected."
+      const box =
+        document.getElementById(
+          "statusBox"
+        );
+
+      box.textContent =
+        message;
+
+      box.className =
+        "status-box " +
+        type;
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      setTimeout(
+        () => {
+
+          box.className =
+            "status-box";
+
+        },
+        4000
+      );
+
+    }
+
+
+    /* ==========================================
+       NAVIGATION
+    ========================================== */
+
+    const navItems =
+      document.querySelectorAll(
+        ".nav-item[data-target]"
+      );
+
+    const sections =
+      document.querySelectorAll(
+        ".admin-section"
+      );
+
+    const pageHeading =
+      document.getElementById(
+        "pageHeading"
+      );
+
+
+    function showSection(
+      target
+    ) {
+
+      sections.forEach(
+        section => {
+
+          section.style.display =
+            section.id === target
+              ? "block"
+              : "none";
+
+        }
+      );
+
+
+      navItems.forEach(
+        item => {
+
+          item.classList.toggle(
+            "active",
+            item.dataset.target === target
+          );
+
+        }
+      );
+
+
+      const titles = {
+
+        dashboard:
+          "Dashboard",
+
+        business:
+          "Business Profile",
+
+        hero:
+          "Hero Settings",
+
+        contact:
+          "Contact Information",
+
+        social:
+          "Social Media",
+
+        branding:
+          "Branding",
+
+        footerSettings:
+          "Footer Settings"
+
+      };
+
+
+      pageHeading.textContent =
+        titles[target] ||
+        "Dashboard";
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      closeMobileMenu();
+
+    }
+
+
+    navItems.forEach(
+      item => {
+
+        item.addEventListener(
+          "click",
+          () => {
+
+            showSection(
+              item.dataset.target
+            );
+
+          }
+        );
+
+      }
     );
 
-  }
-);
 
-</script>
+    /* ==========================================
+       QUICK CARDS
+    ========================================== */
 
+    document
+      .querySelectorAll(
+        ".quick-card[data-go]"
+      )
+      .forEach(
+        card => {
+
+          card.addEventListener(
+            "click",
+            () => {
+
+              showSection(
+                card.dataset.go
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* ==========================================
+       MOBILE MENU
+    ========================================== */
+
+    const sidebar =
+      document.getElementById(
+        "sidebar"
+      );
+
+    const menuBtn =
+      document.getElementById(
+        "menuBtn"
+      );
+
+    const mobileOverlay =
+      document.getElementById(
+        "mobileOverlay"
+      );
+
+
+    function openMobileMenu() {
+
+      sidebar.classList.add(
+        "open"
+      );
+
+      mobileOverlay.classList.add(
+        "show"
+      );
+
+    }
+
+
+    function closeMobileMenu() {
+
+      sidebar.classList.remove(
+        "open"
+      );
+
+      mobileOverlay.classList.remove(
+        "show"
+      );
+
+    }
+
+
+    menuBtn.addEventListener(
+      "click",
+      openMobileMenu
+    );
+
+
+    mobileOverlay.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+
+    /* ==========================================
+       LOGO LIVE PREVIEW
+    ========================================== */
+
+    document
+      .getElementById("logo")
+      .addEventListener(
+        "input",
+        function() {
+
+          updatePreview(
+            this.value.trim() ||
+            "assets/logo.png"
+          );
+
+        }
+      );
+
+
+    /* ==========================================
+       LOGO ERROR FALLBACK
+    ========================================== */
+
+    document
+      .getElementById("logoPreview")
+      .addEventListener(
+        "error",
+        function() {
+
+          this.src =
+            "assets/logo.png";
+
+        }
+      );
+
+
+    document
+      .getElementById("sidebarLogo")
+      .addEventListener(
+        "error",
+        function() {
+
+          this.src =
+            "assets/logo.png";
+
+        }
+      );
+
+
+    /* ==========================================
+       LOGOUT
+    ========================================== */
+
+    document
+      .getElementById("logoutBtn")
+      .addEventListener(
+        "click",
+        function() {
+
+          const confirmed =
+            confirm(
+              "Are you sure you want to logout?"
+            );
+
+          if (!confirmed) {
+            return;
+          }
+
+          sessionStorage.removeItem(
+            "snkBusinessAdminLoggedIn"
+          );
+
+          sessionStorage.removeItem(
+            "snkBusinessAdminLoginTime"
+          );
+
+          sessionStorage.removeItem(
+            "snkBusinessAdminUsername"
+          );
+
+          window.location.href =
+            "admin-login.html";
+
+        }
+      );
+
+
+    /* ==========================================
+       SAVE BUTTON
+    ========================================== */
+
+    document
+      .getElementById("saveBtn")
+      .addEventListener(
+        "click",
+        saveSettings
+      );
+
+
+    /* ==========================================
+       RESET BUTTON
+    ========================================== */
+
+    document
+      .getElementById("resetBtn")
+      .addEventListener(
+        "click",
+        resetSettings
+      );
+
+
+    /* ==========================================
+       ADMIN USERNAME
+    ========================================== */
+
+    const storedUsername =
+      sessionStorage.getItem(
+        "snkBusinessAdminUsername"
+      );
+
+    if (storedUsername) {
+
+      document.getElementById(
+        "adminUsername"
+      ).textContent =
+        storedUsername;
+
+    }
+
+
+    /* ==========================================
+       INITIALIZE
+    ========================================== */
+
+    loadSettings();
+
+
+    /* ==========================================
+       AUTO SESSION TIMEOUT
+       8 HOURS
+    ========================================== */
+
+    const loginTime =
+      Number(
+        sessionStorage.getItem(
+          "snkBusinessAdminLoginTime"
+        )
+      );
+
+    if (
+      loginTime &&
+      Date.now() - loginTime >
+      8 * 60 * 60 * 1000
+    ) {
+
+      sessionStorage.clear();
+
+      window.location.href =
+        "admin-login.html";
+
+    }
+
+
+  </script>
 
 </body>
-
 </html>
