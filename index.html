@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -8,19 +10,23 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  <!-- Dynamic title -->
+  <title>SNK Business</title>
+
   <meta
     name="description"
-    content="SNK Business — Smart business solutions built for growth, trust and long-term success."
+    content="SNK Business — Smart Business. Better Solutions."
   >
 
-  <meta
-    name="theme-color"
-    content="#b8d62b"
+  <!-- Favicon -->
+  <link
+    id="siteFavicon"
+    rel="icon"
+    type="image/png"
+    href="assets/favicon.png"
   >
 
-  <title>SNK Business | Smart Business Solutions</title>
-
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -29,978 +35,1878 @@
     rel="stylesheet"
   >
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Main CSS -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
 
-  <header class="site-header" id="header">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <div class="container nav-container">
+<header
+  id="header"
+  class="site-header"
+>
 
-      <!-- Logo -->
-      <a href="#home" class="brand">
-
-        <img
-          src="assets/logo-full.png"
-          alt="SNK Business"
-          class="brand-logo"
-        >
-
-      </a>
+  <div class="container header-inner">
 
 
-      <!-- Desktop Navigation -->
+    <!-- LOGO -->
 
-      <nav class="desktop-nav">
+    <a
+      href="#home"
+      class="brand"
+    >
 
-        <a href="#home" class="active">Home</a>
-
-        <a href="#about">About</a>
-
-        <a href="#services">Services</a>
-
-        <a href="#why-us">Why Us</a>
-
-        <a href="#contact">Contact</a>
-
-      </nav>
-
-
-      <!-- Header CTA -->
-
-      <a href="#contact" class="nav-cta">
-        Let's Talk
-      </a>
-
-
-      <!-- Mobile Menu -->
-
-      <button
-        class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open Menu"
+      <img
+        id="headerLogo"
+        class="brand-logo"
+        data-logo
+        src="assets/logo.png"
+        alt="SNK Business"
       >
 
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="brand-text">
 
-      </button>
+        <span
+          class="brand-name"
+          data-business-name
+        >
+          SNK Business
+        </span>
 
-    </div>
+        <span
+          class="brand-tagline"
+          data-tagline
+        >
+          Smart Business. Better Solutions.
+        </span>
+
+      </div>
+
+    </a>
 
 
-    <!-- Mobile Navigation -->
+    <!-- DESKTOP NAV -->
 
-    <nav class="mobile-nav" id="mobileNav">
+    <nav
+      class="desktop-nav"
+      aria-label="Main navigation"
+    >
 
-      <a href="#home">Home</a>
+      <a
+        href="#home"
+        class="active"
+      >
+        Home
+      </a>
 
-      <a href="#about">About</a>
+      <a href="#about">
+        About
+      </a>
 
-      <a href="#services">Services</a>
+      <a href="#services">
+        Services
+      </a>
 
-      <a href="#why-us">Why Us</a>
+      <a href="#why-us">
+        Why Us
+      </a>
 
-      <a href="#contact">Contact</a>
-
-      <a href="#contact" class="mobile-cta">
-        Let's Talk
+      <a href="#contact">
+        Contact
       </a>
 
     </nav>
 
-  </header>
 
+    <!-- HEADER CTA -->
 
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
+    <a
+      href="#contact"
+      class="header-cta"
+    >
+      Get in Touch
+    </a>
 
-  <main>
 
-    <section class="hero" id="home">
+    <!-- MOBILE MENU -->
 
-      <div class="hero-glow glow-one"></div>
-      <div class="hero-glow glow-two"></div>
+    <button
+      id="menuToggle"
+      class="menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
 
+      <span></span>
+      <span></span>
+      <span></span>
 
-      <div class="container hero-grid">
+    </button>
 
+  </div>
 
-        <!-- Hero Content -->
 
-        <div class="hero-content">
+  <!-- MOBILE NAV -->
 
-          <div class="eyebrow">
+  <div
+    id="mobileNav"
+    class="mobile-nav"
+  >
 
-            <span class="eyebrow-dot"></span>
+    <a href="#home">
+      Home
+    </a>
 
-            SMART BUSINESS. SMARTER GROWTH.
+    <a href="#about">
+      About
+    </a>
 
-          </div>
+    <a href="#services">
+      Services
+    </a>
 
+    <a href="#why-us">
+      Why Us
+    </a>
 
-          <h1>
+    <a href="#contact">
+      Contact
+    </a>
 
-            Building better
-            <span>business</span>
-            opportunities.
+    <a
+      href="#contact"
+      class="mobile-cta"
+    >
+      Get in Touch
+    </a>
 
-          </h1>
+  </div>
 
+</header>
 
-          <p class="hero-text">
 
-            SNK Business helps businesses discover opportunities,
-            build stronger digital foundations and move forward
-            with clarity and confidence.
 
-          </p>
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
+<main>
 
-          <div class="hero-buttons">
 
-            <a
-              href="#services"
-              class="btn btn-primary"
-            >
-              Explore Services
+<!-- =====================================================
+     HOME / HERO
+===================================================== -->
 
-              <span>→</span>
-            </a>
+<section
+  id="home"
+  class="hero"
+>
 
+  <div class="container hero-grid">
 
-            <a
-              href="#about"
-              class="btn btn-secondary"
-            >
-              Discover SNK
 
-            </a>
+    <!-- LEFT -->
 
-          </div>
+    <div class="hero-content">
 
 
-          <!-- Trust line -->
+      <!-- NOTICE -->
 
-          <div class="hero-trust">
-
-            <div class="trust-avatars">
-
-              <span>SNK</span>
-
-            </div>
-
-            <div>
-
-              <strong>Built with purpose</strong>
-
-              <small>
-                Business • Digital • Growth
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- Hero Visual -->
-
-        <div class="hero-visual">
-
-          <div class="visual-card">
-
-            <div class="visual-top">
-
-              <span class="visual-label">
-                SNK BUSINESS
-              </span>
-
-              <span class="visual-status">
-                ● ACTIVE
-              </span>
-
-            </div>
-
-
-            <div class="logo-stage">
-
-              <img
-                src="assets/logo.png"
-                alt="SNK Business Logo"
-              >
-
-            </div>
-
-
-            <div class="visual-bottom">
-
-              <div>
-                <small>FOCUS</small>
-                <strong>Business Growth</strong>
-              </div>
-
-              <div>
-                <small>APPROACH</small>
-                <strong>Smart &amp; Simple</strong>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <!-- Floating card -->
-
-          <div class="floating-card floating-one">
-
-            <span class="floating-icon">↗</span>
-
-            <div>
-
-              <strong>Growth</strong>
-
-              <small>
-                Opportunity focused
-              </small>
-
-            </div>
-
-          </div>
-
-
-          <div class="floating-card floating-two">
-
-            <span class="floating-icon">✓</span>
-
-            <div>
-
-              <strong>Trusted</strong>
-
-              <small>
-                Built for long-term value
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
+      <div
+        class="hero-notice"
+        data-notice
+      >
+        Welcome to SNK Business
       </div>
 
 
-      <!-- Scroll -->
-
-      <a href="#about" class="scroll-indicator">
+      <div class="hero-eyebrow">
 
         <span></span>
 
-        Scroll to explore
-
-      </a>
-
-    </section>
-
-
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
-
-    <section class="section about-section" id="about">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <div class="section-tag">
-            ABOUT SNK BUSINESS
-          </div>
-
-          <h2>
-            Business should be
-            <span>clear, smart &amp; purposeful.</span>
-          </h2>
-
-          <p>
-            SNK Business is built around a simple idea:
-            helping people and businesses turn opportunities
-            into meaningful progress.
-          </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-
-          <div class="about-main">
-
-            <div class="about-number">
-              01
-            </div>
-
-            <h3>
-              We look beyond
-              the obvious.
-            </h3>
-
-            <p>
-              From discovering opportunities to improving
-              digital presence, we focus on practical solutions
-              that create real business value.
-            </p>
-
-            <a href="#contact" class="text-link">
-              Start a conversation →
-            </a>
-
-          </div>
-
-
-          <div class="about-points">
-
-            <div class="about-point">
-
-              <span>01</span>
-
-              <div>
-
-                <h4>Clarity</h4>
-
-                <p>
-                  Clear thinking before making important
-                  business decisions.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="about-point">
-
-              <span>02</span>
-
-              <div>
-
-                <h4>Strategy</h4>
-
-                <p>
-                  Practical strategies designed around
-                  real business needs.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="about-point">
-
-              <span>03</span>
-
-              <div>
-
-                <h4>Growth</h4>
-
-                <p>
-                  Building foundations that can support
-                  long-term growth.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
+        Business • Digital • Solutions
 
       </div>
 
-    </section>
 
+      <h1>
 
-    <!-- =====================================================
-         SERVICES
-    ====================================================== -->
-
-    <section class="section services-section" id="services">
-
-      <div class="container">
-
-        <div class="section-heading services-heading">
-
-          <div class="section-tag">
-            WHAT WE DO
-          </div>
-
-          <h2>
-            Solutions designed
-            for <span>business.</span>
-          </h2>
-
-          <p>
-            Our services will be shaped around your business
-            goals, challenges and growth opportunities.
-          </p>
-
-        </div>
-
-
-        <div class="services-grid">
-
-
-          <!-- Service 01 -->
-
-          <article class="service-card">
-
-            <div class="service-number">
-              01
-            </div>
-
-            <div class="service-icon">
-              ↗
-            </div>
-
-            <h3>
-              Business Solutions
-            </h3>
-
-            <p>
-              Practical solutions to help businesses
-              improve their operations, positioning and
-              growth opportunities.
-            </p>
-
-            <a href="#contact">
-              Learn more →
-            </a>
-
-          </article>
-
-
-          <!-- Service 02 -->
-
-          <article class="service-card featured">
-
-            <div class="service-number">
-              02
-            </div>
-
-            <div class="service-icon">
-              ◇
-            </div>
-
-            <h3>
-              Digital Solutions
-            </h3>
-
-            <p>
-              Modern digital solutions that help brands
-              build a stronger presence and connect with
-              their audience.
-            </p>
-
-            <a href="#contact">
-              Learn more →
-            </a>
-
-          </article>
-
-
-          <!-- Service 03 -->
-
-          <article class="service-card">
-
-            <div class="service-number">
-              03
-            </div>
-
-            <div class="service-icon">
-              ◎
-            </div>
-
-            <h3>
-              Growth &amp; Strategy
-            </h3>
-
-            <p>
-              Identify opportunities, understand challenges
-              and create a clearer path toward sustainable
-              business growth.
-            </p>
-
-            <a href="#contact">
-              Learn more →
-            </a>
-
-          </article>
-
-
-          <!-- Service 04 -->
-
-          <article class="service-card">
-
-            <div class="service-number">
-              04
-            </div>
-
-            <div class="service-icon">
-              +
-            </div>
-
-            <h3>
-              Custom Solutions
-            </h3>
-
-            <p>
-              Need something different? We can explore a
-              solution around your specific business needs.
-            </p>
-
-            <a href="#contact">
-              Talk to us →
-            </a>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         WHY US
-    ====================================================== -->
-
-    <section class="section why-section" id="why-us">
-
-      <div class="container">
-
-        <div class="why-grid">
-
-
-          <div class="why-content">
-
-            <div class="section-tag">
-              WHY SNK BUSINESS
-            </div>
-
-            <h2>
-              Less noise.
-              <span>More direction.</span>
-            </h2>
-
-            <p>
-              We believe good business solutions don't need
-              unnecessary complexity. The goal is to understand
-              the problem, identify the opportunity and move
-              forward with purpose.
-            </p>
-
-
-            <a href="#contact" class="btn btn-primary">
-              Work With Us
-              <span>→</span>
-            </a>
-
-          </div>
-
-
-          <div class="why-list">
-
-
-            <div class="why-item">
-
-              <div class="why-icon">
-                01
-              </div>
-
-              <div>
-
-                <h3>
-                  Practical Thinking
-                </h3>
-
-                <p>
-                  We focus on solutions that can actually
-                  be implemented.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="why-item">
-
-              <div class="why-icon">
-                02
-              </div>
-
-              <div>
-
-                <h3>
-                  Modern Approach
-                </h3>
-
-                <p>
-                  We combine business thinking with
-                  modern digital possibilities.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="why-item">
-
-              <div class="why-icon">
-                03
-              </div>
-
-              <div>
-
-                <h3>
-                  Long-Term Focus
-                </h3>
-
-                <p>
-                  We aim to build value that goes beyond
-                  a single transaction.
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <div class="why-item">
-
-              <div class="why-icon">
-                04
-              </div>
-
-              <div>
-
-                <h3>
-                  Human Connection
-                </h3>
-
-                <p>
-                  Every business has a story. We start by
-                  listening and understanding.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         STATS
-    ====================================================== -->
-
-    <section class="stats-section">
-
-      <div class="container stats-grid">
-
-        <div class="stat">
-
-          <strong>01</strong>
-
-          <span>
-            Clear Direction
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>∞</strong>
-
-          <span>
-            Growth Opportunities
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>24/7</strong>
-
-          <span>
-            Digital Presence
-          </span>
-
-        </div>
-
-
-        <div class="stat">
-
-          <strong>SNK</strong>
-
-          <span>
-            Built with Purpose
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CONTACT
-    ====================================================== -->
-
-    <section class="section contact-section" id="contact">
-
-      <div class="container">
-
-        <div class="contact-box">
-
-
-          <div class="contact-content">
-
-            <div class="section-tag">
-              GET IN TOUCH
-            </div>
-
-            <h2>
-              Have an idea?
-              <span>Let's talk.</span>
-            </h2>
-
-            <p>
-              Tell us what you're building, what you're
-              trying to solve, or where you want to go.
-            </p>
-
-
-            <div class="contact-details">
-
-              <a href="mailto:hello@snkbusiness.com">
-                <span>Email</span>
-                hello@snkbusiness.com
-              </a>
-
-              <a href="tel:+8800000000000">
-                <span>Phone</span>
-                +880 0000-000000
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- Contact Form -->
-
-          <form
-            class="contact-form"
-            id="contactForm"
-          >
-
-            <div class="form-row">
-
-              <div class="form-group">
-
-                <label for="name">
-                  Your Name
-                </label>
-
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Enter your name"
-                  required
-                >
-
-              </div>
-
-
-              <div class="form-group">
-
-                <label for="email">
-                  Email
-                </label>
-
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="you@example.com"
-                  required
-                >
-
-              </div>
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="subject">
-                Subject
-              </label>
-
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder="How can we help?"
-              >
-
-            </div>
-
-
-            <div class="form-group">
-
-              <label for="message">
-                Message
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Tell us about your project..."
-                required
-              ></textarea>
-
-            </div>
-
-
-            <button
-              type="submit"
-              class="btn btn-primary form-button"
-            >
-
-              Send Message
-
-              <span>→</span>
-
-            </button>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer class="site-footer">
-
-    <div class="container">
-
-      <div class="footer-top">
-
-
-        <div class="footer-brand">
-
-          <img
-            src="assets/logo-full.png"
-            alt="SNK Business"
-          >
-
-          <p>
-            Smart business solutions for a changing world.
-          </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-          <div>
-
-            <h4>Explore</h4>
-
-            <a href="#home">Home</a>
-
-            <a href="#about">About</a>
-
-            <a href="#services">Services</a>
-
-            <a href="#why-us">Why Us</a>
-
-          </div>
-
-
-          <div>
-
-            <h4>Connect</h4>
-
-            <a href="#contact">Contact</a>
-
-            <a href="#">Facebook</a>
-
-            <a href="#">LinkedIn</a>
-
-            <a href="#">Instagram</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="footer-bottom">
+        Build Better.
 
         <span>
-          © <span id="year"></span> SNK Business. All rights reserved.
+          Grow Smarter.
         </span>
 
-        <span>
-          Built with purpose.
-        </span>
+      </h1>
+
+
+      <p
+        class="hero-description"
+        data-hero-description
+      >
+        We help businesses build better digital
+        experiences, practical solutions and
+        stronger opportunities for growth.
+      </p>
+
+
+      <div class="hero-actions">
+
+        <a
+          href="#services"
+          class="btn btn-primary"
+        >
+          Explore Services
+          <span>→</span>
+        </a>
+
+        <a
+          href="#contact"
+          class="btn btn-secondary"
+        >
+          Contact Us
+        </a>
 
       </div>
+
+
+      <!-- TRUST -->
+
+      <div class="hero-trust">
+
+        <div class="trust-avatars">
+
+          <span>SNK</span>
+          <span>BD</span>
+          <span>+</span>
+
+        </div>
+
+        <div>
+
+          <strong>
+            Business-focused solutions
+          </strong>
+
+          <small>
+            Designed for practical growth
+          </small>
+
+        </div>
+
+      </div>
+
 
     </div>
 
-  </footer>
+
+    <!-- RIGHT -->
+
+    <div
+      class="hero-visual"
+    >
+
+      <div class="hero-orb orb-one"></div>
+      <div class="hero-orb orb-two"></div>
 
 
-  <!-- JS -->
+      <div class="hero-card-main">
 
-  <script src="script.js"></script>
+        <div class="hero-logo-frame">
+
+          <img
+            id="heroLogo"
+            data-logo
+            src="assets/logo.png"
+            alt="SNK Business Logo"
+          >
+
+        </div>
+
+
+        <div class="hero-card-content">
+
+          <span>
+            SNK BUSINESS
+          </span>
+
+          <h2
+            data-business-name
+          >
+            SNK Business
+          </h2>
+
+          <p
+            data-tagline
+          >
+            Smart Business. Better Solutions.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="floating-card floating-top">
+
+        <span class="floating-icon">
+          ✓
+        </span>
+
+        <div>
+
+          <strong>
+            Smart Solutions
+          </strong>
+
+          <small>
+            Business focused
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="floating-card floating-bottom">
+
+        <span class="floating-icon">
+          ↗
+        </span>
+
+        <div>
+
+          <strong>
+            Better Growth
+          </strong>
+
+          <small>
+            Digital first
+          </small>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+  id="about"
+  class="section about-section"
+>
+
+  <div class="container">
+
+
+    <div class="section-heading">
+
+      <span class="section-label">
+        ABOUT US
+      </span>
+
+      <h2>
+        Business ideas into
+        <span>real solutions.</span>
+      </h2>
+
+      <p>
+        We focus on practical, modern and
+        meaningful solutions that help businesses
+        move forward.
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+      <div class="about-main">
+
+        <div class="about-number">
+          01
+        </div>
+
+        <h3>
+          A practical approach
+          to modern business.
+        </h3>
+
+        <p>
+          At
+          <strong data-business-name>
+            SNK Business
+          </strong>,
+          we believe good business solutions
+          should be simple, useful and built
+          around real needs.
+        </p>
+
+        <p>
+          From digital services and business
+          support to creative and technology
+          solutions, our focus is on creating
+          value that businesses can actually use.
+        </p>
+
+      </div>
+
+
+      <div class="about-points">
+
+
+        <div class="about-point">
+
+          <div class="point-icon">
+            01
+          </div>
+
+          <div>
+
+            <h4>
+              Practical
+            </h4>
+
+            <p>
+              Solutions designed around
+              real business requirements.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="about-point">
+
+          <div class="point-icon">
+            02
+          </div>
+
+          <div>
+
+            <h4>
+              Modern
+            </h4>
+
+            <p>
+              Contemporary ideas,
+              technology and digital thinking.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="about-point">
+
+          <div class="point-icon">
+            03
+          </div>
+
+          <div>
+
+            <h4>
+              Focused
+            </h4>
+
+            <p>
+              Clear priorities and
+              business-oriented execution.
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section
+  id="services"
+  class="section services-section"
+>
+
+  <div class="container">
+
+
+    <div class="section-heading section-heading-center">
+
+      <span class="section-label">
+        OUR SERVICES
+      </span>
+
+      <h2>
+        Solutions built for
+        <span>real business.</span>
+      </h2>
+
+      <p>
+        Explore the areas where we can
+        help your business move forward.
+      </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+      <!-- SERVICE 01 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            01
+          </span>
+
+          <span class="service-arrow">
+            ↗
+          </span>
+
+        </div>
+
+        <div class="service-icon">
+          ◇
+        </div>
+
+        <h3>
+          Business Solutions
+        </h3>
+
+        <p>
+          Practical solutions designed to
+          support your business goals,
+          processes and opportunities.
+        </p>
+
+      </article>
+
+
+      <!-- SERVICE 02 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            02
+          </span>
+
+          <span class="service-arrow">
+            ↗
+          </span>
+
+        </div>
+
+        <div class="service-icon">
+          ◎
+        </div>
+
+        <h3>
+          Digital Services
+        </h3>
+
+        <p>
+          Digital-first services that help
+          businesses establish, improve and
+          grow their online presence.
+        </p>
+
+      </article>
+
+
+      <!-- SERVICE 03 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            03
+          </span>
+
+          <span class="service-arrow">
+            ↗
+          </span>
+
+        </div>
+
+        <div class="service-icon">
+          ✦
+        </div>
+
+        <h3>
+          Creative & Design
+        </h3>
+
+        <p>
+          Clear and modern visual experiences
+          that communicate your brand and
+          business effectively.
+        </p>
+
+      </article>
+
+
+      <!-- SERVICE 04 -->
+
+      <article class="service-card">
+
+        <div class="service-top">
+
+          <span class="service-number">
+            04
+          </span>
+
+          <span class="service-arrow">
+            ↗
+          </span>
+
+        </div>
+
+        <div class="service-icon">
+          +
+        </div>
+
+        <h3>
+          Technology Support
+        </h3>
+
+        <p>
+          Technology-focused support for
+          businesses looking to work smarter
+          and operate more efficiently.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY US
+===================================================== -->
+
+<section
+  id="why-us"
+  class="section why-section"
+>
+
+  <div class="container why-grid">
+
+
+    <div class="why-content">
+
+      <span class="section-label">
+        WHY SNK BUSINESS
+      </span>
+
+      <h2>
+        Simple thinking.
+        <span>Meaningful results.</span>
+      </h2>
+
+      <p>
+        Our approach combines business thinking,
+        design and technology to create solutions
+        that are useful, understandable and
+        practical.
+      </p>
+
+
+      <a
+        href="#contact"
+        class="btn btn-primary"
+      >
+        Start a Conversation
+        <span>→</span>
+      </a>
+
+    </div>
+
+
+    <div class="why-items">
+
+
+      <div class="why-item">
+
+        <span class="why-number">
+          01
+        </span>
+
+        <div>
+
+          <h3>
+            Trust
+          </h3>
+
+          <p>
+            Clear communication and
+            transparent collaboration.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="why-item">
+
+        <span class="why-number">
+          02
+        </span>
+
+        <div>
+
+          <h3>
+            Clarity
+          </h3>
+
+          <p>
+            Straightforward ideas without
+            unnecessary complexity.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="why-item">
+
+        <span class="why-number">
+          03
+        </span>
+
+        <div>
+
+          <h3>
+            Quality
+          </h3>
+
+          <p>
+            Attention to detail from
+            concept to final delivery.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="why-item">
+
+        <span class="why-number">
+          04
+        </span>
+
+        <div>
+
+          <h3>
+            Support
+          </h3>
+
+          <p>
+            A practical relationship that
+            continues beyond the first delivery.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats-section">
+
+  <div class="container stats-grid">
+
+
+    <div class="stat">
+
+      <strong>
+        01
+      </strong>
+
+      <span>
+        Business-focused approach
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong>
+        04
+      </strong>
+
+      <span>
+        Core service areas
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong>
+        24/7
+      </strong>
+
+      <span>
+        Digital presence
+      </span>
+
+    </div>
+
+
+    <div class="stat">
+
+      <strong>
+        ∞
+      </strong>
+
+      <span>
+        Growth possibilities
+      </span>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+  id="contact"
+  class="section contact-section"
+>
+
+  <div class="container contact-grid">
+
+
+    <!-- CONTACT INFO -->
+
+    <div class="contact-content">
+
+      <span class="section-label">
+        CONTACT
+      </span>
+
+      <h2>
+        Let's build something
+        <span>meaningful.</span>
+      </h2>
+
+      <p>
+        Have a business idea, project or
+        opportunity? Get in touch with us.
+      </p>
+
+
+      <div class="contact-details">
+
+
+        <a
+          id="phoneLink"
+          href="#"
+          class="contact-item"
+        >
+
+          <span class="contact-icon">
+            ☎
+          </span>
+
+          <div>
+
+            <small>
+              Phone
+            </small>
+
+            <strong
+              data-phone
+            >
+              —
+            </strong>
+
+          </div>
+
+        </a>
+
+
+        <a
+          id="emailLink"
+          href="#"
+          class="contact-item"
+        >
+
+          <span class="contact-icon">
+            @
+          </span>
+
+          <div>
+
+            <small>
+              Email
+            </small>
+
+            <strong
+              data-email
+            >
+              hello@snkbusiness.com
+            </strong>
+
+          </div>
+
+        </a>
+
+
+        <div class="contact-item">
+
+          <span class="contact-icon">
+            ●
+          </span>
+
+          <div>
+
+            <small>
+              Address
+            </small>
+
+            <strong
+              data-address
+            >
+              —
+            </strong>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!-- SOCIAL -->
+
+      <div class="social-links">
+
+        <a
+          id="facebookLink"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+        >
+          f
+        </a>
+
+        <a
+          id="instagramLink"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          ◎
+        </a>
+
+        <a
+          id="linkedinLink"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+        >
+          in
+        </a>
+
+        <a
+          id="youtubeLink"
+          href="#"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+        >
+          ▶
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="contact-form-wrapper">
+
+      <form
+        id="contactForm"
+        class="contact-form"
+      >
+
+
+        <div class="form-row">
+
+
+          <div class="form-group">
+
+            <label for="name">
+              Your Name
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            >
+
+          </div>
+
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="subject">
+            Subject
+          </label>
+
+          <input
+            id="subject"
+            name="subject"
+            type="text"
+            placeholder="How can we help?"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="message">
+            Message
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Tell us about your project..."
+            required
+          ></textarea>
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="btn btn-primary form-submit"
+        >
+
+          Send Message
+
+          <span>
+            →
+          </span>
+
+        </button>
+
+
+      </form>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="container footer-grid">
+
+
+    <!-- BRAND -->
+
+    <div class="footer-brand">
+
+      <a
+        href="#home"
+        class="brand"
+      >
+
+        <img
+          class="brand-logo"
+          data-logo
+          src="assets/logo.png"
+          alt="SNK Business"
+        >
+
+        <div class="brand-text">
+
+          <span
+            class="brand-name"
+            data-business-name
+          >
+            SNK Business
+          </span>
+
+          <span
+            class="brand-tagline"
+            data-tagline
+          >
+            Smart Business. Better Solutions.
+          </span>
+
+        </div>
+
+      </a>
+
+
+      <p
+        data-footer-text
+      >
+        Your trusted business partner.
+      </p>
+
+    </div>
+
+
+    <!-- QUICK LINKS -->
+
+    <div class="footer-column">
+
+      <h4>
+        Quick Links
+      </h4>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
+
+    <!-- SERVICES -->
+
+    <div class="footer-column">
+
+      <h4>
+        Services
+      </h4>
+
+      <a href="#services">
+        Business Solutions
+      </a>
+
+      <a href="#services">
+        Digital Services
+      </a>
+
+      <a href="#services">
+        Creative & Design
+      </a>
+
+      <a href="#services">
+        Technology Support
+      </a>
+
+    </div>
+
+
+    <!-- CONTACT -->
+
+    <div class="footer-column">
+
+      <h4>
+        Contact
+      </h4>
+
+      <a
+        data-phone
+        id="footerPhone"
+        href="#"
+      >
+        —
+      </a>
+
+      <a
+        data-email
+        id="footerEmail"
+        href="#"
+      >
+        hello@snkbusiness.com
+      </a>
+
+      <span
+        data-address
+      >
+        —
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <p
+      data-copyright
+    >
+      © 2026 SNK Business
+    </p>
+
+
+    <div class="footer-bottom-links">
+
+      <a href="#home">
+        Back to top ↑
+      </a>
+
+      <!-- Admin -->
+      <a href="admin.html">
+        Admin
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     SCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+/* =====================================================
+   SNK BUSINESS ADMIN SYSTEM
+   Homepage Dynamic Settings
+===================================================== */
+
+
+/* -----------------------------------------------------
+   DEFAULT SETTINGS
+----------------------------------------------------- */
+
+const DEFAULT_SETTINGS = {
+
+  businessName:
+    "SNK Business",
+
+  tagline:
+    "Smart Business. Better Solutions.",
+
+  notice:
+    "Welcome to SNK Business",
+
+  heroDescription:
+    "We help businesses build better digital experiences, practical solutions and stronger opportunities for growth.",
+
+  phone:
+    "",
+
+  email:
+    "hello@snkbusiness.com",
+
+  address:
+    "",
+
+  facebook:
+    "",
+
+  instagram:
+    "",
+
+  linkedin:
+    "",
+
+  youtube:
+    "",
+
+  footerText:
+    "Your trusted business partner.",
+
+  copyright:
+    "© 2026 SNK Business",
+
+  logo:
+    "assets/logo.png",
+
+  favicon:
+    "assets/favicon.png"
+
+};
+
+
+/* -----------------------------------------------------
+   GET SETTINGS
+----------------------------------------------------- */
+
+function getSNKSettings(){
+
+  try{
+
+    const saved =
+      localStorage.getItem(
+        "snkBusinessSettings"
+      );
+
+    if(!saved){
+
+      return {
+        ...DEFAULT_SETTINGS
+      };
+
+    }
+
+
+    const parsed =
+      JSON.parse(saved);
+
+
+    return {
+      ...DEFAULT_SETTINGS,
+      ...parsed
+    };
+
+  }catch(error){
+
+    console.error(
+      "SNK Settings Error:",
+      error
+    );
+
+    return {
+      ...DEFAULT_SETTINGS
+    };
+
+  }
+
+}
+
+
+const SNK =
+  getSNKSettings();
+
+
+
+/* -----------------------------------------------------
+   SAFE TEXT UPDATE
+----------------------------------------------------- */
+
+function setText(
+  selector,
+  value
+){
+
+  document
+    .querySelectorAll(selector)
+    .forEach(element => {
+
+      if(value !== undefined){
+
+        element.textContent =
+          value || "";
+
+      }
+
+    });
+
+}
+
+
+/* -----------------------------------------------------
+   BUSINESS NAME
+----------------------------------------------------- */
+
+setText(
+  "[data-business-name]",
+  SNK.businessName
+);
+
+
+/* -----------------------------------------------------
+   TAGLINE
+----------------------------------------------------- */
+
+setText(
+  "[data-tagline]",
+  SNK.tagline
+);
+
+
+/* -----------------------------------------------------
+   NOTICE
+----------------------------------------------------- */
+
+setText(
+  "[data-notice]",
+  SNK.notice
+);
+
+
+/* -----------------------------------------------------
+   HERO DESCRIPTION
+----------------------------------------------------- */
+
+setText(
+  "[data-hero-description]",
+  SNK.heroDescription
+);
+
+
+/* -----------------------------------------------------
+   PHONE
+----------------------------------------------------- */
+
+setText(
+  "[data-phone]",
+  SNK.phone || "Contact us"
+);
+
+
+/* -----------------------------------------------------
+   EMAIL
+----------------------------------------------------- */
+
+setText(
+  "[data-email]",
+  SNK.email || "Email us"
+);
+
+
+/* -----------------------------------------------------
+   ADDRESS
+----------------------------------------------------- */
+
+setText(
+  "[data-address]",
+  SNK.address || "Contact for address"
+);
+
+
+/* -----------------------------------------------------
+   FOOTER
+----------------------------------------------------- */
+
+setText(
+  "[data-footer-text]",
+  SNK.footerText
+);
+
+
+setText(
+  "[data-copyright]",
+  SNK.copyright
+);
+
+
+/* -----------------------------------------------------
+   LOGO
+----------------------------------------------------- */
+
+if(SNK.logo){
+
+  document
+    .querySelectorAll(
+      "[data-logo]"
+    )
+    .forEach(image => {
+
+      image.src =
+        SNK.logo;
+
+    });
+
+}
+
+
+/* -----------------------------------------------------
+   FAVICON
+----------------------------------------------------- */
+
+if(SNK.favicon){
+
+  const favicon =
+    document.getElementById(
+      "siteFavicon"
+    );
+
+  if(favicon){
+
+    favicon.href =
+      SNK.favicon;
+
+  }
+
+}
+
+
+/* -----------------------------------------------------
+   DOCUMENT TITLE
+----------------------------------------------------- */
+
+if(SNK.businessName){
+
+  document.title =
+    `${SNK.businessName} | ${SNK.tagline}`;
+
+}
+
+
+/* -----------------------------------------------------
+   META DESCRIPTION
+----------------------------------------------------- */
+
+const metaDescription =
+  document.querySelector(
+    'meta[name="description"]'
+  );
+
+
+if(
+  metaDescription &&
+  SNK.heroDescription
+){
+
+  metaDescription.setAttribute(
+    "content",
+    SNK.heroDescription
+  );
+
+}
+
+
+/* =====================================================
+   PHONE LINKS
+===================================================== */
+
+function cleanPhone(
+  phone
+){
+
+  return String(phone || "")
+    .replace(
+      /[^0-9+]/g,
+      ""
+    );
+
+}
+
+
+const phone =
+  cleanPhone(SNK.phone);
+
+
+const phoneLinks = [
+
+  document.getElementById(
+    "phoneLink"
+  ),
+
+  document.getElementById(
+    "footerPhone"
+  )
+
+];
+
+
+phoneLinks.forEach(link => {
+
+  if(!link) return;
+
+
+  if(phone){
+
+    link.href =
+      `tel:${phone}`;
+
+  }else{
+
+    link.removeAttribute(
+      "href"
+    );
+
+  }
+
+});
+
+
+/* =====================================================
+   EMAIL LINKS
+===================================================== */
+
+const email =
+  String(
+    SNK.email || ""
+  ).trim();
+
+
+const emailLinks = [
+
+  document.getElementById(
+    "emailLink"
+  ),
+
+  document.getElementById(
+    "footerEmail"
+  )
+
+];
+
+
+emailLinks.forEach(link => {
+
+  if(!link) return;
+
+
+  if(email){
+
+    link.href =
+      `mailto:${email}`;
+
+  }else{
+
+    link.removeAttribute(
+      "href"
+    );
+
+  }
+
+});
+
+
+/* =====================================================
+   SOCIAL LINKS
+===================================================== */
+
+function setupSocialLink(
+  id,
+  url
+){
+
+  const element =
+    document.getElementById(id);
+
+
+  if(!element) return;
+
+
+  if(
+    url &&
+    String(url).trim()
+  ){
+
+    element.href =
+      String(url).trim();
+
+    element.style.display =
+      "inline-flex";
+
+  }else{
+
+    /*
+     * Hide social icon when
+     * no URL has been saved.
+     */
+
+    element.style.display =
+      "none";
+
+  }
+
+}
+
+
+setupSocialLink(
+  "facebookLink",
+  SNK.facebook
+);
+
+
+setupSocialLink(
+  "instagramLink",
+  SNK.instagram
+);
+
+
+setupSocialLink(
+  "linkedinLink",
+  SNK.linkedin
+);
+
+
+setupSocialLink(
+  "youtubeLink",
+  SNK.youtube
+);
+
+
+/* =====================================================
+   ADMIN EVENT
+   Storage changes from another tab
+===================================================== */
+
+window.addEventListener(
+  "storage",
+  function(event){
+
+    if(
+      event.key !==
+      "snkBusinessSettings"
+    ){
+
+      return;
+
+    }
+
+
+    /*
+     * If Admin Profile is open in
+     * another tab and saves settings,
+     * refresh homepage automatically.
+     */
+
+    window.location.reload();
+
+  }
+);
+
+
+/* =====================================================
+   PAGE READY
+===================================================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    console.log(
+      "SNK Business Admin System Connected."
+    );
+
+  }
+);
+
+</script>
+
 
 </body>
+
 </html>
