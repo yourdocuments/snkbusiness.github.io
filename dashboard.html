@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | SNK Business</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="app-body">
+<div class="app"><aside class="sidebar" id="sidebar"></aside>
+<main class="main"><header class="header"><button class="mobile-menu" onclick="toggleSidebar()">☰</button><div><div class="eyebrow">OVERVIEW</div><h1>Dashboard</h1></div><div class="header-user"><span id="userName"></span><button class="avatar" onclick="logout()">A</button></div></header>
+<section class="content"><div class="page-title"><div><h2>Good to see you.</h2><p>Here is what's happening across your businesses.</p></div><span class="date-pill" id="today"></span></div>
+<div class="stats four"><div class="stat"><span>Total Revenue</span><strong>৳ 428,500</strong><small>+12.8% this month</small></div><div class="stat"><span>Pending Payments</span><strong>৳ 82,400</strong><small>14 invoices</small></div><div class="stat"><span>Customers</span><strong>186</strong><small>+18 this month</small></div><div class="stat"><span>Active Projects</span><strong>27</strong><small>Across all businesses</small></div></div>
+<div class="dashboard-grid"><div class="panel"><div class="panel-head"><div><h3>My Businesses</h3><p>Open a business workspace.</p></div></div><div id="businessCards" class="business-list"></div></div>
+<div class="panel"><div class="panel-head"><div><h3>Recent Activity</h3><p>Latest operational events.</p></div></div><div class="activity"><div><i>৳</i><span>Payment received from Rahim Traders<small>Today • 10:42 AM</small></span><b>+৳18,000</b></div><div><i>+</i><span>New customer added<small>Today • 09:18 AM</small></span><b>Customer</b></div><div><i>✓</i><span>Website delivered to client<small>Yesterday • 06:20 PM</small></span><b>Completed</b></div></div></div></div>
+</section></main></div>
+<script src="assets/js/app.js"></script><script src="assets/js/dashboard.js"></script>
+</body></html>

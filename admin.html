@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | SNK Business</title><link rel="icon" href="assets/favicon.svg"><link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="app-body">
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <header class="header"><button class="mobile-menu" onclick="toggleSidebar()">☰</button><div><div class="eyebrow">ADMIN CONTROL</div><h1>Administration</h1></div><div class="header-user"><span id="userName">Admin</span><button class="avatar" onclick="logout()">A</button></div></header>
+    <section class="content">
+      <div class="page-title"><div><h2>Control Center</h2><p>Manage business settings, users and editable website content.</p></div></div>
+      <div class="stats four"><div class="stat"><span>Businesses</span><strong>3</strong><small>Active units</small></div><div class="stat"><span>Admins</span><strong>2</strong><small>Access levels</small></div><div class="stat"><span>UI Sections</span><strong id="uiCount">8</strong><small>Editable sections</small></div><div class="stat"><span>Status</span><strong class="success-text">Live</strong><small>System online</small></div></div>
+      <div class="admin-grid">
+        <div class="panel"><div class="panel-head"><div><h3>Browser UI Manager</h3><p>Edit website content from the Admin panel — not from the public browser UI.</p></div><a class="btn btn-primary" href="browser-ui.html">Open Editor →</a></div><div id="uiPreview" class="ui-preview"></div></div>
+        <div class="panel"><div class="panel-head"><div><h3>Admin Access</h3><p>Two-level permission model.</p></div></div><div class="role-card"><b>Super Admin</b><span>Full access • users • settings • UI editor</span></div><div class="role-card"><b>Admin</b><span>Business operations • customers • payments</span></div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<script src="assets/js/app.js"></script><script src="assets/js/admin.js"></script>
+</body>
+</html>
