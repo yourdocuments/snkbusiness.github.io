@@ -6,14 +6,14 @@ service cloud.firestore {
     match /site/{doc} {
       allow read: if true;
       allow write: if request.auth != null
-                   && request.auth.token.email == "ADMIN_EMAIL_HERE";
+                   && request.auth.token.email == "thesnkgraphic@email.com";
     }
 
     // Uploaded images
     match /images/{doc} {
       allow read: if true;
       allow write: if request.auth != null
-                   && request.auth.token.email == "ADMIN_EMAIL_HERE";
+                   && request.auth.token.email == "thesnkgraphic@email.com";
     }
   }
 }
