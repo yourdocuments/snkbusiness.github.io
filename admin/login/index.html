@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin Login | SNK Business</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/admin.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <form class="auth-card" id="f" autocomplete="on">
+    <div class="mark">S</div>
+    <h1>Admin Login</h1>
+    <p class="sub">SNK Business dashboard-e dhukte login korun.</p>
+    <label for="email">Email</label>
+    <input id="email" type="email" required autocomplete="username" placeholder="admin@example.com">
+    <label for="pass">Password</label>
+    <input id="pass" type="password" required autocomplete="current-password" placeholder="Your password">
+    <button class="b p" type="submit" id="go">Login</button>
+    <button class="link" type="button" id="forgot">Password bhule gechhen?</button>
+    <div class="alert" id="msg" hidden></div>
+  </form>
+</div>
+<script src="../../assets/firebase-config.js"></script>
+<script>
+var $=function(i){return document.getElementById(i)};
+function say(t,c){var m=$('msg');m.textContent=t;m.className='alert '+(c||'');m.hidden=!t}
+function nice(e){
+  var c=(e&&e.code)||'';
+  if(c==='auth/invalid-credential'||c==='auth/wrong-password'||c==='auth/user-not-found')return 'Email ba password thik na.';
+  if(c==='auth/invalid-email')return 'Email address thik na.';
+  if(c==='auth/too-many-requests')return 'Onek bar chesta kora hoyeche. Kichukkhon pore abar try korun.';
+  if(c==='auth/network-request-failed')return 'Internet connection check korun.';
+  if(c==='auth/operation-not-allowed')return 'Firebase Authentication e Email/Password enable kora nai.';
+  return (e&&e.message)||'Kichu ekta vul hoyeche.';
+}
+function ready(cb){if(window.FB)cb();else window.addEventListener('fbready',cb,{once:true})}
+ready(function(){
+  if(!FB.enabled){say('Firebase config set kora nai. assets/firebase-config.js file e apnar config boshan.','err');$('go').disabled=true;return}
+  FB.onAuth(function(u){if(u)location.replace('../dashboard/')});
+  $('f').addEventListener('submit',function(e){
+    e.preventDefault();say('Login hocche…');$('go').disabled=true;
+    FB.login($('email').value.trim(),$('pass').value).then(function(){say('Login holo, dashboard khulche…','ok')}).catch(function(x){say(nice(x),'err');$('go').disabled=false});
+  });
+  $('forgot').addEventListener('click',function(){
+    var em=$('email').value.trim();
+    if(!em){say('Age upore email likhun, tarpor eikhane chapun.','err');return}
+    FB.reset(em).then(function(){say('Password reset email pathano hoyeche. Inbox ba spam check korun.','ok')}).catch(function(x){say(nice(x),'err')});
+  });
+});
+setTimeout(function(){if(!window.FB)say('Firebase load hocche na. Internet check korun, ar file local theke na khule hosted site theke kholun.','err')},8000);
+</script>
+<script type="module" src="../../assets/firebase.js"></script>
+</body>
+</html>

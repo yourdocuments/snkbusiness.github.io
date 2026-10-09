@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Site content: sobai porte pare, sudhu admin email likhte pare
+    match /site/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == "ADMIN_EMAIL_HERE";
+    }
+
+    // Uploaded images
+    match /images/{doc} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.auth.token.email == "ADMIN_EMAIL_HERE";
+    }
+  }
+}
