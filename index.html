@@ -5,313 +5,507 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SNK Business | Corporate Training</title>
 <meta name="description" content="Role-based corporate training in AI, Data, Technology and Business, customized to your business goals.">
+<link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<style>
+:root{--g9:#0b3d2e;--g7:#0f6b4a;--g5:#16a36b;--g1:#e8f6ef;--ink:#10241c;--mut:#5b6b64;--line:#dbe7e0;--bg:#fff;--tint:#f5faf7;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}ul{list-style:none}img{max-width:100%;display:block}
+.ic{width:20px;height:20px;flex:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.utility{background:var(--g9);color:#cfe9dd;font-size:13px}
+.utility .inner{max-width:1180px;margin:0 auto;padding:8px 20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px;max-width:100%}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;color:var(--g9)}
+.brand img{height:40px;width:auto}
+.brand-mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--g7),var(--g5));color:#fff;display:grid;place-items:center;font-weight:700}
+.links{display:flex;gap:4px}
+.links a{padding:8px 12px;border-radius:10px;font-size:14.5px;font-weight:500;color:var(--mut)}
+.links a:hover{background:var(--g1);color:var(--g9)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.trade{font-size:14px;font-weight:600;color:var(--g7)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:10px;font-size:20px;padding:4px 10px;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:15px;border:1.5px solid transparent;cursor:pointer;font-family:inherit;transition:.2s}
+.btn .ic{width:18px;height:18px}
+.btn-primary{background:var(--g7);color:#fff}.btn-primary:hover{background:var(--g9)}
+.btn-outline{border-color:var(--g7);color:var(--g7);background:#fff}.btn-outline:hover{background:var(--g1)}
+.label{display:inline-flex;align-items:center;gap:8px;background:var(--g1);color:var(--g7);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.label .ic{width:15px;height:15px}
+h1{font-size:clamp(32px,5vw,54px);line-height:1.1;letter-spacing:-.02em;margin:16px 0}
+h2{font-size:clamp(26px,3.6vw,38px);line-height:1.2;letter-spacing:-.015em;margin:12px 0}
+.hero{max-width:1180px;margin:0 auto;padding:64px 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.intro{color:var(--mut);font-size:18px;max-width:560px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}
+.highlights{display:flex;gap:20px;flex-wrap:wrap}
+.highlights li{display:flex;align-items:center;gap:8px;font-weight:500;font-size:14.5px}
+.highlights .ic{color:var(--g5);width:18px}
+.visual{position:relative;border-radius:24px;background:linear-gradient(135deg,var(--g9),var(--g5));min-height:380px;overflow:hidden}
+.visual img{width:100%;height:100%;min-height:380px;object-fit:cover}
+.caption{position:absolute;left:16px;right:16px;bottom:16px;background:#fff;border-radius:14px;padding:14px 16px;display:flex;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.caption .ic{color:var(--g7);width:26px;height:26px}
+.caption strong{display:block;font-size:14.5px}.caption span{font-size:13px;color:var(--mut)}
+.sec{padding:80px 0}.tint{background:var(--tint)}
+.intro-c{text-align:center;max-width:680px;margin:0 auto 44px}
+.intro-c p,.lead{color:var(--mut);font-size:17px}
+.grid{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g5{grid-template-columns:repeat(5,1fr)}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);transition:.2s}
+.card:hover{box-shadow:0 12px 30px rgba(11,61,46,.1);transform:translateY(-3px)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+.philosophy{background:linear-gradient(145deg,var(--g9),var(--g7));color:#fff;border-radius:24px;padding:32px;min-height:340px;display:flex;flex-direction:column;justify-content:space-between}
+.philosophy small{opacity:.8;font-weight:500}
+.pcard{background:rgba(255,255,255,.12);border-radius:16px;padding:22px}
+.pcard strong{display:block;font-size:26px;margin:10px 0 4px}.pcard .label{background:rgba(255,255,255,.2);color:#fff}
+.reasons{display:grid;gap:14px;margin-top:24px}
+.reason{display:flex;gap:14px;padding:14px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.reason .ic{color:var(--g7);width:26px;height:26px;margin-top:2px}
+.reason strong{display:block}.reason span{color:var(--mut);font-size:14.5px}
+.cat{display:flex;gap:12px;align-items:center;padding:18px}
+.cat .ic{width:30px;height:30px;color:var(--g7);background:var(--g1);padding:6px;border-radius:10px;box-sizing:content-box}
+.cat strong{display:block;font-size:15px;line-height:1.3}.cat span{font-size:12.5px;color:var(--mut)}
+.tools{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:0 14px;background:#fff;min-width:260px}
+.search input{border:0;outline:0;padding:12px 0;font:inherit;width:100%;background:none}
+.search .ic{color:var(--mut);width:18px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 16px;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.chip.on{background:var(--g7);color:#fff;border-color:var(--g7)}
+.program{overflow:hidden;display:flex;flex-direction:column}
+.art{height:130px;background:linear-gradient(135deg,var(--g9),var(--g5));color:#fff;position:relative;display:grid;place-items:center}
+.art .ic{width:46px;height:46px;opacity:.9}
+.tag{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:99px;font-size:12px;font-weight:600}
+.num{position:absolute;right:16px;bottom:8px;font-size:30px;font-weight:700;opacity:.35}
+.pbody{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pbody h3{font-size:19px}.pbody p{color:var(--mut);font-size:14.5px;flex:1}
+.meta{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--g7);font-weight:500}.meta .ic{width:16px}
+.pfoot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:12px;font-size:13px;color:var(--mut)}
+.req{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:var(--g7)}.req .ic{width:16px}
+.none{text-align:center;color:var(--mut);margin-top:24px}
+.mode{padding:24px}.mode .ic{width:32px;height:32px;color:var(--g7);margin-bottom:12px}.mode strong{display:block;margin-bottom:4px}.mode p{color:var(--mut);font-size:14.5px}
+.team-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.expert{overflow:hidden}
+.avatar-bg{background:var(--g1);padding:26px;display:grid;place-items:center}
+.avatar{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,var(--g7),var(--g5));color:#fff;display:grid;place-items:center;font-weight:700;font-size:26px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.ebody{padding:18px}.ebody strong{display:block}.role{color:var(--g7);font-size:13.5px;font-weight:600;margin-bottom:6px}
+.ebody p{color:var(--mut);font-size:14px;margin-bottom:10px}.ebody a{font-weight:600;font-size:14px;color:var(--g7);display:inline-flex;gap:6px;align-items:center}.ebody a .ic{width:15px}
+.solutions{background:var(--g9);color:#fff;padding:80px 0}
+.solutions .lead{color:#b9d9ca}.solutions .label{background:rgba(255,255,255,.15);color:#fff}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.checks{display:grid;gap:12px;margin-top:22px}.checks li{display:flex;gap:10px;align-items:center;font-weight:500}.checks .ic{color:var(--g5)}
+.journey{background:#fff;color:var(--ink);border-radius:24px;padding:30px}
+.journey>p{color:var(--mut);margin:6px 0 18px}
+.stages{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.stage{background:var(--tint);border-radius:14px;padding:16px}.stage .ic{color:var(--g7);margin-bottom:6px}.stage strong{display:block}.stage span{font-size:13px;color:var(--mut)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.step .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.step .n{font-size:30px;font-weight:700;color:var(--g5)}.step .ic{color:var(--mut)}.step p{color:var(--mut);font-size:14.5px;margin-top:6px}
+.consult{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.note{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:24px}
+.note .ic{color:var(--g7);margin-bottom:6px}.note p{color:var(--mut);font-size:14.5px}
+.form{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;box-shadow:0 20px 50px rgba(11,61,46,.08)}
+.form>p{color:var(--mut);margin:4px 0 18px;font-size:14.5px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{margin-bottom:14px}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14.5px;background:#fff}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--g5);border-color:transparent}
+.field textarea{min-height:90px;resize:vertical}
+.fine{font-size:12.5px;color:var(--mut);margin-top:10px}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 20px;background:none;border:0;font:inherit;font-weight:600;text-align:left;cursor:pointer}
+.faq-a{padding:0 20px 18px;color:var(--mut)}
+.faq-item.open .faq-q .ic{transform:rotate(45deg)}
+.more{text-align:center;margin-top:28px;color:var(--mut)}.more a{color:var(--g7);font-weight:600;display:inline-flex;gap:6px;align-items:center}.more a .ic{width:16px}
+.cta{background:var(--g1);padding:34px 0}.cta .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.cta p{font-weight:600;font-size:18px;color:var(--g9)}
+footer{background:var(--g9);color:#b9d9ca;padding:56px 0 24px}
+footer .brand{color:#fff}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px}
+.about{margin:14px 0;font-size:14.5px;max-width:320px}
+.social{display:flex;gap:10px}.social a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.1);display:grid;place-items:center;color:#fff}.social .ic{width:18px}
+footer h4{color:#fff;margin-bottom:12px;font-size:15px}footer li{margin-bottom:8px;font-size:14.5px}footer li a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;font-size:13.5px}
+.legal a{margin-left:14px}
+/* ===== Admin ===== */
+#adm{position:fixed;top:0;right:0;bottom:0;width:430px;max-width:100%;background:#fff;border-left:1px solid var(--line);box-shadow:-10px 0 40px rgba(0,0,0,.15);z-index:200;display:none;flex-direction:column;font-size:14px}
+body.adm-open #adm{display:flex}
+@media(min-width:900px){body.adm-open{margin-right:430px}}
+.adm-top{background:var(--g9);color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.adm-top strong{font-size:15px}
+.adm-bar{display:flex;gap:8px;flex-wrap:wrap;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--tint)}
+.adm-body{flex:1;overflow:auto;padding:12px 16px 60px}
+#adm .b{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+#adm .b.p{background:var(--g7);color:#fff;border-color:var(--g7)}#adm .b.d{color:#b42318}
+#adm details{border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:#fff}
+#adm details details{margin:8px 0;background:var(--tint)}
+#adm summary{padding:12px 14px;font-weight:600;cursor:pointer}
+#adm .in{padding:0 14px 14px}
+#adm label{display:block;font-size:12px;font-weight:600;color:var(--mut);margin:10px 0 4px}
+#adm input,#adm textarea,#adm select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:13.5px;background:#fff}
+#adm textarea{min-height:70px;resize:vertical}
+#adm .imgf{display:flex;gap:8px;align-items:center;margin-top:6px}
+#adm .imgf img{width:48px;height:48px;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff}
+#adm .act{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+#adm .msg{padding:10px 16px;font-size:13px;background:#fff8e1;border-bottom:1px solid #f1e0a0;display:none}
+#adm .msg.show{display:block}#adm .msg.ok{background:#e6f7ee;border-color:#b7e3cb}#adm .msg.err{background:#fdecea;border-color:#f3b8b2}
+.hint{font-size:12px;color:var(--mut);margin-top:6px}
+@media(max-width:980px){
+.g5{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}
+.hero,.about-grid,.sol-grid,.consult{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}
+.menu-btn{display:block}.trade{display:none}
+.links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:10px 16px;border-bottom:1px solid var(--line)}
+.links.open{display:flex}
+}
+@media(max-width:620px){.g5,.g4,.g3,.steps,.row,.stages{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.nav-actions .btn{display:none}.sec{padding:56px 0}}
+</style>
 </head>
 <body>
+<div id="app"></div>
 
-<div class="utility"><div class="inner">
-  <span>Corporate Training &amp; Business Solutions</span>
-  <span>AI-powered learning. Industry-focused skills.</span>
-</div></div>
-
-<header class="nav">
-  <a class="brand" href="#home" aria-label="SNK Business home">
-    <!-- Real logo? Replace the next line with: <img src="images/logo.png" alt="SNK Business" height="40"> -->
-    <span class="brand-mark"><span>S</span></span><span class="brand-name">SNK Business</span>
-  </a>
-  <nav aria-label="Main">
-    <ul class="links" id="main-links">
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#trainings">Trainings</a></li>
-      <li><a href="#categories">Categories</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#solutions">Solutions</a></li>
-      <li><a href="#consultation">Consultation</a></li>
-    </ul>
-  </nav>
-  <div class="nav-actions">
-    <a class="trade" href="#solutions">Trade Solutions</a>
-    <a class="btn btn-primary" href="#consultation">Request Training</a>
-    <button class="menu-btn" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-links">&#9776;</button>
+<!-- ADMIN PANEL -->
+<aside id="adm" aria-label="Admin panel">
+  <div class="adm-top"><strong>⚙ SNK Admin</strong><button class="b" id="adm-close">Close ✕</button></div>
+  <div class="adm-bar">
+    <button class="b p" id="adm-save">Save to GitHub</button>
+    <button class="b" id="adm-export">Export JSON</button>
+    <button class="b" id="adm-import">Import JSON</button>
+    <button class="b d" id="adm-reset">Reset defaults</button>
+    <input type="file" id="adm-file" accept="application/json" hidden>
   </div>
-</header>
+  <div class="msg" id="adm-msg"></div>
+  <div class="adm-body" id="adm-body"></div>
+</aside>
 
-<main>
-<!-- Hero -->
-<section id="home" class="hero">
-  <div class="hero-content">
-    <div class="label"><i class="ic" data-i="sparkle"></i>Corporate training, reimagined</div>
-    <h1>Upskill Your Team with AI-Powered, Industry-Focused Corporate Training</h1>
-    <p class="intro">Empower your workforce with role-based skills in AI, Data, Technology &amp; Business through customized training programs aligned with your business goals.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="#consultation">Book a Call <i class="ic" data-i="up"></i></a>
-      <a class="btn btn-outline" href="brochure.pdf" download>Download Brochure <i class="ic" data-i="download"></i></a>
-    </div>
-    <ul class="highlights">
-      <li><i class="ic" data-i="check"></i>Role-based learning</li>
-      <li><i class="ic" data-i="check"></i>Business-aligned programs</li>
-    </ul>
-  </div>
-  <div class="visual">
-    <img src="images/corporate-workshop.png" alt="Trainer leading a corporate workshop" onerror="this.style.display='none'">
-    <div class="caption"><i class="ic" data-i="presentation"></i>
-      <div><strong>Real skills. Real workplace impact.</strong><span>Learning designed around your team.</span></div>
-    </div>
-  </div>
-</section>
+<script>
+/* =====================================================================
+   DEFAULT CONTENT  (Admin theke change korle data.json e save hobe)
+   ===================================================================== */
+var D = {
+ site:{title:"SNK Business | Corporate Training",description:"Role-based corporate training in AI, Data, Technology and Business, customized to your business goals.",brand:"SNK Business",logo:"",favicon:"",utilL:"Corporate Training & Business Solutions",utilR:"AI-powered learning. Industry-focused skills."},
+ nav:{links:[{label:"Home",href:"#home"},{label:"About",href:"#about"},{label:"Trainings",href:"#trainings"},{label:"Categories",href:"#categories"},{label:"Team",href:"#team"},{label:"Solutions",href:"#solutions"},{label:"Consultation",href:"#consultation"}],tradeLabel:"Trade Solutions",tradeHref:"#solutions",ctaLabel:"Request Training",ctaHref:"#consultation"},
+ hero:{label:"Corporate training, reimagined",title:"Upskill Your Team with AI-Powered, Industry-Focused Corporate Training",intro:"Empower your workforce with role-based skills in AI, Data, Technology & Business through customized training programs aligned with your business goals.",b1Label:"Book a Call",b1Href:"#consultation",b2Label:"Download Brochure",b2Href:"brochure.pdf",image:"",capTitle:"Real skills. Real workplace impact.",capSub:"Learning designed around your team.",highlights:["Role-based learning","Business-aligned programs"]},
+ about:{label:"About SNK Business",title:"Training that turns knowledge into performance.",text:"We help companies build capable teams through practical, engaging and business-focused learning experiences.",pSmall:"Built for your next chapter",pLabel:"Our approach",pTitle:"Learn. Apply. Grow.",pText:"Turning knowledge into practical skills, confident people and stronger workplace performance.",whyLabel:"Why choose us",whyTitle:"More than training. A growth partner.",whyText:"From leadership development to AI and technology, our programs are built to make real organizational progress.",
+  reasons:[{icon:"briefcase",title:"Business-Focused Learning",text:"Practical skills connected to your organization’s real business needs."},{icon:"layers",title:"Customized Programs",text:"Training designed for your team’s roles, skill levels and objectives."},{icon:"cap",title:"Experienced Trainers",text:"Learn through expert-led sessions and workplace-focused examples."},{icon:"truck",title:"Flexible Delivery",text:"Onsite, online or blended learning options to suit your team."}]},
+ categories:{label:"Training categories",title:"Skills your organization needs today.",text:"Explore our core corporate training areas.",items:[
+  {icon:"sparkle",title:"AI & Technology",sub:"AI • Tools • Innovation",href:"#trainings"},{icon:"briefcase",title:"Business & Management",sub:"Strategy • Operations",href:"#trainings"},{icon:"chart",title:"Data & Analytics",sub:"Insights • Decisions",href:"#trainings"},{icon:"megaphone",title:"Sales & Marketing",sub:"Sales • Growth",href:"#trainings"},{icon:"users",title:"HR & People",sub:"People • Culture",href:"#trainings"},{icon:"wallet",title:"Finance & Accounts",sub:"Finance • Reporting",href:"#trainings"},{icon:"messages",title:"Leadership & Communication",sub:"Leadership • Collaboration",href:"#trainings"},{icon:"code",title:"IT & Software",sub:"IT • Digital skills",href:"#trainings"},{icon:"badge",title:"Professional Skills",sub:"Skills • Productivity",href:"#trainings"},{icon:"sliders",title:"Custom Training",sub:"Built for your company",href:"#consultation"}]},
+ programs:{label:"Featured trainings",title:"Popular corporate programs.",text:"Choose a ready program or request a customized training.",items:[
+  {cat:"technology",tag:"AI & Technology",icon:"sparkle",title:"AI for Business",desc:"Apply business-ready AI tools to improve productivity and everyday workflows.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"},
+  {cat:"business",tag:"Leadership",icon:"flag",title:"Leadership Excellence",desc:"Build confident leaders who can communicate, inspire and drive team performance.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"},
+  {cat:"sales",tag:"Sales & Marketing",icon:"trend",title:"Sales Mastery",desc:"Strengthen sales skills, negotiation and customer relationship management.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"},
+  {cat:"hr",tag:"HR & People",icon:"users",title:"HR & People Management",desc:"Develop effective people practices and improve employee engagement.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"},
+  {cat:"technology",tag:"Technology",icon:"layers",title:"Digital Transformation",desc:"Help your organization adapt to digital tools and create more efficient workflows.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"},
+  {cat:"business",tag:"Professional Skills",icon:"messages",title:"Communication Skills",desc:"Improve workplace communication, presentations, collaboration and professional confidence.",meta:"Onsite • Online • Blended",aud:"Corporate Teams",href:"#consultation"}]},
+ delivery:{label:"Flexible delivery",title:"Training that fits your organization.",text:"Choose the learning format that works for your team.",items:[{icon:"building",title:"Onsite Training",text:"Expert-led sessions directly at your workplace."},{icon:"video",title:"Online Live",text:"Interactive live sessions for distributed teams."},{icon:"panels",title:"Blended Training",text:"Combine online learning with practical onsite sessions."},{icon:"sliders",title:"Customized",text:"Training designed specifically for your business."}]},
+ team:{label:"Our team",title:"Meet the people behind the learning.",text:"Experienced trainers, business professionals and subject matter experts.",btnLabel:"Become a Training Partner",btnHref:"#consultation",items:[
+  {initials:"SN",photo:"",name:"SNK Business Expert",role:"Business & Strategy Trainer",desc:"Leadership, strategy & management",href:"#consultation"},
+  {initials:"AI",photo:"",name:"Technology Expert",role:"AI & Technology Trainer",desc:"AI, automation & digital transformation",href:"#consultation"},
+  {initials:"SM",photo:"",name:"Sales & Marketing Expert",role:"Sales & Marketing Trainer",desc:"Sales, marketing & communication",href:"#consultation"},
+  {initials:"HR",photo:"",name:"People Development Expert",role:"HR & Leadership Trainer",desc:"HR, people & workplace skills",href:"#consultation"}]},
+ solutions:{label:"Corporate solutions",title:"One partner. Multiple learning needs.",text:"A complete learning solution for your organization. From a single workshop to a company-wide development program.",checks:["Employee skill development","Leadership & management development","Technology & AI adoption","Role-based training programs","Customized corporate learning journeys"],jTitle:"Your learning journey",jText:"Tell us what your team needs. We’ll help you design the right learning journey.",btnLabel:"Talk to Our Team",btnHref:"#consultation",
+  stages:[{icon:"clipboard",title:"Assessment",text:"Understand your team’s needs"},{icon:"ruler",title:"Design",text:"Create a tailored learning plan"},{icon:"presentation",title:"Delivery",text:"Online, onsite or blended"},{icon:"chart",title:"Impact",text:"Review learning outcomes"}]},
+ how:{label:"How it works",title:"From requirement to result.",steps:[{title:"Tell Us Your Need",text:"Share your business goals and employee development requirements."},{title:"We Design",text:"Our team recommends topics, trainers and the right learning approach."},{title:"Training",text:"Sessions delivered through practical, business-focused learning."},{title:"Measure Impact",text:"Review feedback, learning outcomes and next steps."}]},
+ consult:{label:"Free consultation",title:"Let’s build the right training program for your team.",text:"Share a few details about your organization and our team can help you plan your next corporate learning program.",checks:["No obligation consultation","Customized training recommendations","Flexible onsite & online delivery","Corporate pricing options"],noteTitle:"Not sure where to start?",noteText:"Tell us about your team and the skills you want to develop. Start with your goals, not a course name.",formTitle:"Request Corporate Training",formText:"Complete this form and our team will contact you.",formBtn:"Request Free Consultation",whatsapp:"",email:""},
+ faq:{label:"FAQ",title:"Frequently asked questions.",moreText:"Have a different question?",moreLabel:"Talk to our team",moreHref:"#consultation",items:[
+  {q:"Can training be customized for our company?",a:"Yes. Every program can be shaped around your team’s roles, skill levels and business goals."},
+  {q:"Do you provide onsite corporate training?",a:"Yes. Our trainers can run sessions directly at your workplace."},
+  {q:"Can we conduct training online?",a:"Yes. We offer interactive online live sessions, and blended formats that combine online and onsite learning."},
+  {q:"How can we request a corporate training?",a:"Fill in the request form on this page or book a call. Our team will contact you to understand your needs."},
+  {q:"Do you provide corporate pricing?",a:"Yes. Corporate pricing depends on the topic, team size and delivery format. Request a free consultation for a quote."}]},
+ cta:{text:"Your team’s next chapter starts here.",btnLabel:"Book a Call",btnHref:"#consultation"},
+ footer:{about:"Practical corporate training and business solutions for organizations ready to build stronger teams and better performance.",fb:"#",li:"#",copy:"© 2025 SNK Business. All rights reserved.",cols:[
+  {title:"Company",links:["About Us|#about","Trainings|#trainings","Team & Trainers|#team","Corporate Solutions|#solutions"]},
+  {title:"Training",links:["AI & Technology|#categories","Business & Management|#categories","Sales & Marketing|#categories","HR & People|#categories"]},
+  {title:"Get Started",links:["Free Consultation|#consultation","Request Training|#consultation","FAQ|#faq","Become a Training Partner|#consultation"]}]}
+};
 
-<!-- About -->
-<section id="about" class="sec">
-  <div class="wrap">
-    <div class="intro-c">
-      <span class="label"><i class="ic" data-i="sparkle"></i>About SNK Business</span>
-      <h2>Training that turns knowledge into performance.</h2>
-      <p>We help companies build capable teams through practical, engaging and business-focused learning experiences.</p>
-    </div>
-    <div class="about-grid">
-      <div class="philosophy">
-        <small>Built for your next chapter</small>
-        <div class="pcard">
-          <span class="label"><i class="ic" data-i="sparkle"></i>Our approach</span>
-          <strong>Learn. Apply. Grow.</strong>
-          <p>Turning knowledge into practical skills, confident people and stronger workplace performance.</p>
-        </div>
-      </div>
-      <div>
-        <span class="label"><i class="ic" data-i="sparkle"></i>Why choose us</span>
-        <h2 class="h2">More than training. A growth partner.</h2>
-        <p class="lead">From leadership development to AI and technology, our programs are built to make real organizational progress.</p>
-        <div class="reasons">
-          <div class="reason"><i class="ic" data-i="briefcase"></i><div><strong>Business-Focused Learning</strong><span>Practical skills connected to your organization’s real business needs.</span></div></div>
-          <div class="reason"><i class="ic" data-i="layers"></i><div><strong>Customized Programs</strong><span>Training designed for your team’s roles, skill levels and objectives.</span></div></div>
-          <div class="reason"><i class="ic" data-i="cap"></i><div><strong>Experienced Trainers</strong><span>Learn through expert-led sessions and workplace-focused examples.</span></div></div>
-          <div class="reason"><i class="ic" data-i="truck"></i><div><strong>Flexible Delivery</strong><span>Onsite, online or blended learning options to suit your team.</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+/* ===================== ICONS ===================== */
+var ICONS={
+sparkle:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+up:'<path d="M7 17L17 7M8 7h9v9"/>',download:'<path d="M12 4v10m0 0l-4-4m4 4l4-4M5 19h14"/>',check:'<path d="M5 12l5 5L20 7"/>',
+ccheck:'<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
+presentation:'<path d="M3 4h18M5 4v10h14V4M12 14v5M8 20l4-1 4 1"/>',
+briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2M3 13h18"/>',
+layers:'<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+cap:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/>',
+truck:'<path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/>',
+chart:'<path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/>',
+megaphone:'<path d="M3 11v3l12 5V6z"/><path d="M15 9a3 3 0 010 6M6 15l1 5h3l-1-4"/>',
+users:'<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M17 14c2.5 0 4 2 4 5"/>',
+wallet:'<rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/>',
+messages:'<path d="M4 5h16v11H9l-5 4z"/>',code:'<path d="M9 8l-5 4 5 4M15 8l5 4-5 4M13.5 5l-3 14"/>',
+badge:'<circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/>',
+sliders:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>',
+search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+monitor:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+flag:'<path d="M5 21V4M5 4h12l-2 4 2 4H5"/>',trend:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
+building:'<path d="M5 21V4h9v17M14 9h5v12M3 21h18M8 8h2M8 12h2M8 16h2"/>',
+video:'<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/>',
+panels:'<rect x="3" y="4" width="8" height="16" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/>',
+clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/>',
+ruler:'<path d="M3 17L17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/>',
+arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',plus:'<path d="M12 5v14M5 12h14"/>',
+facebook:'<path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/>',
+linkedin:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 014 0v4M12 10v7"/>'
+};
+var ICON_NAMES=Object.keys(ICONS);
+var CATS=[["technology","Technology"],["business","Business"],["sales","Sales"],["hr","HR"]];
 
-<!-- Categories -->
-<section id="categories" class="sec tint">
-  <div class="wrap">
-    <div class="intro-c">
-      <span class="label"><i class="ic" data-i="sparkle"></i>Training categories</span>
-      <h2>Skills your organization needs today.</h2>
-      <p>Explore our core corporate training areas.</p>
-    </div>
-    <div class="grid g5">
-      <a href="#trainings" class="card cat"><i class="ic" data-i="sparkle"></i><div><strong>AI &amp; Technology</strong><span>AI • Tools • Innovation</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="briefcase"></i><div><strong>Business &amp; Management</strong><span>Strategy • Operations</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="chart"></i><div><strong>Data &amp; Analytics</strong><span>Insights • Decisions</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="megaphone"></i><div><strong>Sales &amp; Marketing</strong><span>Sales • Growth</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="users"></i><div><strong>HR &amp; People</strong><span>People • Culture</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="wallet"></i><div><strong>Finance &amp; Accounts</strong><span>Finance • Reporting</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="messages"></i><div><strong>Leadership &amp; Communication</strong><span>Leadership • Collaboration</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="code"></i><div><strong>IT &amp; Software</strong><span>IT • Digital skills</span></div></a>
-      <a href="#trainings" class="card cat"><i class="ic" data-i="badge"></i><div><strong>Professional Skills</strong><span>Skills • Productivity</span></div></a>
-      <a href="#consultation" class="card cat"><i class="ic" data-i="sliders"></i><div><strong>Custom Training</strong><span>Built for your company</span></div></a>
-    </div>
-  </div>
-</section>
+/* ===================== HELPERS ===================== */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function H(u){u=String(u||'#').trim();return /^(javascript|data|vbscript):/i.test(u)?'#':u}
+function ic(n){return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICONS[n]||ICONS.sparkle)+'</svg>'}
+var previews={};
+function SRC(p){return previews[p]||p}
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function merge(b,o){
+  if(Array.isArray(o))return o;
+  if(o&&typeof o==='object'&&b&&typeof b==='object'&&!Array.isArray(b)){var r={};for(var k in b)r[k]=b[k];for(var k2 in o)r[k2]=merge(b[k2],o[k2]);return r}
+  return o===undefined?b:o;
+}
+function getP(o,p){return p.split('.').reduce(function(a,k){return a==null?a:a[k]},o)}
+function setP(o,p,v){var ks=p.split('.'),l=ks.pop(),t=ks.reduce(function(a,k){return a[k]},o);t[l]=v}
+function btn(l,h,cls,i){h=H(h);return '<a class="btn '+cls+'" href="'+esc(h)+'"'+(/\.pdf$/i.test(h)?' download':'')+'>'+esc(l)+(i?ic(i):'')+'</a>'}
+function lab(t,x){return '<span class="label">'+ic('sparkle')+esc(t)+'</span>'}
 
-<!-- Programs -->
-<section id="trainings" class="sec">
-  <div class="wrap">
-    <div class="intro-c">
-      <span class="label"><i class="ic" data-i="sparkle"></i>Featured trainings</span>
-      <h2>Popular corporate programs.</h2>
-      <p>Choose a ready program or request a customized training.</p>
-    </div>
-    <div class="tools">
-      <div class="search"><i class="ic" data-i="search"></i><input id="program-search" type="search" placeholder="Search training..." aria-label="Search training"></div>
-      <div class="chips" role="group" aria-label="Filter programs">
-        <button class="chip on" data-cat="all" aria-pressed="true">All</button>
-        <button class="chip" data-cat="technology" aria-pressed="false">Technology</button>
-        <button class="chip" data-cat="business" aria-pressed="false">Business</button>
-        <button class="chip" data-cat="sales" aria-pressed="false">Sales</button>
-        <button class="chip" data-cat="hr" aria-pressed="false">HR</button>
-      </div>
-    </div>
-    <div class="grid g3">
-      <article class="card program" data-cat="technology"><div class="art"><span class="tag">AI &amp; Technology</span><i class="ic" data-i="sparkle"></i><span class="num">01</span></div><div class="pbody"><h3>AI for Business</h3><p>Apply business-ready AI tools to improve productivity and everyday workflows.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-      <article class="card program" data-cat="business"><div class="art"><span class="tag">Leadership</span><i class="ic" data-i="flag"></i><span class="num">02</span></div><div class="pbody"><h3>Leadership Excellence</h3><p>Build confident leaders who can communicate, inspire and drive team performance.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-      <article class="card program" data-cat="sales"><div class="art"><span class="tag">Sales &amp; Marketing</span><i class="ic" data-i="trend"></i><span class="num">03</span></div><div class="pbody"><h3>Sales Mastery</h3><p>Strengthen sales skills, negotiation and customer relationship management.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-      <article class="card program" data-cat="hr"><div class="art"><span class="tag">HR &amp; People</span><i class="ic" data-i="users"></i><span class="num">04</span></div><div class="pbody"><h3>HR &amp; People Management</h3><p>Develop effective people practices and improve employee engagement.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-      <article class="card program" data-cat="technology"><div class="art"><span class="tag">Technology</span><i class="ic" data-i="layers"></i><span class="num">05</span></div><div class="pbody"><h3>Digital Transformation</h3><p>Help your organization adapt to digital tools and create more efficient workflows.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-      <article class="card program" data-cat="business"><div class="art"><span class="tag">Professional Skills</span><i class="ic" data-i="messages"></i><span class="num">06</span></div><div class="pbody"><h3>Communication Skills</h3><p>Improve workplace communication, presentations, collaboration and professional confidence.</p><div class="meta"><i class="ic" data-i="monitor"></i>Onsite • Online • Blended</div><div class="pfoot"><span>Corporate Teams</span><a class="req" href="#consultation">Request <i class="ic" data-i="up"></i></a></div></div></article>
-    </div>
-    <p class="none" id="no-programs" hidden>No programs match your search. Try another word, or request a custom training.</p>
-  </div>
-</section>
+var cfg=clone(D),curCat='all',curQ='';
 
-<!-- Delivery -->
-<section id="delivery" class="sec tint">
-  <div class="wrap">
-    <div class="intro-c">
-      <span class="label"><i class="ic" data-i="sparkle"></i>Flexible delivery</span>
-      <h2>Training that fits your organization.</h2>
-      <p>Choose the learning format that works for your team.</p>
-    </div>
-    <div class="grid g4">
-      <div class="card mode"><i class="ic" data-i="building"></i><strong>Onsite Training</strong><p>Expert-led sessions directly at your workplace.</p></div>
-      <div class="card mode"><i class="ic" data-i="video"></i><strong>Online Live</strong><p>Interactive live sessions for distributed teams.</p></div>
-      <div class="card mode"><i class="ic" data-i="panels"></i><strong>Blended Training</strong><p>Combine online learning with practical onsite sessions.</p></div>
-      <div class="card mode"><i class="ic" data-i="sliders"></i><strong>Customized</strong><p>Training designed specifically for your business.</p></div>
-    </div>
-  </div>
-</section>
+/* ===================== SITE RENDER ===================== */
+function html(c){
+  var s=c.site,h=c.hero,a=c.about,o='';
+  var logo=s.logo?'<img src="'+esc(SRC(s.logo))+'" alt="'+esc(s.brand)+'">':'<span class="brand-mark"><span>'+esc((s.brand||'S').charAt(0))+'</span></span>';
+  var brand=function(col){return '<a class="brand" href="#home" aria-label="'+esc(s.brand)+' home">'+logo+(s.logo?'':'<span class="brand-name"'+(col?' style="color:#fff"':'')+'>'+esc(s.brand)+'</span>')+'</a>'};
+  o+='<div class="utility"><div class="inner"><span>'+esc(s.utilL)+'</span><span>'+esc(s.utilR)+'</span></div></div>';
+  o+='<header class="nav">'+brand()+'<nav aria-label="Main"><ul class="links" id="main-links">'+c.nav.links.map(function(l,i){return '<li><a'+(i===0?' class="active"':'')+' href="'+esc(H(l.href))+'">'+esc(l.label)+'</a></li>'}).join('')+'</ul></nav>'+
+    '<div class="nav-actions"><a class="trade" href="'+esc(H(c.nav.tradeHref))+'">'+esc(c.nav.tradeLabel)+'</a>'+btn(c.nav.ctaLabel,c.nav.ctaHref,'btn-primary')+'<button class="menu-btn" id="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button></div></header><main>';
+  o+='<section id="home" class="hero"><div>'+lab(h.label)+'<h1>'+esc(h.title)+'</h1><p class="intro">'+esc(h.intro)+'</p><div class="hero-actions">'+btn(h.b1Label,h.b1Href,'btn-primary','up')+btn(h.b2Label,h.b2Href,'btn-outline','download')+'</div><ul class="highlights">'+(h.highlights||[]).map(function(x){return '<li>'+ic('check')+esc(x)+'</li>'}).join('')+'</ul></div>'+
+    '<div class="visual">'+(h.image?'<img src="'+esc(SRC(h.image))+'" alt="'+esc(h.capTitle)+'">':'')+'<div class="caption">'+ic('presentation')+'<div><strong>'+esc(h.capTitle)+'</strong><span>'+esc(h.capSub)+'</span></div></div></div></section>';
+  o+='<section id="about" class="sec"><div class="wrap"><div class="intro-c">'+lab(a.label)+'<h2>'+esc(a.title)+'</h2><p>'+esc(a.text)+'</p></div><div class="about-grid"><div class="philosophy"><small>'+esc(a.pSmall)+'</small><div class="pcard">'+lab(a.pLabel)+'<strong>'+esc(a.pTitle)+'</strong><p>'+esc(a.pText)+'</p></div></div><div>'+lab(a.whyLabel)+'<h2>'+esc(a.whyTitle)+'</h2><p class="lead">'+esc(a.whyText)+'</p><div class="reasons">'+a.reasons.map(function(r){return '<div class="reason">'+ic(r.icon)+'<div><strong>'+esc(r.title)+'</strong><span>'+esc(r.text)+'</span></div></div>'}).join('')+'</div></div></div></div></section>';
+  var k=c.categories;
+  o+='<section id="categories" class="sec tint"><div class="wrap"><div class="intro-c">'+lab(k.label)+'<h2>'+esc(k.title)+'</h2><p>'+esc(k.text)+'</p></div><div class="grid g5">'+k.items.map(function(i){return '<a href="'+esc(H(i.href))+'" class="card cat">'+ic(i.icon)+'<div><strong>'+esc(i.title)+'</strong><span>'+esc(i.sub)+'</span></div></a>'}).join('')+'</div></div></section>';
+  var p=c.programs;
+  o+='<section id="trainings" class="sec"><div class="wrap"><div class="intro-c">'+lab(p.label)+'<h2>'+esc(p.title)+'</h2><p>'+esc(p.text)+'</p></div><div class="tools"><div class="search">'+ic('search')+'<input id="program-search" type="search" placeholder="Search training..." aria-label="Search training"></div><div class="chips" role="group">'+
+    [["all","All"]].concat(CATS).map(function(x){return '<button class="chip'+(x[0]==='all'?' on':'')+'" data-cat="'+x[0]+'">'+x[1]+'</button>'}).join('')+'</div></div><div class="grid g3">'+
+    p.items.map(function(i,n){return '<article class="card program" data-cat="'+esc(i.cat)+'"><div class="art"><span class="tag">'+esc(i.tag)+'</span>'+ic(i.icon)+'<span class="num">'+('0'+(n+1)).slice(-2)+'</span></div><div class="pbody"><h3>'+esc(i.title)+'</h3><p>'+esc(i.desc)+'</p><div class="meta">'+ic('monitor')+esc(i.meta)+'</div><div class="pfoot"><span>'+esc(i.aud)+'</span><a class="req" href="'+esc(H(i.href))+'">Request '+ic('up')+'</a></div></div></article>'}).join('')+
+    '</div><p class="none" id="no-programs" hidden>No programs match your search. Try another word, or request a custom training.</p></div></section>';
+  var d=c.delivery;
+  o+='<section id="delivery" class="sec tint"><div class="wrap"><div class="intro-c">'+lab(d.label)+'<h2>'+esc(d.title)+'</h2><p>'+esc(d.text)+'</p></div><div class="grid g4">'+d.items.map(function(i){return '<div class="card mode">'+ic(i.icon)+'<strong>'+esc(i.title)+'</strong><p>'+esc(i.text)+'</p></div>'}).join('')+'</div></div></section>';
+  var t=c.team;
+  o+='<section id="team" class="sec"><div class="wrap"><div class="team-head"><div style="max-width:700px">'+lab(t.label)+'<h2>'+esc(t.title)+'</h2><p class="lead">'+esc(t.text)+'</p></div>'+btn(t.btnLabel,t.btnHref,'btn-primary','up')+'</div><div class="grid g4">'+
+    t.items.map(function(i){return '<article class="card expert"><div class="avatar-bg"><div class="avatar">'+(i.photo?'<img src="'+esc(SRC(i.photo))+'" alt="'+esc(i.name)+'">':esc(i.initials))+'</div></div><div class="ebody"><strong>'+esc(i.name)+'</strong><div class="role">'+esc(i.role)+'</div><p>'+esc(i.desc)+'</p><a href="'+esc(H(i.href))+'">View Profile '+ic('arrow')+'</a></div></article>'}).join('')+'</div></div></section>';
+  var so=c.solutions;
+  o+='<section id="solutions" class="solutions"><div class="wrap sol-grid"><div>'+lab(so.label)+'<h2>'+esc(so.title)+'</h2><p class="lead">'+esc(so.text)+'</p><ul class="checks">'+so.checks.map(function(x){return '<li>'+ic('ccheck')+esc(x)+'</li>'}).join('')+'</ul></div><div class="journey"><h3>'+esc(so.jTitle)+'</h3><p>'+esc(so.jText)+'</p><div class="stages">'+so.stages.map(function(x){return '<div class="stage">'+ic(x.icon)+'<strong>'+esc(x.title)+'</strong><span>'+esc(x.text)+'</span></div>'}).join('')+'</div>'+btn(so.btnLabel,so.btnHref,'btn-primary','up')+'</div></div></section>';
+  var hw=c.how;
+  o+='<section id="how" class="sec"><div class="wrap"><div class="intro-c">'+lab(hw.label)+'<h2>'+esc(hw.title)+'</h2></div><div class="steps">'+hw.steps.map(function(x,n){return '<div class="step"><div class="top"><span class="n">'+('0'+(n+1)).slice(-2)+'</span>'+(n<hw.steps.length-1?ic('arrow'):'')+'</div><strong>'+esc(x.title)+'</strong><p>'+esc(x.text)+'</p></div>'}).join('')+'</div></div></section>';
+  var cs=c.consult;
+  var fld=function(id,l,req,ph,type){return '<div class="field"><label for="'+id+'">'+l+(req?' *':'')+'</label><input id="'+id+'" name="'+l+'" type="'+(type||'text')+'"'+(req?' required':'')+' placeholder="'+ph+'"></div>'};
+  o+='<section id="consultation" class="sec tint"><div class="wrap consult"><div>'+lab(cs.label)+'<h2>'+esc(cs.title)+'</h2><p class="lead">'+esc(cs.text)+'</p><ul class="checks" style="color:var(--ink)">'+cs.checks.map(function(x){return '<li>'+ic('ccheck')+esc(x)+'</li>'}).join('')+'</ul><div class="note">'+ic('messages')+'<strong>'+esc(cs.noteTitle)+'</strong><p>'+esc(cs.noteText)+'</p></div></div>'+
+   '<form class="form" id="request-form"><h3>'+esc(cs.formTitle)+'</h3><p>'+esc(cs.formText)+'</p><div class="row">'+fld('company','Company Name',1,'Your company name')+fld('person','Contact Person',1,'Full name')+'</div><div class="row">'+fld('designation','Designation',1,'Your designation')+fld('phone','Phone',1,'Phone number','tel')+'</div><div class="row">'+fld('email','Email',1,'name@company.com','email')+
+   '<div class="field"><label for="count">Employee Count</label><select id="count" name="Employee count"><option value="">Select</option><option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option></select></div></div><div class="row">'+fld('topic','Training Topic',1,'e.g. AI, Leadership, Sales')+
+   '<div class="field"><label for="mode">Training Mode</label><select id="mode" name="Training mode"><option value="">Online / Onsite</option><option>Online live</option><option>Onsite</option><option>Blended</option></select></div></div>'+fld('date','Preferred Date',0,'','date')+
+   '<div class="field"><label for="message">Message</label><textarea id="message" name="Message" placeholder="Tell us about your training requirements..."></textarea></div><button class="btn btn-primary" type="submit">'+esc(cs.formBtn)+ic('up')+'</button><p class="fine">* Required fields</p><p class="fine" id="form-note" role="status"></p></form></div></section>';
+  var f=c.faq;
+  o+='<section id="faq" class="sec"><div class="wrap"><div class="intro-c">'+lab(f.label)+'<h2>'+esc(f.title)+'</h2></div><div class="faq">'+f.items.map(function(x){return '<div class="faq-item"><button class="faq-q" aria-expanded="false">'+esc(x.q)+ic('plus')+'</button><div class="faq-a" hidden>'+esc(x.a)+'</div></div>'}).join('')+'</div><p class="more">'+esc(f.moreText)+' <a href="'+esc(H(f.moreHref))+'">'+esc(f.moreLabel)+' '+ic('arrow')+'</a></p></div></section></main>';
+  o+='<div class="cta"><div class="wrap">'+brand()+'<p>'+esc(c.cta.text)+'</p>'+btn(c.cta.btnLabel,c.cta.btnHref,'btn-primary','up')+'</div></div>';
+  var ft=c.footer;
+  o+='<footer><div class="wrap"><div class="foot"><div>'+brand(1)+'<p class="about">'+esc(ft.about)+'</p><div class="social"><a href="'+esc(H(ft.fb))+'" aria-label="Facebook">'+ic('facebook')+'</a><a href="'+esc(H(ft.li))+'" aria-label="LinkedIn">'+ic('linkedin')+'</a></div></div>'+
+    ft.cols.map(function(col){return '<div><h4>'+esc(col.title)+'</h4><ul>'+(col.links||[]).map(function(l){var q=l.split('|');return '<li><a href="'+esc(H(q[1]))+'">'+esc(q[0])+'</a></li>'}).join('')+'</ul></div>'}).join('')+
+    '</div><div class="legal"><span>'+esc(ft.copy)+'</span><span><a href="#home">Back to top ↑</a><a href="#admin">Admin</a></span></div></div></footer>';
+  return o;
+}
 
-<!-- Team -->
-<section id="team" class="sec">
-  <div class="wrap">
-    <div class="team-head">
-      <div style="max-width:700px">
-        <span class="label"><i class="ic" data-i="sparkle"></i>Our team</span>
-        <h2 class="h2">Meet the people behind the learning.</h2>
-        <p class="lead">Experienced trainers, business professionals and subject matter experts.</p>
-      </div>
-      <a class="btn btn-primary" href="#consultation">Become a Training Partner <i class="ic" data-i="up"></i></a>
-    </div>
-    <div class="grid g4">
-      <article class="card expert"><div class="avatar-bg"><div class="avatar">SN</div></div><div class="ebody"><strong>SNK Business Expert</strong><div class="role">Business &amp; Strategy Trainer</div><p>Leadership, strategy &amp; management</p><a href="#consultation">View Profile <i class="ic" data-i="arrow"></i></a></div></article>
-      <article class="card expert"><div class="avatar-bg"><div class="avatar">AI</div></div><div class="ebody"><strong>Technology Expert</strong><div class="role">AI &amp; Technology Trainer</div><p>AI, automation &amp; digital transformation</p><a href="#consultation">View Profile <i class="ic" data-i="arrow"></i></a></div></article>
-      <article class="card expert"><div class="avatar-bg"><div class="avatar">SM</div></div><div class="ebody"><strong>Sales &amp; Marketing Expert</strong><div class="role">Sales &amp; Marketing Trainer</div><p>Sales, marketing &amp; communication</p><a href="#consultation">View Profile <i class="ic" data-i="arrow"></i></a></div></article>
-      <article class="card expert"><div class="avatar-bg"><div class="avatar">HR</div></div><div class="ebody"><strong>People Development Expert</strong><div class="role">HR &amp; Leadership Trainer</div><p>HR, people &amp; workplace skills</p><a href="#consultation">View Profile <i class="ic" data-i="arrow"></i></a></div></article>
-    </div>
-  </div>
-</section>
+function render(){
+  document.getElementById('app').innerHTML=html(cfg);
+  document.title=cfg.site.title;
+  var m=document.querySelector('meta[name=description]');if(m)m.setAttribute('content',cfg.site.description);
+  var fv=document.getElementById('favicon'),ico=cfg.site.favicon||cfg.site.logo;
+  if(ico)fv.href=SRC(ico);
+  applyFilter();
+}
+function applyFilter(){
+  var q=curQ.toLowerCase(),n=0;
+  document.querySelectorAll('.program').forEach(function(c){
+    var ok=(curCat==='all'||c.dataset.cat===curCat)&&(!q||c.textContent.toLowerCase().indexOf(q)>-1);
+    c.hidden=!ok;if(ok)n++;
+  });
+  document.querySelectorAll('.chip').forEach(function(b){b.classList.toggle('on',b.dataset.cat===curCat)});
+  var np=document.getElementById('no-programs');if(np)np.hidden=n>0;
+  var s=document.getElementById('program-search');if(s&&s.value!==curQ)s.value=curQ;
+}
 
-<!-- Solutions -->
-<section id="solutions" class="solutions">
-  <div class="wrap sol-grid">
-    <div>
-      <span class="label"><i class="ic" data-i="sparkle"></i>Corporate solutions</span>
-      <h2 class="h2">One partner. Multiple learning needs.</h2>
-      <p class="lead">A complete learning solution for your organization. From a single workshop to a company-wide development program.</p>
-      <ul class="checks">
-        <li><i class="ic" data-i="ccheck"></i>Employee skill development</li>
-        <li><i class="ic" data-i="ccheck"></i>Leadership &amp; management development</li>
-        <li><i class="ic" data-i="ccheck"></i>Technology &amp; AI adoption</li>
-        <li><i class="ic" data-i="ccheck"></i>Role-based training programs</li>
-        <li><i class="ic" data-i="ccheck"></i>Customized corporate learning journeys</li>
-      </ul>
-    </div>
-    <div class="journey">
-      <h3>Your learning journey</h3>
-      <p>Tell us what your team needs. We’ll help you design the right learning journey.</p>
-      <div class="stages">
-        <div class="stage"><i class="ic" data-i="clipboard"></i><strong>Assessment</strong><span>Understand your team’s needs</span></div>
-        <div class="stage"><i class="ic" data-i="ruler"></i><strong>Design</strong><span>Create a tailored learning plan</span></div>
-        <div class="stage"><i class="ic" data-i="presentation"></i><strong>Delivery</strong><span>Online, onsite or blended</span></div>
-        <div class="stage"><i class="ic" data-i="chart"></i><strong>Impact</strong><span>Review learning outcomes</span></div>
-      </div>
-      <a class="btn btn-primary" href="#consultation">Talk to Our Team <i class="ic" data-i="up"></i></a>
-    </div>
-  </div>
-</section>
+/* ===================== SITE EVENTS (delegation) ===================== */
+document.addEventListener('click',function(e){
+  var t=e.target;
+  var mt=t.closest('#menu-toggle');
+  if(mt){var l=document.getElementById('main-links');var o=l.classList.toggle('open');mt.setAttribute('aria-expanded',o)}
+  else if(t.closest('#main-links a')){document.getElementById('main-links').classList.remove('open')}
+  var ch=t.closest('.chip');if(ch){curCat=ch.dataset.cat;applyFilter()}
+  var fq=t.closest('.faq-q');if(fq){var it=fq.parentNode,a=it.querySelector('.faq-a'),op=it.classList.toggle('open');a.hidden=!op;fq.setAttribute('aria-expanded',op)}
+});
+document.addEventListener('input',function(e){if(e.target.id==='program-search'){curQ=e.target.value;applyFilter()}});
+document.addEventListener('submit',function(e){
+  if(e.target.id!=='request-form')return;
+  e.preventDefault();
+  var fd=new FormData(e.target),txt='New corporate training request:\n';
+  fd.forEach(function(v,k){if(v)txt+=k+': '+v+'\n'});
+  var note=document.getElementById('form-note'),wa=(cfg.consult.whatsapp||'').replace(/\D/g,''),em=(cfg.consult.email||'').trim();
+  if(wa){window.open('https://wa.me/'+wa+'?text='+encodeURIComponent(txt),'_blank');note.textContent='Opening WhatsApp… please press Send to submit your request.'}
+  else if(em){location.href='mailto:'+em+'?subject='+encodeURIComponent('Corporate Training Request')+'&body='+encodeURIComponent(txt);note.textContent='Opening your email app…'}
+  else{note.textContent='Form contact not set yet. Admin → Consultation e WhatsApp ba Email din.'}
+});
 
-<!-- How it works -->
-<section id="how" class="sec">
-  <div class="wrap">
-    <div class="intro-c">
-      <span class="label"><i class="ic" data-i="sparkle"></i>How it works</span>
-      <h2>From requirement to result.</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><div class="top"><span class="n">01</span><i class="ic" data-i="arrow"></i></div><strong>Tell Us Your Need</strong><p>Share your business goals and employee development requirements.</p></div>
-      <div class="step"><div class="top"><span class="n">02</span><i class="ic" data-i="arrow"></i></div><strong>We Design</strong><p>Our team recommends topics, trainers and the right learning approach.</p></div>
-      <div class="step"><div class="top"><span class="n">03</span><i class="ic" data-i="arrow"></i></div><strong>Training</strong><p>Sessions delivered through practical, business-focused learning.</p></div>
-      <div class="step"><div class="top"><span class="n">04</span></div><strong>Measure Impact</strong><p>Review feedback, learning outcomes and next steps.</p></div>
-    </div>
-  </div>
-</section>
+/* ===================== ADMIN ===================== */
+var LS='snk_admin_settings',st={owner:'',repo:'',branch:'main',token:''};
+try{st=Object.assign(st,JSON.parse(localStorage.getItem(LS)||'{}'))}catch(e){}
+(function(){
+  var h=location.hostname;
+  if(!st.owner&&/\.github\.io$/.test(h)){st.owner=h.split('.')[0];var seg=location.pathname.split('/')[1];st.repo=(seg&&!/\.html?$/.test(seg))?seg:st.owner+'.github.io'}
+})();
+function saveSt(){try{localStorage.setItem(LS,JSON.stringify(st))}catch(e){}}
 
-<!-- Consultation -->
-<section id="consultation" class="sec tint">
-  <div class="wrap consult">
-    <div>
-      <span class="label"><i class="ic" data-i="sparkle"></i>Free consultation</span>
-      <h2 class="h2">Let’s build the right training program for your team.</h2>
-      <p class="lead">Share a few details about your organization and our team can help you plan your next corporate learning program.</p>
-      <ul class="checks">
-        <li><i class="ic" data-i="ccheck"></i>No obligation consultation</li>
-        <li><i class="ic" data-i="ccheck"></i>Customized training recommendations</li>
-        <li><i class="ic" data-i="ccheck"></i>Flexible onsite &amp; online delivery</li>
-        <li><i class="ic" data-i="ccheck"></i>Corporate pricing options</li>
-      </ul>
-      <div class="note"><i class="ic" data-i="messages"></i><strong>Not sure where to start?</strong><p>Tell us about your team and the skills you want to develop. Start with your goals, not a course name.</p></div>
-    </div>
-    <form class="form" id="request-form">
-      <h3>Request Corporate Training</h3>
-      <p>Complete this form and our team will contact you.</p>
-      <div class="row">
-        <div class="field"><label for="company">Company Name *</label><input id="company" name="Company" required placeholder="Your company name"></div>
-        <div class="field"><label for="person">Contact Person *</label><input id="person" name="Contact person" required placeholder="Full name"></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="designation">Designation *</label><input id="designation" name="Designation" required placeholder="Your designation"></div>
-        <div class="field"><label for="phone">Phone *</label><input id="phone" name="Phone" type="tel" required placeholder="Phone number"></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="email">Email *</label><input id="email" name="Email" type="email" required placeholder="name@company.com"></div>
-        <div class="field"><label for="count">Employee Count</label><select id="count" name="Employee count"><option value="">Select</option><option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option></select></div>
-      </div>
-      <div class="row">
-        <div class="field"><label for="topic">Training Topic *</label><input id="topic" name="Training topic" required placeholder="e.g. AI, Leadership, Sales"></div>
-        <div class="field"><label for="mode">Training Mode</label><select id="mode" name="Training mode"><option value="">Online / Onsite</option><option>Online live</option><option>Onsite</option><option>Blended</option></select></div>
-      </div>
-      <div class="field"><label for="date">Preferred Date</label><input id="date" name="Preferred date" type="date"></div>
-      <div class="field"><label for="message">Message</label><textarea id="message" name="Message" placeholder="Tell us about your training requirements..."></textarea></div>
-      <button class="btn btn-primary" type="submit">Request Free Consultation <i class="ic" data-i="up"></i></button>
-      <p class="fine">* Required fields</p>
-      <p class="fine" id="form-note" role="status"></p>
-    </form>
-  </div>
-</section>
+var T='t',A='a',I='i',L='lines',S='s',C='c';
+var SCHEMA=[
+ {k:'site',t:'Browser Title, Logo & Top Bar',f:[['title','Browser tab title',T],['description','Meta description (SEO)',A],['brand','Brand name',T],['logo','Logo (header, CTA, footer)',I],['favicon','Favicon (empty = logo use hobe)',I],['utilL','Top bar left text',T],['utilR','Top bar right text',T]]},
+ {k:'nav',t:'Menu & Header Buttons',f:[['tradeLabel','"Trade" link text',T],['tradeHref','"Trade" link',T],['ctaLabel','Header button text',T],['ctaHref','Header button link',T]],lists:[{k:'links',t:'Menu links',lk:'label',n:{label:'New',href:'#'},f:[['label','Label',T],['href','Link (#id ba https://…)',T]]}]},
+ {k:'hero',t:'Hero Banner',f:[['label','Small label',T],['title','Heading',A],['intro','Intro text',A],['b1Label','Button 1 text',T],['b1Href','Button 1 link',T],['b2Label','Button 2 text',T],['b2Href','Button 2 link (brochure.pdf = download)',T],['image','Banner image',I],['capTitle','Caption title',T],['capSub','Caption sub text',T],['highlights','Highlights (ek line = ekta)',L]]},
+ {k:'about',t:'About',f:[['label','Label',T],['title','Title',A],['text','Text',A],['pSmall','Left card small text',T],['pLabel','Left card label',T],['pTitle','Left card title',T],['pText','Left card text',A],['whyLabel','Right label',T],['whyTitle','Right title',T],['whyText','Right text',A]],lists:[{k:'reasons',t:'Reasons',lk:'title',n:{icon:'sparkle',title:'New reason',text:''},f:[['icon','Icon',S],['title','Title',T],['text','Text',A]]}]},
+ {k:'categories',t:'Category Cards',f:[['label','Label',T],['title','Title',T],['text','Text',T]],lists:[{k:'items',t:'Category cards',lk:'title',n:{icon:'sparkle',title:'New category',sub:'',href:'#trainings'},f:[['icon','Icon',S],['title','Title',T],['sub','Sub text',T],['href','Card link',T]]}]},
+ {k:'programs',t:'Training Programs',f:[['label','Label',T],['title','Title',T],['text','Text',T]],lists:[{k:'items',t:'Programs',lk:'title',n:{cat:'business',tag:'Tag',icon:'sparkle',title:'New program',desc:'',meta:'Onsite • Online • Blended',aud:'Corporate Teams',href:'#consultation'},f:[['title','Title',T],['tag','Tag on card',T],['cat','Filter category',C],['icon','Icon',S],['desc','Description',A],['meta','Delivery text',T],['aud','Audience text',T],['href','Request link',T]]}]},
+ {k:'delivery',t:'Delivery Formats',f:[['label','Label',T],['title','Title',T],['text','Text',T]],lists:[{k:'items',t:'Formats',lk:'title',n:{icon:'building',title:'New',text:''},f:[['icon','Icon',S],['title','Title',T],['text','Text',A]]}]},
+ {k:'team',t:'Team',f:[['label','Label',T],['title','Title',T],['text','Text',T],['btnLabel','Button text',T],['btnHref','Button link',T]],lists:[{k:'items',t:'Team members',lk:'name',n:{initials:'NN',photo:'',name:'New member',role:'',desc:'',href:'#consultation'},f:[['name','Name',T],['role','Role',T],['desc','Short text',T],['initials','Initials (photo na thakle)',T],['photo','Photo',I],['href','Profile link',T]]}]},
+ {k:'solutions',t:'Corporate Solutions',f:[['label','Label',T],['title','Title',T],['text','Text',A],['checks','Checklist (ek line = ekta)',L],['jTitle','Journey title',T],['jText','Journey text',A],['btnLabel','Button text',T],['btnHref','Button link',T]],lists:[{k:'stages',t:'Journey stages',lk:'title',n:{icon:'clipboard',title:'Stage',text:''},f:[['icon','Icon',S],['title','Title',T],['text','Text',T]]}]},
+ {k:'how',t:'How It Works',f:[['label','Label',T],['title','Title',T]],lists:[{k:'steps',t:'Steps',lk:'title',n:{title:'Step',text:''},f:[['title','Title',T],['text','Text',A]]}]},
+ {k:'consult',t:'Consultation & Form',f:[['label','Label',T],['title','Title',A],['text','Text',A],['checks','Checklist (ek line = ekta)',L],['noteTitle','Note title',T],['noteText','Note text',A],['formTitle','Form title',T],['formText','Form text',T],['formBtn','Form button text',T],['whatsapp','WhatsApp number (country code shoho, e.g. 8801XXXXXXXXX)',T],['email','Email (WhatsApp na dile email e jabe)',T]]},
+ {k:'faq',t:'FAQ',f:[['label','Label',T],['title','Title',T],['moreText','Bottom text',T],['moreLabel','Bottom link text',T],['moreHref','Bottom link',T]],lists:[{k:'items',t:'Questions',lk:'q',n:{q:'New question?',a:''},f:[['q','Question',T],['a','Answer',A]]}]},
+ {k:'cta',t:'Bottom CTA Strip',f:[['text','Text',T],['btnLabel','Button text',T],['btnHref','Button link',T]]},
+ {k:'footer',t:'Footer & Social',f:[['about','About text',A],['fb','Facebook link',T],['li','LinkedIn link',T],['copy','Copyright text',T]],lists:[{k:'cols',t:'Footer columns',lk:'title',n:{title:'New column',links:['Link|#']},f:[['title','Title',T],['links','Links (ek line = ekta, format: Label|link)',L]]}]}
+];
 
-<!-- FAQ -->
-<section id="faq" class="sec">
-  <div class="wrap">
-    <div class="intro-c"><span class="label"><i class="ic" data-i="sparkle"></i>FAQ</span><h2>Frequently asked questions.</h2></div>
-    <div class="faq">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can training be customized for our company?<i class="ic" data-i="plus"></i></button><div class="faq-a" hidden>Yes. Every program can be shaped around your team’s roles, skill levels and business goals.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you provide onsite corporate training?<i class="ic" data-i="plus"></i></button><div class="faq-a" hidden>Yes. Our trainers can run sessions directly at your workplace.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can we conduct training online?<i class="ic" data-i="plus"></i></button><div class="faq-a" hidden>Yes. We offer interactive online live sessions, and blended formats that combine online and onsite learning.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">How can we request a corporate training?<i class="ic" data-i="plus"></i></button><div class="faq-a" hidden>Fill in the request form on this page or book a call. Our team will contact you to understand your needs.</div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you provide corporate pricing?<i class="ic" data-i="plus"></i></button><div class="faq-a" hidden>Yes. Corporate pricing depends on the topic, team size and delivery format. Request a free consultation for a quote.</div></div>
-    </div>
-    <p class="more">Have a different question? <a href="#consultation">Talk to our team <i class="ic" data-i="arrow"></i></a></p>
-  </div>
-</section>
-</main>
+function fieldHTML(path,label,type,val){
+  var p=esc(path),l='<label>'+esc(label)+'</label>';
+  if(type===A)return l+'<textarea data-p="'+p+'">'+esc(val)+'</textarea>';
+  if(type===L)return l+'<textarea data-p="'+p+'" data-lines="1">'+esc((val||[]).join('\n'))+'</textarea>';
+  if(type===S)return l+'<select data-p="'+p+'">'+ICON_NAMES.map(function(n){return '<option'+(n===val?' selected':'')+'>'+n+'</option>'}).join('')+'</select>';
+  if(type===C)return l+'<select data-p="'+p+'">'+CATS.map(function(c){return '<option value="'+c[0]+'"'+(c[0]===val?' selected':'')+'>'+c[1]+'</option>'}).join('')+'</select>';
+  if(type===I)return l+'<input data-p="'+p+'" value="'+esc(val)+'" placeholder="images/… ba https://…"><div class="imgf">'+(val?'<img src="'+esc(SRC(val))+'" alt="">':'')+'<input type="file" accept="image/*" data-up="'+p+'"><button class="b d" data-clear="'+p+'" type="button">Clear</button></div>';
+  return l+'<input data-p="'+p+'" value="'+esc(val)+'">';
+}
+function buildEditor(){
+  var body=document.getElementById('adm-body'),open={};
+  body.querySelectorAll('details[open]').forEach(function(d){open[d.dataset.id]=1});
+  var h='<details data-id="gh"><summary>🔑 GitHub connection (save korar jonno)</summary><div class="in">'+
+   '<label>GitHub username</label><input data-st="owner" value="'+esc(st.owner)+'"><label>Repository name</label><input data-st="repo" value="'+esc(st.repo)+'"><label>Branch</label><input data-st="branch" value="'+esc(st.branch)+'">'+
+   '<label>Personal Access Token (fine-grained, Contents: Read & write)</label><input data-st="token" type="password" value="'+esc(st.token)+'" placeholder="github_pat_…"><p class="hint">Token sudhu apnar browser e thake (localStorage). Kokhono index.html e likhben na.</p></div></details>';
+  SCHEMA.forEach(function(sec){
+    h+='<details data-id="'+sec.k+'"><summary>'+esc(sec.t)+'</summary><div class="in">';
+    (sec.f||[]).forEach(function(f){h+=fieldHTML(sec.k+'.'+f[0],f[1],f[2],getP(cfg,sec.k+'.'+f[0]))});
+    (sec.lists||[]).forEach(function(ls){
+      var lp=sec.k+'.'+ls.k,arr=getP(cfg,lp)||[];
+      h+='<label style="margin-top:16px">'+esc(ls.t)+' ('+arr.length+')</label>';
+      arr.forEach(function(it,i){
+        h+='<details data-id="'+lp+'.'+i+'"><summary>'+(i+1)+'. '+esc((it[ls.lk]||'(empty)').toString().slice(0,34))+'</summary><div class="in">';
+        ls.f.forEach(function(f){h+=fieldHTML(lp+'.'+i+'.'+f[0],f[1],f[2],it[f[0]])});
+        h+='<div class="act"><button class="b" data-act="up" data-list="'+lp+'" data-i="'+i+'">↑</button><button class="b" data-act="down" data-list="'+lp+'" data-i="'+i+'">↓</button><button class="b d" data-act="del" data-list="'+lp+'" data-i="'+i+'">Delete</button></div></div></details>';
+      });
+      h+='<button class="b p" data-act="add" data-list="'+lp+'">+ Add</button>';
+    });
+    h+='</div></details>';
+  });
+  body.innerHTML=h;
+  body.querySelectorAll('details').forEach(function(d){if(open[d.dataset.id])d.open=true});
+}
+function msg(t,cls){var m=document.getElementById('adm-msg');m.textContent=t;m.className='msg show '+(cls||'');if(t==='')m.className='msg'}
+var rt;function later(){clearTimeout(rt);rt=setTimeout(function(){var y=scrollY;render();scrollTo(0,y)},250)}
 
-<div class="cta"><div class="wrap">
-  <a class="brand" href="#home"><span class="brand-mark"><span>S</span></span><span class="brand-name" style="color:var(--green-900)">SNK Business</span></a>
-  <p>Your team’s next chapter starts here.</p>
-  <a class="btn btn-primary" href="#consultation">Book a Call <i class="ic" data-i="up"></i></a>
-</div></div>
+/* image helpers */
+function readImage(file,max){
+  return new Promise(function(res,rej){
+    if(file.type==='image/svg+xml'||file.type==='image/gif'){var r=new FileReader();r.onload=function(){res({data:r.result,type:file.type})};r.onerror=rej;r.readAsDataURL(file);return}
+    var url=URL.createObjectURL(file),im=new Image();
+    im.onload=function(){
+      var s=Math.min(1,max/Math.max(im.width,im.height)),cv=document.createElement('canvas');
+      cv.width=Math.round(im.width*s);cv.height=Math.round(im.height*s);
+      cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+      var png=file.type==='image/png',type=png?'image/png':'image/jpeg';
+      res({data:cv.toDataURL(type,.85),type:type});URL.revokeObjectURL(url)};
+    im.onerror=rej;im.src=url;
+  });
+}
+function gh(method,path,body){
+  return fetch('https://api.github.com/repos/'+st.owner+'/'+st.repo+path,{method:method,headers:{'Authorization':'Bearer '+st.token,'Accept':'application/vnd.github+json'},body:body?JSON.stringify(body):undefined});
+}
+function ghReady(){if(!st.owner||!st.repo||!st.token){msg('Age "GitHub connection" e username, repo ar token din.','err');document.querySelector('[data-id=gh]').open=true;return false}return true}
+function putFile(path,b64,message){
+  return gh('GET','/contents/'+path+'?ref='+encodeURIComponent(st.branch)).then(function(r){return r.status===200?r.json():null}).then(function(ex){
+    var b={message:message,content:b64,branch:st.branch};if(ex&&ex.sha)b.sha=ex.sha;
+    return gh('PUT','/contents/'+path,b);
+  }).then(function(r){if(!r.ok)return r.json().then(function(j){throw new Error(j.message||('HTTP '+r.status))});return r.json()});
+}
+function uploadImage(path,file){
+  var prefix=path.indexOf('logo')>-1||path.indexOf('favicon')>-1?600:1600;
+  msg('Image process hocche…');
+  readImage(file,prefix).then(function(img){
+    var b64=img.data.split(',')[1],ext=img.type==='image/png'?'png':img.type==='image/svg+xml'?'svg':img.type==='image/gif'?'gif':'jpg';
+    var base=file.name.replace(/\.[^.]+$/,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,30)||'img';
+    var name='images/'+Date.now()+'-'+base+'.'+ext;
+    if(st.token&&st.owner&&st.repo){
+      return putFile(name,b64,'Admin: upload '+name).then(function(){previews[name]=img.data;setP(cfg,path,name);msg('Uploaded: '+name+' (site e live hote ~1 min lagbe)','ok')});
+    }
+    setP(cfg,path,img.data);msg('Token nai, tai image JSON er bhitore embed holo (boro hole slow). GitHub connect kore abar upload korun.','err');
+  }).catch(function(e){msg('Upload failed: '+e.message,'err')}).then(function(){render();buildEditor()});
+}
+function saveGitHub(){
+  if(!ghReady())return;
+  msg('Saving…');
+  var json=JSON.stringify(cfg,null,2),b64=btoa(unescape(encodeURIComponent(json)));
+  putFile('data.json',b64,'Admin: update site content').then(function(){msg('✔ Saved! GitHub Pages deploy hote ~1-2 min lage, tarpor sobai dekhbe (Ctrl+F5 diye refresh).','ok')}).catch(function(e){msg('Save failed: '+e.message+' (token, repo name, permission check korun)','err')});
+}
 
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a class="brand" href="#home"><span class="brand-mark"><span>S</span></span><span class="brand-name">SNK Business</span></a>
-        <p class="about">Practical corporate training and business solutions for organizations ready to build stronger teams and better performance.</p>
-        <div class="social"><a href="#" aria-label="Facebook"><i class="ic" data-i="facebook"></i></a><a href="#" aria-label="LinkedIn"><i class="ic" data-i="linkedin"></i></a></div>
-      </div>
-      <div><h4>Company</h4><ul><li><a href="#about">About Us</a></li><li><a href="#trainings">Trainings</a></li><li><a href="#team">Team &amp; Trainers</a></li><li><a href="#solutions">Corporate Solutions</a></li></ul></div>
-      <div><h4>Training</h4><ul><li><a href="#categories">AI &amp; Technology</a></li><li><a href="#categories">Business &amp; Management</a></li><li><a href="#categories">Sales &amp; Marketing</a></li><li><a href="#categories">HR &amp; People</a></li></ul></div>
-      <div><h4>Get Started</h4><ul><li><a href="#consultation">Free Consultation</a></li><li><a href="#consultation">Request Training</a></li><li><a href="#faq">FAQ</a></li><li><a href="#consultation">Become a Training Partner</a></li></ul></div>
-    </div>
-    <div class="legal"><span>© 2025 SNK Business. All rights reserved.</span><a href="#home">Back to top ↑</a></div>
-  </div>
-</footer>
+var adm=document.getElementById('adm');
+function openAdm(){document.body.classList.add('adm-open');buildEditor()}
+function closeAdm(){document.body.classList.remove('adm-open');if(location.hash==='#admin')history.replaceState(null,'',location.pathname+location.search)}
+adm.addEventListener('input',function(e){
+  var el=e.target;
+  if(el.dataset.st){st[el.dataset.st]=el.value.trim();saveSt();return}
+  if(el.dataset.p){setP(cfg,el.dataset.p,el.dataset.lines?el.value.split('\n').map(function(x){return x.trim()}).filter(Boolean):el.value);later()}
+});
+adm.addEventListener('change',function(e){
+  var el=e.target;
+  if(el.dataset.up&&el.files[0]){uploadImage(el.dataset.up,el.files[0]);el.value=''}
+  else if(el.dataset.p&&el.tagName==='SELECT'){setP(cfg,el.dataset.p,el.value);render()}
+});
+adm.addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b)return;
+  if(b.dataset.clear){setP(cfg,b.dataset.clear,'');render();buildEditor();return}
+  if(b.dataset.act){
+    var arr=getP(cfg,b.dataset.list),i=+b.dataset.i,act=b.dataset.act;
+    if(act==='add'){var sec=SCHEMA.filter(function(s){return b.dataset.list.indexOf(s.k+'.')===0})[0],ls=sec.lists.filter(function(l){return b.dataset.list===sec.k+'.'+l.k})[0];arr.push(clone(ls.n))}
+    else if(act==='del'){if(confirm('Delete this item?'))arr.splice(i,1);else return}
+    else if(act==='up'&&i>0){var t=arr[i];arr[i]=arr[i-1];arr[i-1]=t}
+    else if(act==='down'&&i<arr.length-1){var t2=arr[i];arr[i]=arr[i+1];arr[i+1]=t2}
+    render();buildEditor();return;
+  }
+});
+document.getElementById('adm-close').onclick=closeAdm;
+document.getElementById('adm-save').onclick=saveGitHub;
+document.getElementById('adm-export').onclick=function(){
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(cfg,null,2)],{type:'application/json'}));a.download='data.json';a.click();
+};
+document.getElementById('adm-import').onclick=function(){document.getElementById('adm-file').click()};
+document.getElementById('adm-file').onchange=function(e){
+  var f=e.target.files[0];if(!f)return;var r=new FileReader();
+  r.onload=function(){try{cfg=merge(D,JSON.parse(r.result));render();buildEditor();msg('Imported.','ok')}catch(x){msg('Invalid JSON file','err')}};r.readAsText(f);e.target.value='';
+};
+document.getElementById('adm-reset').onclick=function(){if(confirm('Sob kichu default e fire jabe (GitHub e save na korle live site change hobe na). Continue?')){cfg=clone(D);render();buildEditor()}};
+function route(){if(location.hash==='#admin')openAdm()}
+window.addEventListener('hashchange',route);
 
-<script src="js/main.js"></script>
+/* ===================== BOOT ===================== */
+render();
+fetch('data.json?t='+Date.now()).then(function(r){return r.ok?r.json():null}).then(function(j){if(j){cfg=merge(D,j);render()}}).catch(function(){}).then(route);
+</script>
 </body>
 </html>
