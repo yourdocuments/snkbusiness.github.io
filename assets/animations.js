@@ -1,10 +1,10 @@
 /* SNK Business - animations.js
-   Re-applies itself every time the page re-renders (#app innerHTML changes). */
+   Works on the static page (style.css) and on the #app-rendered page. */
 (function () {
   'use strict';
   var RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var app = document.getElementById('app');
-  if (!app) return;
+  var root = app || document.body;
 
   /* 5: scroll progress bar */
   var bar = document.createElement('div');
@@ -18,7 +18,8 @@
     requestAnimationFrame(function () {
       var h = document.documentElement.scrollHeight - innerHeight;
       bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(scrollY / h, 1) : 0) + ')';
-      var hd = app.querySelector('header') || app.querySelector('nav');
+      /* 3: header state */
+      var hd = document.querySelector('.site-header') || document.querySelector('header') || document.querySelector('nav');
       if (hd) hd.classList.toggle('scrolled', scrollY > 20);
       ticking = false;
     });
@@ -43,7 +44,7 @@
     })(t0);
   }
 
-  /* 1, 2, 12: observer */
+  /* observer */
   var io = RM || !('IntersectionObserver' in window) ? null :
     new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
@@ -52,80 +53,75 @@
         io.unobserve(el);
         if (el.hasAttribute('data-count')) { runCounter(el); return; }
         el.classList.add('in');
-        var d = parseInt((el.style.getPropertyValue('--d') || '0'), 10) || 0;
-        setTimeout(function () { el.classList.add('done'); el.style.removeProperty('--d'); }, d + 800);
+        var d = parseInt(el.style.getPropertyValue('--d') || '0', 10) || 0;
+        setTimeout(function () { el.classList.add('done'); el.style.removeProperty('--d'); }, d + 850);
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
+  var SEL = [
+    '.hero-content > *', '.hero-visual', '.section-heading', '.about-main', '.about-point',
+    '.service-card', '.why-content', '.why-item', '.stat', '.contact-content > *',
+    '.contact-form', '.footer-top', '.footer-bottom',
+    '.program', '.faq-q'
+  ].join(',');
+
+  function add(el, delay) {
+    if (!el || el.classList.contains('rv')) return;
+    el.style.setProperty('--d', delay + 'ms');
+    el.classList.add('rv');
+    io.observe(el);
+  }
+
   function setup() {
     if (!io) return;
-    var targets = [];
+    var found = root.querySelectorAll(SEL);
 
-    app.querySelectorAll('section').forEach(function (sec) {
-      Array.prototype.forEach.call(sec.children, function (kid) {
-        var list = [kid];
-        if (kid.children.length > 1 && kid.matches('.container,.wrap,.inner,[class*="container"],[class*="wrap"]'))
-          list = Array.prototype.slice.call(kid.children);
-        list.forEach(function (el) {
-          if (el.querySelector('.program')) return;      /* cards handled below */
-          targets.push(el);
-        });
+    if (found.length) {
+      Array.prototype.forEach.call(found, function (el) {
+        if (el.classList.contains('faq-q')) el = el.parentNode;
+        var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
+        add(el, Math.min(sib, 5) * 80);
       });
-    });
+    } else {
+      /* fallback for unknown markup: top-level blocks and their children */
+      Array.prototype.forEach.call(root.children, function (blk) {
+        if (/^(SCRIPT|STYLE)$/.test(blk.tagName) || blk.id === 'scroll-progress') return;
+        if (blk.children.length > 1 && blk.children.length < 12) {
+          Array.prototype.forEach.call(blk.children, function (c, i) { add(c, Math.min(i, 5) * 80); });
+        } else add(blk, 0);
+      });
+    }
 
-    /* FAQ items */
-    app.querySelectorAll('.faq-q').forEach(function (q) { targets.push(q.parentNode); });
-
-    var seen = new Set();
-    targets.forEach(function (el, i) {
-      if (seen.has(el) || el.classList.contains('rv')) return;
-      seen.add(el);
-      var sib = el.parentNode ? Array.prototype.indexOf.call(el.parentNode.children, el) : 0;
-      el.style.setProperty('--d', Math.min(sib, 5) * 70 + 'ms');
-      el.classList.add('rv');
-      io.observe(el);
-    });
-
-    /* 2: staggered program cards */
-    app.querySelectorAll('.program').forEach(function (c, i) {
-      if (c.classList.contains('rv')) return;
-      c.style.setProperty('--d', (i % 6) * 80 + 'ms');
-      c.classList.add('rv');
-      io.observe(c);
-    });
-
-    /* 12: counters (leaf elements that are just a number, not inside cards/forms) */
-    app.querySelectorAll('*').forEach(function (el) {
-      if (el.childElementCount || el.hasAttribute('data-count')) return;
-      if (el.closest('.program,form,.faq-q,.faq-a,script,style')) return;
-      var tx = (el.textContent || '').trim();
-      var m = tx.match(NUM);
-      if (!m || tx.charAt(0) === '0') return;
-      if (parseFloat(m[1].replace(/,/g, '')) < 10 && !m[3]) return;
+    /* 12: counters */
+    root.querySelectorAll('.stat strong,[data-counter]').forEach(function (el) {
+      var tx = (el.textContent || '').trim(), m = tx.match(NUM);
+      if (!m || el.hasAttribute('data-count')) return;
       el.setAttribute('data-count', tx);
       io.observe(el);
     });
   }
 
-  /* 14: filter re-animation */
+  /* 14: chip filter re-animation (only if chips exist) */
   document.addEventListener('click', function (e) {
     if (!e.target.closest('.chip')) return;
-    app.classList.add('refilter');
+    root.classList.add('refilter');
     setTimeout(function () {
       var i = 0;
-      app.querySelectorAll('.program:not([hidden])').forEach(function (c) { c.style.setProperty('--pd', (i++ % 8) * 40 + 'ms'); });
+      root.querySelectorAll('.program:not([hidden])').forEach(function (c) { c.style.setProperty('--pd', (i++ % 8) * 40 + 'ms'); });
     }, 0);
-    clearTimeout(app._rf);
-    app._rf = setTimeout(function () { app.classList.remove('refilter'); }, 900);
+    clearTimeout(root._rf);
+    root._rf = setTimeout(function () { root.classList.remove('refilter'); }, 900);
   });
 
-  /* re-run after every render() */
-  var pending = false;
-  new MutationObserver(function () {
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(function () { pending = false; setup(); onScroll(); });
-  }).observe(app, { childList: true });
+  /* re-run after render() on the #app version */
+  if (app) {
+    var pending = false;
+    new MutationObserver(function () {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(function () { pending = false; setup(); onScroll(); });
+    }).observe(app, { childList: true });
+  }
 
   setup();
   onScroll();
