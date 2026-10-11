@@ -1,0 +1,57 @@
+/* SNK Business - premium.css  (extra premium layer, loads after animations.css) */
+:root{--ease:cubic-bezier(.2,.7,.2,1)}
+
+/* 1: hero heading, word-by-word mask reveal */
+h1.rv{opacity:1!important;transform:none!important;transition:none!important}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em .1em;margin-bottom:-.1em}
+.wi{display:inline-block;transform:translateY(115%) rotate(4deg);transform-origin:0 100%;opacity:0;
+  animation:wordUp .95s var(--ease) forwards;animation-delay:calc(var(--i,0) * 70ms + 150ms)}
+@keyframes wordUp{to{transform:none;opacity:1}}
+
+/* 2: aurora background in hero */
+.aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform}
+.aurora i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-18vmax;background:rgba(184,214,43,.28);animation:drift1 16s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:38vmax;height:38vmax;right:-14vmax;top:8vmax;background:rgba(145,170,22,.22);animation:drift2 20s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:30vmax;height:30vmax;left:30%;bottom:-16vmax;background:rgba(16,38,0,.12);animation:drift3 18s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(9vmax,6vmax) scale(1.15)}}
+@keyframes drift2{to{transform:translate(-8vmax,7vmax) scale(.9)}}
+@keyframes drift3{to{transform:translate(6vmax,-6vmax) scale(1.2)}}
+
+/* 3: cursor spotlight inside cards */
+.spot{position:relative;overflow:hidden}
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(184,214,43,.26),transparent 45%);
+  transition:opacity .35s ease}
+.spot:hover::after{opacity:1}
+.service-card.featured.spot::after,.about-main.spot::after{
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(200,230,59,.22),transparent 45%)}
+
+/* 4: 3D tilt on hero visual */
+.visual-card{transition:transform .18s ease-out;will-change:transform}
+
+/* 5: soft cursor glow (desktop only) */
+.cursor-glow{position:fixed;left:0;top:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;
+  pointer-events:none;z-index:1;opacity:0;transition:opacity .4s ease;
+  background:radial-gradient(circle,rgba(184,214,43,.20),transparent 65%)}
+.cursor-glow.on{opacity:1}
+
+/* 6: shimmering gradient on accent words */
+.section-heading h2 span,.why-content h2 span,.contact-content h2 span{
+  background:linear-gradient(90deg,#91aa16,#d3ee48,#91aa16);background-size:220% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:shimmer 6s linear infinite}
+.why-content h2 span{background-image:linear-gradient(90deg,#b8d62b,#eaff7a,#b8d62b)}
+@keyframes shimmer{to{background-position:-220% 0}}
+
+/* 7: elegant section divider line grows in */
+.section-tag::before{transform-origin:left;animation:lineGrow 1s var(--ease) both}
+@keyframes lineGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media (hover:none){.cursor-glow{display:none}}
+@media (prefers-reduced-motion:reduce){
+  .wi{animation:none;transform:none;opacity:1}
+  .aurora i,.section-heading h2 span,.why-content h2 span,.contact-content h2 span{animation:none}
+  .cursor-glow{display:none}
+  .visual-card{transition:none}
+}
